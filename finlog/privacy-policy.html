@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinLog 개인정보처리방침</title>
+    <meta name="description" content="독립형 스마트 가계부 FinLog 개인정보처리방침">
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-[#0b0f19] text-slate-900 dark:text-slate-100 min-h-screen flex flex-col antialiased">
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-white/90 dark:bg-[#0b0f19]/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="https://0bit.kr/privacy-policy/finlog/" class="flex items-center gap-2.5 font-bold text-lg text-slate-900 dark:text-white">
+                <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-indigo-600 to-violet-600 flex items-center justify-center text-white shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <span>Fin<span class="text-indigo-600 dark:text-indigo-400">Log</span></span>
+            </a>
+            <div class="flex items-center gap-3">
+                <a href="https://0bit.kr/privacy-policy/finlog/" class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline">← 앱 소개로 돌아가기</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl mx-auto w-full px-4 sm:px-6 py-10 sm:py-14">
+        <article class="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 sm:p-10 shadow-sm leading-relaxed">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-6 mb-8">
+                <div class="inline-block px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 text-xs font-bold mb-3">Privacy Policy</div>
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">FinLog 개인정보처리방침</h1>
+                <p class="text-xs sm:text-sm text-slate-500 mt-2">시행일자: 2026년 9월 9일</p>
+            </div>
+
+            <div class="space-y-8 text-slate-700 dark:text-slate-300 text-sm sm:text-base">
+                <p>FINALNEO(이하 "개발자")는 정보주체의 자유와 권리 보호를 위해 「개인정보 보호법」 및 관계 법령이 정한 바를 준수하며, 'FinLog'(이하 "앱" 또는 "서비스") 이용자의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 다음과 같이 개인정보처리방침을 수립·공개합니다.</p>
+
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white border-l-4 border-emerald-600 pl-3">1. 기본 원칙 (서버 미수집 원칙)</h2>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>FinLog은 사용자의 금융 정보 및 개인정보를 개발자의 별도 외부 서버로 전송하거나 저장하지 않습니다.</strong></li>
+                        <li>본 앱은 사용자의 기기 내부(Local Device)에서만 독립적으로 동작하는 온디바이스(On-Device) 자산/가계부 정리 도구입니다.</li>
+                    </ul>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white border-l-4 border-emerald-600 pl-3">2. 처리하는 개인정보 항목 및 처리 목적</h2>
+                    <p class="text-sm">앱은 서비스 제공을 위해 기기 내에서 다음과 같은 정보를 활용합니다.</p>
+                    
+                    <div class="overflow-x-auto mt-3">
+                        <table class="w-full text-left text-xs sm:text-sm border border-slate-200 dark:border-slate-800 rounded-lg">
+                            <thead class="bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                                <tr>
+                                    <th class="p-3 border-b border-slate-200 dark:border-slate-700">구분</th>
+                                    <th class="p-3 border-b border-slate-200 dark:border-slate-700">처리 항목</th>
+                                    <th class="p-3 border-b border-slate-200 dark:border-slate-700">처리 목적</th>
+                                    <th class="p-3 border-b border-slate-200 dark:border-slate-700">저장 및 전송 위치</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                                <tr>
+                                    <td class="p-3 font-semibold">금융 거래 알림</td>
+                                    <td class="p-3">은행, 카드사, 간편결제사 입출금 Push 알림</td>
+                                    <td class="p-3">입출금 내역 자동 추출 및 가계부 통계</td>
+                                    <td class="p-3 font-medium text-emerald-600 dark:text-emerald-400">기기 로컬 저장 (서버 전송 없음)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold">금융 거래 문자</td>
+                                    <td class="p-3">금융사 발신 입출금 SMS/MMS 본문</td>
+                                    <td class="p-3">거래 내역 파싱 및 자동 기록</td>
+                                    <td class="p-3 font-medium text-emerald-600 dark:text-emerald-400">기기 로컬 저장 (서버 전송 없음)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold">백업/동기화</td>
+                                    <td class="p-3">기록된 가계부 데이터 및 설정값</td>
+                                    <td class="p-3">데이터 유실 방지 개인 보관</td>
+                                    <td class="p-3 font-medium text-indigo-600 dark:text-indigo-400">개인 클라우드(G드라이브, 시놀로지) 직접 전송</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold">광고 서비스</td>
+                                    <td class="p-3">광고 식별자(ADID/IDFA), 대략적 위치, 오류 로그</td>
+                                    <td class="p-3">앱 내 배너 광고 송출 (Google AdMob)</td>
+                                    <td class="p-3 text-slate-500">Google AdMob 서버 직접 전송</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white border-l-4 border-emerald-600 pl-3">3. 개인정보의 보관 및 파기</h2>
+                    <ol class="list-decimal pl-5 space-y-2">
+                        <li><strong>로컬 저장 데이터</strong>: 금융 알림 및 SMS를 기반으로 생성된 모든 가계부 기록 데이터는 사용자의 스마트폰 내부 저장소에만 보관되며, 앱 삭제(언인스톨) 시 즉시 영구 파기됩니다.</li>
+                        <li><strong>개인 백업 데이터</strong>: 사용자가 직접 연동한 개인 저장소에 업로드된 백업 파일은 사용자의 개인 계정 권한에 따라 관리되며, 개발자는 이에 일절 접근하거나 보관하지 않습니다.</li>
+                    </ol>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white border-l-4 border-emerald-600 pl-3">4. 제3자 제공 및 외부 라이브러리(SDK) 안내</h2>
+                    <p>개발자는 사용자의 금융 거래 정보를 제3자에게 판매하거나 제공하지 않습니다. 단, 무료 서비스 제공을 위한 광고 SDK가 포함되어 있습니다.</p>
+                    <div class="bg-slate-50 dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200 dark:border-slate-700 text-xs sm:text-sm">
+                        <strong class="text-slate-900 dark:text-white">Google AdMob (Google LLC)</strong>
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-slate-600 dark:text-slate-400">
+                            <li>목적: 앱 내 맞춤형/비맞춤형 광고 게재 및 노출 측정</li>
+                            <li>수집 항목: 광고 ID, 기기 식별자, IP 주소</li>
+                            <li>관련 정책: <a href="https://policies.google.com/privacy" target="_blank" class="text-indigo-600 dark:text-indigo-400 underline">Google 개인정보처리방침</a></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white border-l-4 border-emerald-600 pl-3">5. 앱 접근 권한 안내</h2>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>알림 접근 권한 (Notification Listener Service)</strong>: 금융 애플리케이션의 입출금 알림 메시지를 실시간 감지하여 가계부 데이터로 변환하기 위해 사용됩니다.</li>
+                        <li><strong>SMS/MMS 수신 및 읽기 권한 (선택)</strong>: 금융사에서 발송된 입출금 안내 문자를 분석하여 거래 내역을 자동 입력하기 위해 사용됩니다.</li>
+                        <li><strong>인터넷 및 네트워크 접근 권한</strong>: Google AdMob 광고 로드 및 사용자가 지정한 개인 클라우드로의 백업/복원 파일 직접 전송.</li>
+                    </ul>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white border-l-4 border-emerald-600 pl-3">6. 정보주체의 권리와 행사 방법</h2>
+                    <p>사용자는 스마트폰 설정에서 언제든지 앱의 권한을 철회할 수 있으며, 앱 내의 '데이터 초기화' 기능을 통해 저장된 모든 거래 내역을 즉시 영구 삭제할 수 있습니다.</p>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white border-l-4 border-emerald-600 pl-3">7. 개인정보의 안전성 확보 조치</h2>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li><strong>로컬 보안</strong>: 데이터베이스는 Android 샌드박스 내부 격리 영역에 안전하게 보관됩니다.</li>
+                        <li><strong>통신 보안</strong>: 사용자의 개인 클라우드 연동 시 모든 데이터는 HTTPS / SSL 등 암호화 보안 프로토콜을 통해서만 직접 전송됩니다.</li>
+                    </ul>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white border-l-4 border-emerald-600 pl-3">8. 개인정보 보호책임자 및 문의처</h2>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li><strong>개발자명</strong>: FinalNeoDev</li>
+                        <li><strong>이메일</strong>: <a href="mailto:finalneodev@gmail.com" class="text-indigo-600 dark:text-indigo-400 underline">finalneodev@gmail.com</a></li>
+                    </ul>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white border-l-4 border-emerald-600 pl-3">9. 개정 및 고지의 의무</h2>
+                    <p>본 방침의 변경이 있을 경우 시행 7일 전부터 앱 공지 또는 본 웹사이트를 통해 사전 고지합니다.</p>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 py-8 text-xs text-slate-500 text-center">
+        <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p>© 2026 FINALNEO · FinLog. All rights reserved.</p>
+            <div class="flex items-center gap-4">
+                <a href="https://0bit.kr/privacy-policy/finlog/" class="hover:text-indigo-600">FinLog 홈</a>
+                <a href="https://0bit.kr/privacy-policy/finlog/terms-of-service/" class="hover:text-indigo-600">서비스 이용약관</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

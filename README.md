@@ -10,8 +10,8 @@ FINALNEO에서 개발 및 배포하는 애플리케이션 및 서비스의 개�
 
 | 앱 / 서비스명 | 구분 | 문서 바로가기 | 최종 시행(개정)일 | 웹 페이지 / 설명 |
 | :--- | :--- | :--- | :--- | :--- |
-| **FinLab** | 개인정보처리방침 | [FinLab 개인정보처리방침](./finlab/privacy-policy.md) | 2026-09-09 | [🌐 FinLab 소개 페이지](https://0bit.kr/privacy-policy/finlab/) |
-| **FinLab** | 이용약관 | [FinLab 서비스 이용약관](./finlab/terms-of-service.md) | 2026-09-09 | 독립형 소프트웨어 이용조건 및 면책사항 |
+| **FinLog** | 개인정보처리방침 | [FinLog 개인정보처리방침](./finlog/privacy-policy.md) | 2026-09-09 | [🌐 FinLog 소개 페이지](https://0bit.kr/privacy-policy/finlog/) |
+| **FinLog** | 이용약관 | [FinLog 서비스 이용약관](./finlog/terms-of-service.md) | 2026-09-09 | 독립형 소프트웨어 이용조건 및 면책사항 |
 
 ---
 

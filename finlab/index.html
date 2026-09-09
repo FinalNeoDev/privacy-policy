@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinLab - 내 금융 데이터는 오직 내 손안에, 독립형 스마트 가계부</title>
+    <meta name="description" content="금융 푸시 알림과 문자를 감지해 내 폰 안에서만 안전하게 정리하는 온디바이스 가계부 FinLab">
+    <meta property="og:title" content="FinLab - 독립형 스마트 가계부">
+    <meta property="og:description" content="개발사 서버 없는 100% 온디바이스 금융 알림 자동 정리 및 개인 클라우드 백업 솔루션">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://0bit.kr/privacy-policy/finlab/">
+    
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Marked.js (Markdown parser for policy modal) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #0b0f19;
+            color: #f3f4f6;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow-effect {
+            box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 glass-card border-b border-gray-800/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="https://0bit.kr/privacy-policy/finlab/" class="flex items-center gap-2.5 font-bold text-xl tracking-tight">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white shadow-md shadow-indigo-500/20">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <span>Fin<span class="text-indigo-400">Lab</span></span>
+            </a>
+            <nav class="flex items-center gap-3 sm:gap-6 text-sm">
+                <a href="#features" class="text-gray-300 hover:text-white transition">기능소개</a>
+                <a href="#security" class="text-gray-300 hover:text-white transition">보안철학</a>
+                <button onclick="openPolicyModal('privacy-policy.md', '개인정보처리방침')" class="text-indigo-400 hover:text-indigo-300 font-medium transition">개인정보처리방침</button>
+                <button onclick="openPolicyModal('terms-of-service.md', '서비스 이용약관')" class="hidden sm:inline-block text-gray-400 hover:text-gray-200 transition">이용약관</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative pt-16 pb-20 sm:pt-24 sm:pb-32 overflow-hidden">
+            <!-- Background Glows -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+            <div class="absolute top-1/3 left-1/3 w-[300px] h-[250px] bg-purple-600/15 rounded-full blur-[100px] pointer-events-none"></div>
+
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 relative text-center">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border border-indigo-500/30 text-xs font-semibold text-indigo-300 mb-6">
+                    <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    100% On-Device · Zero-Server Policy
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                    금융 데이터는 오직 내 폰안에,<br class="hidden sm:block">
+                    독립형 스마트 가계부 <span class="gradient-text">FinLab</span>
+                </h1>
+                
+                <p class="text-base sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    입출금 Push 알림과 문자를 실시간 감지하여 자동으로 장부를 기록합니다.<br class="hidden sm:inline">
+                    개발자 서버 없이 안전하게, 내 기기와 개인 클라우드에만 보관하세요.
+                </p>
+
+                <!-- UI Mockup & Notification Card Preview -->
+                <div class="max-w-md mx-auto glass-card rounded-2xl p-6 glow-effect text-left border border-gray-700/60 shadow-2xl">
+                    <div class="flex items-center justify-between border-b border-gray-800 pb-3 mb-4">
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                        </div>
+                        <span class="text-xs text-gray-500 font-mono">FinLab Live Engine</span>
+                    </div>
+                    
+                    <!-- Simulated Notification Item -->
+                    <div class="space-y-3">
+                        <div class="bg-gray-800/80 rounded-xl p-3.5 border border-gray-700/50 flex items-start gap-3">
+                            <div class="p-2 rounded-lg bg-indigo-500/20 text-indigo-400 shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-grow min-w-0">
+                                <div class="flex items-center justify-between text-xs text-gray-400 mb-0.5">
+                                    <span class="font-medium text-gray-300">OO은행 입출금 알림</span>
+                                    <span>방금 전</span>
+                                </div>
+                                <p class="text-sm font-semibold text-white truncate">[체크승인] 스타벅스 5,500원 출금</p>
+                                <div class="mt-2 inline-flex items-center gap-1.5 text-xs text-emerald-400 bg-emerald-950/40 border border-emerald-800/40 px-2 py-0.5 rounded-md">
+                                    <span>⚡ 로컬 가계부 [카페/간식] 자동 분류 완료</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between text-xs text-gray-400 px-1 pt-1">
+                            <span class="flex items-center gap-1 text-emerald-400">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                                단말기 내부(On-Device) 로컬 처리
+                            </span>
+                            <span class="text-gray-500">외부 서버 전송 0건</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3 Key Features Section -->
+        <section id="features" class="py-16 sm:py-24 border-t border-gray-800/60 relative">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-xs sm:text-sm font-bold tracking-widest text-indigo-400 uppercase mb-2">Core Features</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white">왜 FinLab을 선택해야 할까요?</h3>
+                    <p class="mt-3 text-gray-400 text-sm sm:text-base">외부 유출 걱정 없는 가장 프라이빗하고 강력한 금융 자산 관리 도구</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="glass-card rounded-2xl p-7 flex flex-col justify-between hover:border-indigo-500/40 transition duration-300">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center mb-5">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-2.5">실시간 금융 알림 & 문자 자동 파싱</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                은행, 카드사, 간편결제 서비스의 Push 알림과 SMS를 즉시 분석하여 입금/출금 금액, 사용처, 카테고리를 오차 없이 똑똑하게 분류합니다.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-800/80 text-xs text-indigo-300">
+                            ✓ 수기 입력 없는 편리한 자동화
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="glass-card rounded-2xl p-7 flex flex-col justify-between hover:border-indigo-500/40 transition duration-300 relative">
+                        <div class="absolute -top-3 right-6 bg-indigo-600 text-[11px] font-bold px-2.5 py-0.5 rounded-full text-white shadow-lg">
+                            철통 사생활 보호
+                        </div>
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-5">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-2.5">100% 온디바이스 & 무서버 원칙</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                개발사가 운영하는 중앙 수집 서버가 전혀 존재하지 않습니다. 사용자의 계좌 잔액과 소비 패턴은 오직 사용자 스마트폰 안에서만 머뭅니다.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-800/80 text-xs text-emerald-400">
+                            ✓ 개인정보 서버 유출 원천 차단
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="glass-card rounded-2xl p-7 flex flex-col justify-between hover:border-indigo-500/40 transition duration-300">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center mb-5">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 00-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-2.5">개인 스토리지 직접 연동 백업</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                내 Google Drive나 Synology NAS 등 본인이 소유한 개인 저장소로 직접 암호화 백업합니다. 데이터의 진정한 소유권을 돌려드립니다.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-800/80 text-xs text-purple-300">
+                            ✓ Google Drive & Synology NAS 직접 연동
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security & Architecture Section -->
+        <section id="security" class="py-16 sm:py-24 bg-gray-950/60 border-t border-gray-800/60">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+                <h2 class="text-xs sm:text-sm font-bold tracking-widest text-indigo-400 uppercase mb-2">Architecture & Privacy</h2>
+                <h3 class="text-3xl font-extrabold text-white mb-6">투명하고 안전한 데이터 파이프라인</h3>
+                <p class="text-gray-400 text-sm sm:text-base mb-12">
+                    FinLab은 타사 서버로 데이터를 전송하지 않으며, 모든 과정이 단말기 안에서 끝납니다.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+                    <div class="glass-card p-5 rounded-xl border border-gray-800">
+                        <div class="text-xs text-gray-400 mb-1">1단계 · 감지</div>
+                        <div class="text-base font-semibold text-white mb-2">기기 알림/문자 수신</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">스마트폰 내부 권한을 통해 은행 입출금 알림을 실시간 감지</p>
+                    </div>
+                    <div class="glass-card p-5 rounded-xl border border-indigo-500/30">
+                        <div class="text-xs text-indigo-400 mb-1">2단계 · 파싱 & 저장</div>
+                        <div class="text-base font-semibold text-white mb-2">로컬 DB 자동 기록</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">금액, 거래처, 계좌를 온디바이스 알고리즘으로 분석하여 암호화 저장</p>
+                    </div>
+                    <div class="glass-card p-5 rounded-xl border border-gray-800">
+                        <div class="text-xs text-gray-400 mb-1">3단계 · 백업</div>
+                        <div class="text-base font-semibold text-white mb-2">내 클라우드로 백업</div>
+                        <p class="text-xs text-gray-400 leading-relaxed">사용자가 지정한 Google Drive나 개인 시놀로지 NAS로만 직접 전송</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Policy Documents Section -->
+        <section class="py-16 border-t border-gray-800/60">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+                <h3 class="text-2xl font-bold text-white mb-4">서비스 정책 및 약관</h3>
+                <p class="text-gray-400 text-sm mb-8">FinLab은 개인정보보호법 및 관계 법령을 철저히 준수합니다.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button onclick="openPolicyModal('privacy-policy.md', 'FinLab 개인정보처리방침')" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-sm transition shadow-lg shadow-indigo-600/20 flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        개인정보처리방침 전문 보기
+                    </button>
+                    <button onclick="openPolicyModal('terms-of-service.md', 'FinLab 서비스 이용약관')" class="px-6 py-3 rounded-xl glass-card hover:bg-gray-800 text-gray-200 font-medium text-sm transition border border-gray-700 flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path>
+                        </svg>
+                        서비스 이용약관 전문 보기
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800/80 bg-gray-950 py-10 text-xs text-gray-500">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                <p class="font-medium text-gray-400">FINALNEO · FinLab</p>
+                <p class="mt-1">문의: <a href="mailto:finalneodev@gmail.com" class="text-indigo-400 hover:underline">finalneodev@gmail.com</a></p>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="https://0bit.kr" class="text-gray-400 hover:text-white transition">0bit.kr 홈</a>
+                <a href="https://github.com/FinalNeoDev/privacy-policy" target="_blank" class="text-gray-400 hover:text-white transition">GitHub 저장소</a>
+            </div>
+            <p>© 2026 FINALNEO. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Policy Modal -->
+    <div id="policyModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6">
+        <div class="bg-gray-900 border border-gray-700 w-full max-w-3xl max-h-[85vh] rounded-2xl flex flex-col shadow-2xl overflow-hidden animate-fadeIn">
+            <!-- Modal Header -->
+            <div class="px-6 py-4 border-b border-gray-800 flex items-center justify-between bg-gray-900/90">
+                <h4 id="modalTitle" class="text-lg font-bold text-white">문서 제목</h4>
+                <button onclick="closePolicyModal()" class="text-gray-400 hover:text-white p-1 rounded-lg hover:bg-gray-800 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Modal Body -->
+            <div id="modalBody" class="p-6 overflow-y-auto prose prose-invert prose-indigo max-w-none text-sm text-gray-300 leading-relaxed">
+                <div class="py-12 text-center text-gray-400">문서를 불러오는 중입니다...</div>
+            </div>
+            <!-- Modal Footer -->
+            <div class="px-6 py-3.5 border-t border-gray-800 flex justify-end gap-3 bg-gray-900/90">
+                <a id="modalRawLink" href="#" target="_blank" class="px-4 py-2 rounded-lg text-xs font-medium text-indigo-400 hover:bg-indigo-950/40 transition">GitHub 원본 보기</a>
+                <button onclick="closePolicyModal()" class="px-4 py-2 rounded-lg text-xs font-medium bg-gray-800 hover:bg-gray-700 text-white transition">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Script -->
+    <script>
+        async function openPolicyModal(filename, title) {
+            const modal = document.getElementById('policyModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+            const rawLink = document.getElementById('modalRawLink');
+
+            modalTitle.innerText = title;
+            rawLink.href = 'https://github.com/FinalNeoDev/privacy-policy/blob/main/finlab/' + filename;
+            modalBody.innerHTML = '<div class="py-12 text-center text-gray-400">문서를 불러오는 중입니다...</div>';
+            modal.classList.remove('hidden');
+
+            try {
+                const res = await fetch(filename);
+                if (!res.ok) throw new Error('파일을 가져오지 못했습니다.');
+                const mdText = await res.text();
+                modalBody.innerHTML = marked.parse(mdText);
+            } catch (err) {
+                modalBody.innerHTML = `
+                    <div class="text-center py-8">
+                        <p class="text-red-400 mb-3">문서 로드에 실패했습니다.</p>
+                        <a href="https://github.com/FinalNeoDev/privacy-policy/blob/main/finlab/${filename}" target="_blank" class="text-indigo-400 underline">
+                            GitHub에서 직접 문서 보기 →
+                        </a>
+                    </div>
+                `;
+            }
+        }
+
+        function closePolicyModal() {
+            document.getElementById('policyModal').classList.add('hidden');
+        }
+
+        // Close on ESC
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closePolicyModal();
+        });
+
+        // Close on backdrop click
+        document.getElementById('policyModal').addEventListener('click', (e) => {
+            if (e.target.id === 'policyModal') closePolicyModal();
+        });
+    </script>
+</body>
+</html>

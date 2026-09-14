@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="ko" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinLog 커스텀 동기화 API 규격 및 연동 가이드</title>
+    <meta name="description" content="온디바이스 가계부 FinLog의 커스텀 웹훅 및 REST API 연동 가이드. Google Apps Script, Express, FastAPI, Flask 예제 제공.">
+    <meta property="og:title" content="FinLog 커스텀 동기화 API 규격 및 연동 가이드">
+    <meta property="og:description" content="내 서버, 구글 시트, NAS로 금융 데이터를 실시간 전송하는 FinLog Webhook 연동 명세서">
+    <meta property="og:image" content="https://0bit.kr/privacy-policy/finlog/assets/icon-512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="FinLog 커스텀 동기화 API 규격 및 연동 가이드">
+    <meta name="twitter:description" content="내 서버, 구글 시트, NAS로 금융 데이터를 실시간 전송하는 FinLog Webhook 연동 명세서">
+    <meta name="twitter:image" content="https://0bit.kr/privacy-policy/finlog/assets/icon-512.png">
+    
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Prism Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-http.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        pre[class*="language-"] {
+            margin: 0;
+            border-radius: 0.75rem;
+            background: #0f172a !important;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        code[class*="language-"] {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+        }
+        .code-container {
+            position: relative;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            z-index: 10;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #0284c7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dark .gradient-text {
+            background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-[#0b0f19] text-slate-900 dark:text-slate-100 min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-white/90 dark:bg-[#0b0f19]/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 transition-colors">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="https://0bit.kr/privacy-policy/finlog/" class="flex items-center gap-2.5 font-bold text-lg text-slate-900 dark:text-white group">
+                    <img src="assets/icon-192.png" alt="FinLog 로고" class="w-8 h-8 rounded-lg shadow-sm group-hover:scale-105 transition-transform">
+                    <span>Fin<span class="text-indigo-600 dark:text-indigo-400">Log</span></span>
+                </a>
+                <span class="hidden sm:inline-block text-xs font-semibold px-2.5 py-0.5 rounded-md bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/40">
+                    Sync API Docs
+                </span>
+            </div>
+
+            <nav class="flex items-center gap-3 sm:gap-5 text-xs sm:text-sm">
+                <a href="https://0bit.kr/privacy-policy/finlog/" class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white font-medium transition">소개 홈</a>
+                <a href="#payload" class="hidden md:inline-block text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white font-medium transition">데이터 규격</a>
+                <a href="#google-sheets" class="hidden md:inline-block text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white font-medium transition">구글 시트</a>
+                <a href="#servers" class="hidden md:inline-block text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white font-medium transition">서버 예제</a>
+                <a href="#summary" class="hidden md:inline-block text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white font-medium transition">설정 요약</a>
+                
+                <!-- Dark / Light Mode Toggle Button -->
+                <button onclick="toggleTheme()" class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition" aria-label="테마 변경">
+                    <svg id="sunIcon" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <svg id="moonIcon" class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-5xl mx-auto w-full px-4 sm:px-6 py-10 sm:py-14 space-y-12">
+        
+        <!-- Hero Title Section -->
+        <div class="text-center max-w-3xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 text-xs font-semibold mb-4 border border-indigo-200 dark:border-indigo-800/50">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Webhook & REST API Reference v0.0.7
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+                FinLog <span class="gradient-text">커스텀 동기화 API</span> 가이드
+            </h1>
+            <p class="mt-4 text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+                FinLog은 중앙 서버가 없는 <strong>100% 온디바이스 가계부</strong>입니다.<br class="hidden sm:inline">
+                내가 소유한 구글 시트, NAS, 홈서버로 금융 알림 내역을 실시간 수신하여 자유롭게 분석하고 영구 보관하세요.
+            </p>
+        </div>
+
+        <!-- Quick Navigation Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+            <a href="#payload" class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500 shadow-sm transition group">
+                <div class="text-xs font-bold text-indigo-600 dark:text-indigo-400 mb-1">Step 0</div>
+                <div class="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400">JSON 데이터 규격</div>
+                <div class="text-xs text-slate-500 mt-1">포맷 및 필드 스키마</div>
+            </a>
+            <a href="#google-sheets" class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 dark:hover:border-emerald-500 shadow-sm transition group">
+                <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 mb-1">Track 1</div>
+                <div class="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400">구글 스프레드시트</div>
+                <div class="text-xs text-slate-500 mt-1">서버 없이 엑셀 자동 누적</div>
+            </a>
+            <a href="#servers" class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-violet-500 dark:hover:border-violet-500 shadow-sm transition group">
+                <div class="text-xs font-bold text-violet-600 dark:text-violet-400 mb-1">Track 2</div>
+                <div class="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400">개인 백엔드 서버</div>
+                <div class="text-xs text-slate-500 mt-1">Express / FastAPI / Flask</div>
+            </a>
+            <a href="#curl-test" class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-amber-500 dark:hover:border-amber-500 shadow-sm transition group">
+                <div class="text-xs font-bold text-amber-600 dark:text-amber-400 mb-1">Quick Test</div>
+                <div class="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400">cURL 검증 명령</div>
+                <div class="text-xs text-slate-500 mt-1">1초 즉시 테스트</div>
+            </a>
+        </div>
+
+        <!-- Section 0: JSON Data Specification -->
+        <section id="payload" class="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-sm">0</span>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">FinLog 송신 데이터 규격 (JSON Payload)</h2>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-0.5">앱에서 지정한 웹훅/서버 URL로 발송되는 HTTP POST 요청 사양입니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HTTP Request Info -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm font-mono bg-slate-100 dark:bg-slate-800/70 p-3.5 rounded-xl border border-slate-200 dark:border-slate-700">
+                <div><strong class="text-slate-500 dark:text-slate-400">Method:</strong> <span class="text-emerald-600 dark:text-emerald-400 font-bold">POST</span></div>
+                <div><strong class="text-slate-500 dark:text-slate-400">Content-Type:</strong> <span class="text-slate-800 dark:text-slate-200 font-semibold">application/json</span></div>
+                <div><strong class="text-slate-500 dark:text-slate-400">Auth Header:</strong> <span class="text-indigo-600 dark:text-indigo-400 font-semibold">Bearer &lt;Token&gt;</span></div>
+            </div>
+
+            <!-- JSON Payload Code Box -->
+            <div>
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-semibold text-slate-600 dark:text-slate-300">전송 JSON 바디 (Payload Example)</span>
+                    <span class="text-[11px] text-slate-400 font-mono">v0.0.7 schema</span>
+                </div>
+                <div class="code-container">
+                    <button onclick="copyCode(this)" class="copy-btn px-2.5 py-1.5 text-xs font-medium bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-md transition flex items-center gap-1">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        <span>복사</span>
+                    </button>
+                    <pre><code class="language-json">{
+  "app": "FinLog",
+  "version": "0.0.7",
+  "syncedAt": "2026-09-14T15:00:00.000Z",
+  "sheetName": "FinLog_Sheet",
+  "transactions": [
+    {
+      "id": "tx_1726300000_abc",
+      "sourceType": "NOTIFICATION",   // "NOTIFICATION" | "SMS" | "MANUAL"
+      "sourceApp": "com.kakaobank.channel",
+      "bankName": "카카오뱅크",
+      "amount": 15000,
+      "type": "EXPENSE",              // "EXPENSE"(지출) | "INCOME"(수입) | "TRANSFER"(이체)
+      "merchant": "스타벅스 강남점",
+      "category": "카페/간식",
+      "memo": "아메리카노 결제",
+      "balance": 245000,             // 통장 잔액 (알림에 잔액이 포함된 경우)
+      "rawText": "[카카오뱅크] 체크카드 승인 15,000원 스타벅스 강남점",
+      "timestamp": "2026-09-14T15:00:00.000Z"
+    }
+  ],
+  "detectionLogs": [
+    {
+      "id": "audit_1726300010_xyz",
+      "transactionId": "tx_1726300000_abc",
+      "timestamp": "2026-09-14T15:05:00.000Z",
+      "fieldName": "category",
+      "oldValue": "기타",
+      "newValue": "카페/간식",
+      "reason": "사용자 카테고리 수동 수정"
+    }
+  ]
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Field Schema Tables -->
+            <div class="space-y-4 pt-2">
+                <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <span>📋 필드 세부 명세서</span>
+                </h3>
+                
+                <!-- Root Fields -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs sm:text-sm border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden">
+                        <thead class="bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300">
+                            <tr>
+                                <th class="p-3">필드명</th>
+                                <th class="p-3">타입</th>
+                                <th class="p-3">필수</th>
+                                <th class="p-3">설명</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                            <tr>
+                                <td class="p-3 font-mono font-bold text-indigo-600 dark:text-indigo-400">app</td>
+                                <td class="p-3 text-slate-500 font-mono">string</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 text-xs">필수</span></td>
+                                <td class="p-3">앱 식별자 (고정값 <code>"FinLog"</code>)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-mono font-bold text-indigo-600 dark:text-indigo-400">version</td>
+                                <td class="p-3 text-slate-500 font-mono">string</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 text-xs">필수</span></td>
+                                <td class="p-3">데이터를 보낸 FinLog 앱 버전 (예: <code>"0.0.7"</code>)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-mono font-bold text-indigo-600 dark:text-indigo-400">syncedAt</td>
+                                <td class="p-3 text-slate-500 font-mono">string (ISO 8601)</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 text-xs">필수</span></td>
+                                <td class="p-3">동기화 전송 시각 UTC (예: <code>"2026-09-14T15:00:00.000Z"</code>)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-mono font-bold text-indigo-600 dark:text-indigo-400">sheetName</td>
+                                <td class="p-3 text-slate-500 font-mono">string</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs">선택</span></td>
+                                <td class="p-3">구글 시트 연동 시 타겟 시트명 (기본: <code>"FinLog_Sheet"</code>)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-mono font-bold text-indigo-600 dark:text-indigo-400">transactions</td>
+                                <td class="p-3 text-slate-500 font-mono">Array&lt;object&gt;</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 text-xs">필수</span></td>
+                                <td class="p-3">발생한 금융 거래 데이터 목록 배열</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-mono font-bold text-indigo-600 dark:text-indigo-400">detectionLogs</td>
+                                <td class="p-3 text-slate-500 font-mono">Array&lt;object&gt;</td>
+                                <td class="p-3"><span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs">선택</span></td>
+                                <td class="p-3">사용자가 가계부 내역을 수정하거나 변경한 내역 감사(Audit) 로그</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Transaction Object Fields -->
+                <div class="mt-4">
+                    <h4 class="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">transactions 배열 내부 객체 필드</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs sm:text-sm border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden">
+                            <thead class="bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300">
+                                <tr>
+                                    <th class="p-3">필드명</th>
+                                    <th class="p-3">타입</th>
+                                    <th class="p-3">값 범위 / 예시</th>
+                                    <th class="p-3">설명</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                                <tr>
+                                    <td class="p-3 font-mono text-indigo-600 dark:text-indigo-400 font-semibold">id</td>
+                                    <td class="p-3 text-slate-500 font-mono">string</td>
+                                    <td class="p-3 font-mono text-xs">tx_1726300000_abc</td>
+                                    <td class="p-3">거래 고유 식별자</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-mono text-indigo-600 dark:text-indigo-400 font-semibold">sourceType</td>
+                                    <td class="p-3 text-slate-500 font-mono">string</td>
+                                    <td class="p-3 font-mono text-xs">NOTIFICATION | SMS | MANUAL</td>
+                                    <td class="p-3">수집 경로 (푸시 알림 / 문자 / 직접 입력)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-mono text-indigo-600 dark:text-indigo-400 font-semibold">bankName</td>
+                                    <td class="p-3 text-slate-500 font-mono">string</td>
+                                    <td class="p-3">카카오뱅크, 국민카드, 토스 등</td>
+                                    <td class="p-3">금융기관 및 카드사 이름</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-mono text-indigo-600 dark:text-indigo-400 font-semibold">amount</td>
+                                    <td class="p-3 text-slate-500 font-mono">number</td>
+                                    <td class="p-3 font-mono text-xs">15000</td>
+                                    <td class="p-3">거래 금액 (원화 기준 양수)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-mono text-indigo-600 dark:text-indigo-400 font-semibold">type</td>
+                                    <td class="p-3 text-slate-500 font-mono">string</td>
+                                    <td class="p-3 font-mono text-xs">EXPENSE | INCOME | TRANSFER</td>
+                                    <td class="p-3">거래 구분 (지출 / 수입 / 이체)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-mono text-indigo-600 dark:text-indigo-400 font-semibold">merchant</td>
+                                    <td class="p-3 text-slate-500 font-mono">string</td>
+                                    <td class="p-3">스타벅스 강남점</td>
+                                    <td class="p-3">가맹점 상호명 또는 결제처</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-mono text-indigo-600 dark:text-indigo-400 font-semibold">category</td>
+                                    <td class="p-3 text-slate-500 font-mono">string</td>
+                                    <td class="p-3">식비, 카페/간식, 교통, 쇼핑 등</td>
+                                    <td class="p-3">자동 분류된 소비 카테고리</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-mono text-indigo-600 dark:text-indigo-400 font-semibold">balance</td>
+                                    <td class="p-3 text-slate-500 font-mono">number?</td>
+                                    <td class="p-3 font-mono text-xs">245000 (없으면 null)</td>
+                                    <td class="p-3">거래 후 통장 잔액 (알림에 잔액 표기 시)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-mono text-indigo-600 dark:text-indigo-400 font-semibold">rawText</td>
+                                    <td class="p-3 text-slate-500 font-mono">string</td>
+                                    <td class="p-3 text-xs">[카카오뱅크] 체크카드 승인...</td>
+                                    <td class="p-3">기기에서 파싱한 원본 메시지 텍스트</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-mono text-indigo-600 dark:text-indigo-400 font-semibold">timestamp</td>
+                                    <td class="p-3 text-slate-500 font-mono">string (ISO)</td>
+                                    <td class="p-3 font-mono text-xs">2026-09-14T15:00:00.000Z</td>
+                                    <td class="p-3">결제 및 거래가 일어난 시각</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Track 1 - Google Apps Script -->
+        <section id="google-sheets" class="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">1</span>
+                    <div>
+                        <div class="inline-block px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 text-xs font-bold mb-1">
+                            트랙 1 · 가장 간편한 방법
+                        </div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">구글 스프레드시트 (Apps Script Webhook)</h2>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                별도의 백엔드 서버나 데이터베이스 구축 없이 구글 드라이브 엑셀 시트에 금융 내역을 실시간 행(Row)으로 자동 누적할 때 사용합니다.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+                <div class="p-3.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/40">
+                    <strong class="text-emerald-800 dark:text-emerald-300 block mb-1 font-semibold">💡 장점</strong>
+                    <p class="text-slate-600 dark:text-slate-400">100% 무료, 24시간 서버 유지보수 불필요, PC 구글 시트에서 엑셀 수식(SUM, 피벗테이블, 차트) 즉시 연동</p>
+                </div>
+                <div class="p-3.5 rounded-xl bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+                    <strong class="text-slate-800 dark:text-slate-200 block mb-1 font-semibold">🔗 연결 방식</strong>
+                    <p class="text-slate-600 dark:text-slate-400">구글 스프레드시트 &gt; 확장 프로그램 &gt; Apps Script &gt; 웹 앱(Web App) 배포 URL을 FinLog에 입력</p>
+                </div>
+            </div>
+
+            <!-- Code Block -->
+            <div>
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-semibold text-slate-600 dark:text-slate-300">구글 Apps Script 배포 코드 (Code.gs)</span>
+                </div>
+                <div class="code-container">
+                    <button onclick="copyCode(this)" class="copy-btn px-2.5 py-1.5 text-xs font-medium bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-md transition flex items-center gap-1">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        <span>복사</span>
+                    </button>
+                    <pre><code class="language-javascript">// [구글 Apps Script 코드]
+function doPost(e) {
+  try {
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = ss.getActiveSheet();
+    
+    // 1. 첫 행이 비어있으면 엑셀 헤더 자동 생성
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow(['기록일시', '금융기관', '구분', '금액', '가맹점/상호', '카테고리', '잔액', '메모', '원본메시지']);
+      sheet.getRange(1, 1, 1, 9)
+        .setBackground('#1e293b')
+        .setFontColor('#ffffff')
+        .setFontWeight('bold');
+      sheet.setFrozenRows(1);
+    }
+    
+    // 2. FinLog 앱에서 보낸 데이터 파싱
+    var postData = JSON.parse(e.postData.contents);
+    var transactions = postData.transactions || [];
+    
+    // 단일 전송 및 다건 전송 모두 수용
+    if (postData.transaction) transactions = [postData.transaction];
+    
+    // 3. 시트에 한 줄씩 추가
+    transactions.forEach(function(tx) {
+      var typeText = tx.type === 'EXPENSE' ? '지출' : (tx.type === 'INCOME' ? '수입' : '이체');
+      sheet.appendRow([
+        tx.timestamp || new Date().toLocaleString(),
+        tx.bankName || '기타금융',
+        typeText,
+        tx.amount || 0,
+        tx.merchant || '',
+        tx.category || '기타',
+        tx.balance || '',
+        tx.memo || '',
+        tx.rawText || ''
+      ]);
+    });
+    
+    return ContentService.createTextOutput(JSON.stringify({ status: "success", count: transactions.length }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({ status: "error", message: err.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+// 연결 테스트용 (Ping)
+function doGet(e) {
+  return ContentService.createTextOutput(JSON.stringify({ status: "ok", service: "FinLog Google Sheets Webhook" }))
+    .setMimeType(ContentService.MimeType.JSON);
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Steps for Google Sheets Setup -->
+            <div class="bg-slate-50 dark:bg-slate-800/50 p-4 sm:p-5 rounded-xl border border-slate-200 dark:border-slate-700/80">
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white mb-3">🛠️ 배포 및 연동 3단계 가이드</h4>
+                <ol class="list-decimal pl-5 space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                    <li>새 구글 스프레드시트 생성 후 상단 메뉴에서 <strong>확장 프로그램 &gt; Apps Script</strong> 클릭</li>
+                    <li>기존 코드를 지우고 위 코드를 붙여넣은 뒤 저장 (<code>Ctrl + S</code>)</li>
+                    <li>우측 상단 <strong>배포 &gt; 새 배포</strong> 선택:
+                        <ul class="list-disc pl-5 mt-1 space-y-1 text-slate-500 dark:text-slate-400">
+                            <li>유형: <strong>웹 앱(Web App)</strong></li>
+                            <li>다음 사용자로 실행: <strong>나(내 계정)</strong></li>
+                            <li>액세스 권한: <strong>모든 사용자(Anyone)</strong> <span class="text-rose-500 font-semibold">*필수</span></li>
+                        </ul>
+                    </li>
+                    <li>생성된 <code>https://script.google.com/macros/s/.../exec</code> URL을 FinLog 앱 웹훅 주소에 붙여넣기</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Section 2: Track 2 - Backend Server Implementations -->
+        <section id="servers" class="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-sm">2</span>
+                    <div>
+                        <div class="inline-block px-2.5 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300 text-xs font-bold mb-1">
+                            트랙 2 · 개인 홈서버 / NAS / 클라우드
+                        </div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">백엔드 서버 구현 예제</h2>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                Synology NAS(Docker), 오라클/AWS 클라우드 VPS, 개인 홈서버 등 선호하는 백엔드 환경에 맞추어 선택하여 구축할 수 있습니다.
+            </p>
+
+            <!-- Language Tabs -->
+            <div class="border-b border-slate-200 dark:border-slate-800 flex gap-2">
+                <button onclick="switchTab('express')" id="tab-express" class="tab-btn pb-3 px-3 text-sm font-bold border-b-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 transition">
+                    Node.js (Express)
+                </button>
+                <button onclick="switchTab('fastapi')" id="tab-fastapi" class="tab-btn pb-3 px-3 text-sm font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-white border-b-2 border-transparent transition">
+                    Python (FastAPI) <span class="ml-1 text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400">추천</span>
+                </button>
+                <button onclick="switchTab('flask')" id="tab-flask" class="tab-btn pb-3 px-3 text-sm font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-white border-b-2 border-transparent transition">
+                    Python (Flask) 초간단
+                </button>
+            </div>
+
+            <!-- Tab Content 1: Express -->
+            <div id="content-express" class="tab-content space-y-4">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs text-slate-500">포트: <strong>8080</strong> · Bearer Token 인증 및 JSONL 파일 누적 저장</span>
+                    <span class="text-xs text-indigo-600 dark:text-indigo-400 font-mono">server.js</span>
+                </div>
+                <div class="code-container">
+                    <button onclick="copyCode(this)" class="copy-btn px-2.5 py-1.5 text-xs font-medium bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-md transition flex items-center gap-1">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        <span>복사</span>
+                    </button>
+                    <pre><code class="language-javascript">// server.js
+const express = require('express');
+const cors = require('cors');
+const fs = require('fs');
+const app = express();
+const PORT = 8080;
+const AUTH_TOKEN = "my-secret-token"; // 앱의 [인증 토큰] 칸과 일치시킴
+
+app.use(cors());
+app.use(express.json());
+
+// 1. Health Check (앱의 "연결 테스트 (Ping)" 버튼이 호출)
+app.get('/api/v1/finlog/health', (req, res) => {
+  const auth = req.headers['authorization'];
+  if (AUTH_TOKEN && auth !== `Bearer ${AUTH_TOKEN}`) {
+    return res.status(401).json({ error: '인증 실패' });
+  }
+  res.json({ status: 'ok', serverTime: new Date().toISOString() });
+});
+
+// 2. 로그 수신 엔드포인트 (앱의 "지금 전체 로그 전송" 및 자동 동기화가 호출)
+app.post('/api/v1/finlog/logs', (req, res) => {
+  const auth = req.headers['authorization'];
+  if (AUTH_TOKEN && auth !== `Bearer ${AUTH_TOKEN}`) {
+    return res.status(401).json({ error: '인증 실패' });
+  }
+  const { app: appName, version, transactions, detectionLogs, syncedAt } = req.body;
+  console.log(`[${syncedAt}] 거래 ${transactions?.length || 0}건, 수정로그 ${detectionLogs?.length || 0}건 수신`);
+  
+  // 로컬 파일 (JSONL) 또는 MariaDB/PostgreSQL 등에 저장
+  const logLine = JSON.stringify(req.body) + '\n';
+  fs.appendFileSync('finlog_records.jsonl', logLine, 'utf8');
+  
+  res.json({
+    success: true,
+    receivedTransactions: transactions?.length || 0,
+    receivedAuditLogs: detectionLogs?.length || 0
+  });
+});
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`FinLog Express 서버가 포트 ${PORT}에서 실행 중입니다.`);
+});</code></pre>
+                </div>
+                <div class="bg-slate-100 dark:bg-slate-800/60 p-3 rounded-lg text-xs font-mono text-slate-700 dark:text-slate-300">
+                    npm init -y &amp;&amp; npm install express cors &amp;&amp; node server.js
+                </div>
+            </div>
+
+            <!-- Tab Content 2: FastAPI -->
+            <div id="content-fastapi" class="tab-content hidden space-y-4">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs text-slate-500">Pydantic 자동 스키마 검증 · Swagger 문서(<code>/docs</code>) 지원</span>
+                    <span class="text-xs text-indigo-600 dark:text-indigo-400 font-mono">main.py</span>
+                </div>
+                <div class="code-container">
+                    <button onclick="copyCode(this)" class="copy-btn px-2.5 py-1.5 text-xs font-medium bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-md transition flex items-center gap-1">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        <span>복사</span>
+                    </button>
+                    <pre><code class="language-python"># main.py
+from fastapi import FastAPI, Header, HTTPException, status
+from pydantic import BaseModel
+from typing import List, Optional
+import json
+
+app = FastAPI(title="FinLog Sync Server", version="0.0.7")
+AUTH_TOKEN = "my-secret-token"  # 앱의 인증 토큰과 일치
+
+# 데이터 모델 정의
+class FinTransaction(BaseModel):
+    id: str
+    sourceType: str
+    bankName: str
+    amount: float
+    type: str
+    merchant: str
+    category: str
+    memo: Optional[str] = None
+    balance: Optional[float] = None
+    rawText: str
+    timestamp: str
+
+class SyncPayload(BaseModel):
+    app: str
+    version: str
+    syncedAt: str
+    sheetName: Optional[str] = "FinLog_Sheet"
+    transactions: List[dict]
+    detectionLogs: Optional[List[dict]] = []
+
+# 1. Health Check
+@app.get("/api/v1/finlog/health")
+def health_check(authorization: Optional[str] = Header(None)):
+    if AUTH_TOKEN and authorization != f"Bearer {AUTH_TOKEN}":
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="인증 실패")
+    return {"status": "ok", "version": "0.0.7"}
+
+# 2. 로그 수신 엔드포인트
+@app.post("/api/v1/finlog/logs")
+def receive_logs(payload: SyncPayload, authorization: Optional[str] = Header(None)):
+    if AUTH_TOKEN and authorization != f"Bearer {AUTH_TOKEN}":
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="인증 실패")
+    
+    print(f"[{payload.syncedAt}] 거래 {len(payload.transactions)}건 수신 완료")
+    
+    # JSONL 파일에 한 줄씩 누적 저장 (향후 Pandas나 SQLite로 분석 가능)
+    with open("finlog_records.jsonl", "a", encoding="utf-8") as f:
+        f.write(payload.model_dump_json() + "\n")
+        
+    return {
+        "success": True,
+        "count": len(payload.transactions)
+    }</code></pre>
+                </div>
+                <div class="bg-slate-100 dark:bg-slate-800/60 p-3 rounded-lg text-xs font-mono text-slate-700 dark:text-slate-300">
+                    pip install fastapi uvicorn &amp;&amp; uvicorn main:app --host 0.0.0.0 --port 8080
+                </div>
+            </div>
+
+            <!-- Tab Content 3: Flask -->
+            <div id="content-flask" class="tab-content hidden space-y-4">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs text-slate-500">초경량 파이썬 스크립트 · 라즈베리파이/저전력 환경 최적</span>
+                    <span class="text-xs text-indigo-600 dark:text-indigo-400 font-mono">app.py</span>
+                </div>
+                <div class="code-container">
+                    <button onclick="copyCode(this)" class="copy-btn px-2.5 py-1.5 text-xs font-medium bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-md transition flex items-center gap-1">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        <span>복사</span>
+                    </button>
+                    <pre><code class="language-python"># app.py
+from flask import Flask, request, jsonify
+import json
+
+app = Flask(__name__)
+AUTH_TOKEN = "my-secret-token"
+
+@app.route('/api/v1/finlog/health', methods=['GET'])
+def health():
+    auth = request.headers.get('Authorization')
+    if AUTH_TOKEN and auth != f"Bearer {AUTH_TOKEN}":
+        return jsonify({"error": "Unauthorized"}), 401
+    return jsonify({"status": "ok"}), 200
+
+@app.route('/api/v1/finlog/logs', methods=['POST'])
+def logs():
+    auth = request.headers.get('Authorization')
+    if AUTH_TOKEN and auth != f"Bearer {AUTH_TOKEN}":
+        return jsonify({"error": "Unauthorized"}), 401
+    data = request.get_json()
+    with open('finlog_records.jsonl', 'a', encoding='utf-8') as f:
+        f.write(json.dumps(data, ensure_ascii=False) + '\n')
+    return jsonify({"success": True, "count": len(data.get('transactions', []))}), 200
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080)</code></pre>
+                </div>
+                <div class="bg-slate-100 dark:bg-slate-800/60 p-3 rounded-lg text-xs font-mono text-slate-700 dark:text-slate-300">
+                    pip install flask &amp;&amp; python app.py
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: cURL Tests -->
+        <section id="curl-test" class="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-sm">3</span>
+                    <div>
+                        <div class="inline-block px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 text-xs font-bold mb-1">
+                            개발자 로컬 테스트용
+                        </div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">cURL 테스트 명령</h2>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                서버를 실행한 뒤, FinLog 앱 없이 터미널(CMD / PowerShell / Bash)에서 서버가 올바르게 응답하는지 1초 만에 검증할 수 있습니다.
+            </p>
+
+            <!-- Test 1: Ping -->
+            <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">1) Health Check (Ping) 테스트</span>
+                    <span class="text-[11px] text-emerald-600 dark:text-emerald-400 font-mono">GET</span>
+                </div>
+                <div class="code-container">
+                    <button onclick="copyCode(this)" class="copy-btn px-2.5 py-1.5 text-xs font-medium bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-md transition flex items-center gap-1">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        <span>복사</span>
+                    </button>
+                    <pre><code class="language-bash">curl -X GET http://localhost:8080/api/v1/finlog/health \
+     -H "Authorization: Bearer my-secret-token"</code></pre>
+                </div>
+            </div>
+
+            <!-- Test 2: Payload -->
+            <div class="space-y-2 pt-2">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">2) 가상 거래 데이터 전송 테스트</span>
+                    <span class="text-[11px] text-indigo-600 dark:text-indigo-400 font-mono">POST</span>
+                </div>
+                <div class="code-container">
+                    <button onclick="copyCode(this)" class="copy-btn px-2.5 py-1.5 text-xs font-medium bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-md transition flex items-center gap-1">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        <span>복사</span>
+                    </button>
+                    <pre><code class="language-bash">curl -X POST http://localhost:8080/api/v1/finlog/logs \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer my-secret-token" \
+     -d '{
+       "app": "FinLog",
+       "version": "0.0.7",
+       "syncedAt": "2026-09-14T15:00:00Z",
+       "transactions": [
+         {
+           "id": "test_01",
+           "bankName": "테스트은행",
+           "type": "EXPENSE",
+           "amount": 10000,
+           "merchant": "테스트가맹점",
+           "category": "식비",
+           "timestamp": "2026-09-14T15:00:00Z",
+           "rawText": "테스트 결제 10,000원"
+         }
+       ]
+     }'</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Summary & App Configuration Guide -->
+        <section id="summary" class="bg-gradient-to-br from-indigo-50/70 to-slate-100/80 dark:from-slate-900 dark:to-indigo-950/30 border border-indigo-200/80 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm space-y-6">
+            <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-bold text-sm">💡</span>
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">요약 및 권장 사항</h2>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-0.5">FinLog 앱 내 [온라인 백업] 설정창에서 입력할 항목 매핑 가이드</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+                <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                        권장 연동 방식 선택
+                    </h3>
+                    <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+                        <li>• <strong>가장 간편한 방법:</strong> 별도 서버나 고정 IP가 없다면 <strong>트랙 1 (구글 스프레드시트)</strong>로 시작하는 것을 추천합니다.</li>
+                        <li>• <strong>개인 NAS / 홈서버:</strong> Node.js 환경이면 <strong>Express</strong>, 파이썬 기반 데이터 분석(Pandas, AI 모델)을 원하시면 <strong>FastAPI</strong>를 추천합니다.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+                        앱 설정 매핑 가이드
+                    </h3>
+                    <ul class="space-y-1.5 text-slate-600 dark:text-slate-400 font-mono text-xs">
+                        <li><span class="text-slate-500">통신 프로토콜:</span> <span class="text-slate-900 dark:text-slate-200 font-bold">http</span> 또는 <span class="text-slate-900 dark:text-slate-200 font-bold">https</span></li>
+                        <li><span class="text-slate-500">서버 주소:</span> IP 또는 도메인 (예: <span class="text-indigo-600 dark:text-indigo-400">192.168.0.50</span> / <span class="text-indigo-600 dark:text-indigo-400">mynas.me</span>)</li>
+                        <li><span class="text-slate-500">포트:</span> <span class="text-slate-900 dark:text-slate-200 font-bold">8080</span> (또는 설정한 포트)</li>
+                        <li><span class="text-slate-500">엔드포인트:</span> <span class="text-slate-900 dark:text-slate-200 font-bold">/api/v1/finlog/logs</span></li>
+                        <li><span class="text-slate-500">인증 토큰:</span> <span class="text-slate-900 dark:text-slate-200 font-bold">my-secret-token</span> (서버 설정값과 일치)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center pt-2">
+                <a href="https://0bit.kr/privacy-policy/finlog/" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs sm:text-sm transition shadow-md shadow-indigo-600/20">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    <span>FinLog 가계부 소개로 돌아가기</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 dark:border-slate-800/80 bg-slate-100/60 dark:bg-slate-950 py-10 text-xs text-slate-500 transition-colors">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <img src="assets/icon-192.png" alt="FinLog 로고" class="w-7 h-7 rounded-lg opacity-90">
+                <div>
+                    <p class="font-bold text-slate-700 dark:text-slate-400">FINALNEO · FinLog Sync API Reference</p>
+                    <p class="mt-0.5">문의: <a href="mailto:finalneodev@gmail.com" class="text-indigo-600 dark:text-indigo-400 hover:underline">finalneodev@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="flex items-center gap-5">
+                <a href="https://0bit.kr/privacy-policy/finlog/" class="hover:text-indigo-600 dark:hover:text-white transition">소개 홈</a>
+                <a href="https://0bit.kr/privacy-policy/finlog/privacy-policy/" class="hover:text-indigo-600 dark:hover:text-white transition">개인정보처리방침</a>
+                <a href="https://0bit.kr/privacy-policy/finlog/terms-of-service/" class="hover:text-indigo-600 dark:hover:text-white transition">이용약관</a>
+                <a href="https://github.com/FinalNeoDev/privacy-policy" target="_blank" class="hover:text-indigo-600 dark:hover:text-white transition">GitHub</a>
+            </div>
+            <p>© 2026 FINALNEO. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts: Theme, Tab Switch, Copy Code -->
+    <script>
+        // Theme Management
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        initTheme();
+
+        // Backend Tabs Switcher
+        function switchTab(tabName) {
+            const tabs = ['express', 'fastapi', 'flask'];
+            tabs.forEach(t => {
+                const btn = document.getElementById('tab-' + t);
+                const content = document.getElementById('content-' + t);
+                if (t === tabName) {
+                    btn.classList.add('border-indigo-600', 'text-indigo-600', 'dark:text-indigo-400');
+                    btn.classList.remove('border-transparent', 'text-slate-500');
+                    content.classList.remove('hidden');
+                } else {
+                    btn.classList.remove('border-indigo-600', 'text-indigo-600', 'dark:text-indigo-400');
+                    btn.classList.add('border-transparent', 'text-slate-500');
+                    content.classList.add('hidden');
+                }
+            });
+        }
+
+        // Code Copy Helper
+        function copyCode(button) {
+            const container = button.closest('.code-container');
+            const codeEl = container.querySelector('code');
+            const textToCopy = codeEl.innerText;
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalHtml = button.innerHTML;
+                button.innerHTML = `
+                    <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <span class="text-emerald-300 font-bold">복사완료!</span>
+                `;
+                button.classList.add('bg-slate-800');
+                setTimeout(() => {
+                    button.innerHTML = originalHtml;
+                    button.classList.remove('bg-slate-800');
+                }, 2000);
+            }).catch(err => {
+                console.error('클립보드 복사 실패:', err);
+            });
+        }
+    </script>
+</body>
+</html>

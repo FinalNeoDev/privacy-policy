@@ -12,14 +12,7 @@ FINALNEO에서 개발 및 배포하는 애플리케이션 및 서비스의 개�
 | :--- | :--- | :--- | :--- | :--- |
 | **FinLog** | 개인정보처리방침 | [FinLog 개인정보처리방침](./finlog/privacy-policy.md) | 2026-09-09 | [🌐 FinLog 소개 페이지](https://0bit.kr/privacy-policy/finlog/) |
 | **FinLog** | 이용약관 | [FinLog 서비스 이용약관](./finlog/terms-of-service.md) | 2026-09-09 | 독립형 소프트웨어 이용조건 및 면책사항 |
-
----
-
-## 📌 문서 추가 및 관리 규칙
-새로운 앱이나 서비스를 출시할 경우:
-1. 앱 이름 디렉토리(예: `[app-name]/`)를 생성합니다.
-2. 디렉토리 내에 `privacy-policy.md` 및 `terms-of-service.md`를 작성합니다.
-3. 본 `README.md`의 위 목록 테이블에 행을 추가하고 커밋합니다.
+| **FinLog** | 동기화 API 규격 | [FinLog 커스텀 동기화 API](./finlog/api.md) | 2026-09-14 | [⚡ Webhook & REST API 가이드](https://0bit.kr/privacy-policy/finlog/api/) |
 
 ---
 

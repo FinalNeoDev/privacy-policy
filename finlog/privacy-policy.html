@@ -57,23 +57,24 @@
             <div class="border-b border-slate-200 dark:border-slate-800 pb-6 mb-8">
                 <div class="inline-block px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 text-xs font-bold mb-3">Privacy Policy</div>
                 <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">FinLog 개인정보처리방침</h1>
-                <p class="text-xs sm:text-sm text-slate-500 mt-2">시행일자: 2026년 9월 9일</p>
+                <p class="text-xs sm:text-sm text-slate-500 mt-2">시행일자: 2026년 10월 14일 (최종 갱신일: 2026년 10월 14일)</p>
             </div>
 
             <div class="space-y-8 text-slate-700 dark:text-slate-300 text-sm sm:text-base">
-                <p>FINALNEO(이하 "개발자")는 정보주체의 자유와 권리 보호를 위해 「개인정보 보호법」 및 관계 법령이 정한 바를 준수하며, 'FinLog'(이하 "앱" 또는 "서비스") 이용자의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 다음과 같이 개인정보처리방침을 수립·공개합니다.</p>
+                <p>FINALNEO(이하 "개발자")는 정보주체의 자유와 권리 보호를 위해 「개인정보 보호법」 및 관계 법령, Google Play 사용자 데이터 정책(User Data Policy)을 준수하며, 'FinLog'(이하 "앱" 또는 "서비스") 이용자의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 다음과 같이 개인정보처리방침을 수립·공개합니다.</p>
 
                 <section class="space-y-3">
-                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white border-l-4 border-emerald-600 pl-3">1. 기본 원칙 (서버 미수집 원칙)</h2>
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white border-l-4 border-emerald-600 pl-3">1. 기본 원칙 (Local-First 및 서버 미수집 원칙)</h2>
                     <ul class="list-disc pl-5 space-y-2">
-                        <li><strong>FinLog은 사용자의 금융 정보 및 개인정보를 개발자의 별도 외부 서버로 전송하거나 저장하지 않습니다.</strong></li>
-                        <li>본 앱은 사용자의 기기 내부(Local Device)에서만 독립적으로 동작하는 온디바이스(On-Device) 자산/가계부 정리 도구입니다.</li>
+                        <li><strong>FinLog은 이용자의 금융 정보 및 개인정보를 개발자가 운영하는 별도의 중앙 수집 서버로 전송하거나 저장하지 않습니다.</strong></li>
+                        <li>본 앱은 이용자의 기기 내부(Local Device)에서만 독립적으로 동작하는 <strong>온디바이스(On-Device) 로컬 퍼스트(Local-First)</strong> 자산/가계부 관리 애플리케이션입니다.</li>
+                        <li>본 앱은 사용자의 기기 식별값이나 행동 패턴을 추적하는 <strong>제3자 상용 광고 SDK 및 사용자 행태 추적기(Tracker)를 일체 탑재하지 않은 무광고(Ad-Free) 서비스</strong>입니다.</li>
                     </ul>
                 </section>
 
                 <section class="space-y-3">
                     <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white border-l-4 border-emerald-600 pl-3">2. 처리하는 개인정보 항목 및 처리 목적</h2>
-                    <p class="text-sm">앱은 서비스 제공을 위해 기기 내에서 다음과 같은 정보를 활용합니다.</p>
+                    <p class="text-sm">앱은 핵심 기능인 금융 거래 자동 기록 및 가계부 장부 관리를 위해 안드로이드 시스템 이벤트를 통해 기기 내에서 다음과 같은 최소한의 정보를 처리합니다.</p>
                     
                     <div class="overflow-x-auto mt-3">
                         <table class="w-full text-left text-xs sm:text-sm border border-slate-200 dark:border-slate-800 rounded-lg">
@@ -81,94 +82,134 @@
                                 <tr>
                                     <th class="p-3 border-b border-slate-200 dark:border-slate-700">구분</th>
                                     <th class="p-3 border-b border-slate-200 dark:border-slate-700">처리 항목</th>
+                                    <th class="p-3 border-b border-slate-200 dark:border-slate-700">수집 및 처리 방식</th>
                                     <th class="p-3 border-b border-slate-200 dark:border-slate-700">처리 목적</th>
                                     <th class="p-3 border-b border-slate-200 dark:border-slate-700">저장 및 전송 위치</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
                                 <tr>
-                                    <td class="p-3 font-semibold">금융 거래 알림</td>
-                                    <td class="p-3">은행, 카드사, 간편결제사 입출금 Push 알림</td>
-                                    <td class="p-3">입출금 내역 자동 추출 및 가계부 통계</td>
-                                    <td class="p-3 font-medium text-emerald-600 dark:text-emerald-400">기기 로컬 저장 (서버 전송 없음)</td>
+                                    <td class="p-3 font-semibold whitespace-nowrap">금융 거래 알림 내역</td>
+                                    <td class="p-3">은행, 카드사, 간편결제사 등의 입출금 및 승인 Push 알림 텍스트</td>
+                                    <td class="p-3">안드로이드 알림 리스너 이벤트 (<code class="text-xs bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">NotificationListenerService</code>) 실시간 감지</td>
+                                    <td class="p-3">결제 금액, 거래 일시, 가맹점 상호명, 거래 유형(지출/수입/이체), 잔액 자동 추출 및 카테고리 분류</td>
+                                    <td class="p-3 font-medium text-emerald-600 dark:text-emerald-400"><strong>사용자 기기 내부(로컬)</strong> 에만 저장<br><span class="text-xs text-slate-500 dark:text-slate-400">(개발자 서버 전송 일체 없음)</span></td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3 font-semibold">금융 거래 문자</td>
-                                    <td class="p-3">금융사 발신 입출금 SMS/MMS 본문</td>
-                                    <td class="p-3">거래 내역 파싱 및 자동 기록</td>
-                                    <td class="p-3 font-medium text-emerald-600 dark:text-emerald-400">기기 로컬 저장 (서버 전송 없음)</td>
+                                    <td class="p-3 font-semibold whitespace-nowrap">금융 결제 문자(SMS)<br><span class="text-xs font-normal text-slate-500">(선택 동의 시)</span></td>
+                                    <td class="p-3">금융사 발신 결제 승인/입출금 안내 SMS 본문 및 발신처 번호</td>
+                                    <td class="p-3"><strong>안드로이드 실시간 SMS 수신 이벤트 (<code class="text-xs bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">BroadcastReceiver</code>) 감지</strong><br><span class="text-xs text-slate-500 dark:text-slate-400">※ 기존 문자함 스캔/조회 없음</span></td>
+                                    <td class="p-3">카드 결제 내역 파싱 및 가계부 자동 기록</td>
+                                    <td class="p-3 font-medium text-emerald-600 dark:text-emerald-400"><strong>사용자 기기 내부(로컬)</strong> 에만 저장<br><span class="text-xs text-slate-500 dark:text-slate-400">(개발자 서버 전송 일체 없음)</span></td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3 font-semibold">백업/동기화</td>
-                                    <td class="p-3">기록된 가계부 데이터 및 설정값</td>
-                                    <td class="p-3">데이터 유실 방지 개인 보관</td>
-                                    <td class="p-3 font-medium text-indigo-600 dark:text-indigo-400">개인 클라우드(G드라이브, 시놀로지) 직접 전송</td>
+                                    <td class="p-3 font-semibold whitespace-nowrap">수정 이력 감사 로그<br><span class="text-xs font-normal text-slate-500">(Audit Log)</span></td>
+                                    <td class="p-3">거래 내역 수정/삭제 시 변경 전후 값, 변경 일시, 사유</td>
+                                    <td class="p-3">앱 내 거래 수정 및 삭제 동작 시 내부 생성</td>
+                                    <td class="p-3">데이터 위변조 방지 및 사용자의 직접 수정 내역 투명 추적</td>
+                                    <td class="p-3 font-medium text-emerald-600 dark:text-emerald-400"><strong>사용자 기기 내부(로컬)</strong> 에만 불변 로그로 보관</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-3 font-semibold">광고 서비스</td>
-                                    <td class="p-3">광고 식별자(ADID/IDFA), 대략적 위치, 오류 로그</td>
-                                    <td class="p-3">앱 내 배너 광고 송출 (Google AdMob)</td>
-                                    <td class="p-3 text-slate-500">Google AdMob 서버 직접 전송</td>
+                                    <td class="p-3 font-semibold whitespace-nowrap">외부 백업 및 동기화<br><span class="text-xs font-normal text-slate-500">(선택 활성화 시)</span></td>
+                                    <td class="p-3">사용자가 기록한 가계부 내역 및 설정 데이터</td>
+                                    <td class="p-3">사용자가 직접 연동을 활성화한 경우에 한해 실행</td>
+                                    <td class="p-3">데이터 유실 방지, 엑셀 관리 및 다기기 보관 백업</td>
+                                    <td class="p-3 font-medium text-indigo-600 dark:text-indigo-400"><strong>사용자가 직접 설정한 개인 엔드포인트</strong>로만 직접 전송<br><span class="text-xs text-slate-500 dark:text-slate-400">(본인의 구글 시트 Webhook 또는 개인 REST API 서버/NAS)</span></td>
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+
+                    <div class="mt-4 p-4 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 text-xs sm:text-sm">
+                        <h3 class="font-bold text-amber-900 dark:text-amber-200 flex items-center gap-1.5 mb-2">
+                            <span>⚠️ 수집 및 처리 제외 항목 (안전 필터링)</span>
+                        </h3>
+                        <p class="text-amber-800 dark:text-amber-300 mb-2">FinLog은 사용자의 프라이버시 보호를 위해 다음 정보는 이벤트가 발생하더라도 파싱 단계에서 즉시 무시하며 절대 수집하거나 저장하지 않습니다.</p>
+                        <ol class="list-decimal pl-5 space-y-1 text-amber-900 dark:text-amber-200">
+                            <li><strong>기존 문자함 전체 조회 일체 없음</strong>: 기기에 이미 저장되어 있는 과거 SMS/MMS 메시지함을 조회하거나 스캔하지 않으며, 새로 도착하는 금융 결제 이벤트만 처리합니다.</li>
+                            <li><strong>사적 대화 및 일반 문자 제외</strong>: 지인 간 사적인 대화, 일반 앱 알림, 스팸 문자는 자동 제외됩니다.</li>
+                            <li><strong>민감 인증 정보 제외</strong>: 본인확인 인증번호(OTP), 보안카드 번호, 비밀번호, CVC, 주민등록번호는 절대 수집·저장하지 않습니다.</li>
+                            <li><strong>단순 시세 알림 제외</strong>: 실제 입출금/체결이 아닌 주식이나 가상자산의 단순 호가 및 시세 등락 알림은 가계부 지출로 오인되지 않도록 사전 필터링합니다.</li>
+                        </ol>
                     </div>
                 </section>
 
                 <section class="space-y-3">
                     <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white border-l-4 border-emerald-600 pl-3">3. 개인정보의 보관 및 파기</h2>
                     <ol class="list-decimal pl-5 space-y-2">
-                        <li><strong>로컬 저장 데이터</strong>: 금융 알림 및 SMS를 기반으로 생성된 모든 가계부 기록 데이터는 사용자의 스마트폰 내부 저장소에만 보관되며, 앱 삭제(언인스톨) 시 즉시 영구 파기됩니다.</li>
-                        <li><strong>개인 백업 데이터</strong>: 사용자가 직접 연동한 개인 저장소에 업로드된 백업 파일은 사용자의 개인 계정 권한에 따라 관리되며, 개발자는 이에 일절 접근하거나 보관하지 않습니다.</li>
+                        <li><strong>로컬 저장 데이터</strong>:
+                            <p class="mt-1">알림 및 SMS 수신 이벤트를 통해 파싱된 모든 거래 장부 및 감사 로그는 <strong>사용자의 스마트폰 내부 샌드박스 격리 저장소(IndexedDB / LocalStorage / SharedPreferences)</strong> 에만 안전하게 보관됩니다.</p>
+                            <p class="mt-1">사용자가 앱 내 <code class="text-xs bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">설정 &gt; 전체 데이터 초기화</code>를 실행하거나 스마트폰에서 앱을 삭제(언인스톨)하는 즉시 로컬에 보관된 모든 데이터는 영구 파기됩니다.</p>
+                        </li>
+                        <li><strong>사용자 직접 연동 백업 데이터 (구글 시트 / 개인 서버)</strong>:
+                            <p class="mt-1">사용자가 직접 연결한 구글 스프레드시트 또는 개인 서버(NAS)에 전송된 데이터는 사용자 본인의 계정 및 인프라 정책에 따라 보관·관리되며, 사용자가 직접 수정 및 삭제할 수 있습니다.</p>
+                            <p class="mt-1">개발자는 사용자의 개인 저장소 접근 토큰, API 키, 백업 파일에 접근할 수 있는 권한을 보유하지 않으며 보관하지도 않습니다.</p>
+                        </li>
                     </ol>
                 </section>
 
                 <section class="space-y-3">
                     <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white border-l-4 border-emerald-600 pl-3">4. 제3자 제공 및 외부 라이브러리(SDK) 안내</h2>
-                    <p>개발자는 사용자의 금융 거래 정보를 제3자에게 판매하거나 제공하지 않습니다. 단, 무료 서비스 제공을 위한 광고 SDK가 포함되어 있습니다.</p>
-                    <div class="bg-slate-50 dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200 dark:border-slate-700 text-xs sm:text-sm">
-                        <strong class="text-slate-900 dark:text-white">Google AdMob (Google LLC)</strong>
-                        <ul class="list-disc pl-5 mt-2 space-y-1 text-slate-600 dark:text-slate-400">
-                            <li>목적: 앱 내 맞춤형/비맞춤형 광고 게재 및 노출 측정</li>
-                            <li>수집 항목: 광고 ID, 기기 식별자, IP 주소</li>
-                            <li>관련 정책: <a href="https://policies.google.com/privacy" target="_blank" class="text-indigo-600 dark:text-indigo-400 underline">Google 개인정보처리방침</a></li>
-                        </ul>
-                    </div>
+                    <ol class="list-decimal pl-5 space-y-2">
+                        <li><strong>제3자 제공 없음</strong>: 개발자는 사용자의 금융 거래 정보 및 개인정보를 마케팅, 광고, 통계 분석 등의 목적으로 제3자에게 판매, 대여, 공유 또는 제공하지 않습니다.</li>
+                        <li><strong>광고 및 추적 SDK 미탑재</strong>: 본 앱은 Google AdMob, Meta Audience Network, Firebase Analytics 등 일체의 상용 광고 SDK 및 사용자 추적기를 탑재하지 않으며, 광고 식별자(ADID / IDFA)를 수집하지 않습니다.</li>
+                    </ol>
                 </section>
 
                 <section class="space-y-3">
                     <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white border-l-4 border-emerald-600 pl-3">5. 앱 접근 권한 안내</h2>
+                    <p class="text-sm">FinLog은 정상적인 핵심 서비스 제공을 위해 다음의 기기 접근 권한을 필요로 하며, 최초 실행 시 '현저한 고지(Prominent Disclosure)'를 통해 사용자의 명시적인 동의를 구합니다.</p>
                     <ul class="list-disc pl-5 space-y-2">
-                        <li><strong>알림 접근 권한 (Notification Listener Service)</strong>: 금융 애플리케이션의 입출금 알림 메시지를 실시간 감지하여 가계부 데이터로 변환하기 위해 사용됩니다.</li>
-                        <li><strong>SMS/MMS 수신 및 읽기 권한 (선택)</strong>: 금융사에서 발송된 입출금 안내 문자를 분석하여 거래 내역을 자동 입력하기 위해 사용됩니다.</li>
-                        <li><strong>인터넷 및 네트워크 접근 권한</strong>: Google AdMob 광고 로드 및 사용자가 지정한 개인 클라우드로의 백업/복원 파일 직접 전송.</li>
+                        <li><strong>알림 접근 허용 (<code class="text-xs bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">BIND_NOTIFICATION_LISTENER_SERVICE</code> - 필수)</strong>:
+                            <p class="mt-0.5">은행, 카드사, 간편결제사 앱의 결제/입출금 푸시 알림을 실시간 감지하여 가계부 데이터로 변환하기 위해 사용됩니다.</p>
+                            <p class="mt-0.5 text-xs text-slate-500 dark:text-slate-400">금융 관련 키워드 및 금융사 패키지 알림만 필터링하며, 일반 사적 알림은 읽거나 저장하지 않습니다.</p>
+                        </li>
+                        <li><strong>SMS 수신 이벤트 권한 (<code class="text-xs bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">RECEIVE_SMS</code>, <code class="text-xs bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">BROADCAST_SMS</code> - 선택)</strong>:
+                            <p class="mt-0.5">금융사에서 발송된 결제 승인 문자가 기기에 도착할 때 발생하는 <strong>안드로이드 수신 브로드캐스트 이벤트</strong>를 감지하여 거래 내역을 자동으로 입력하기 위해 사용됩니다.</p>
+                            <p class="mt-0.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400">※ 기존 문자 보관함을 열람하거나 스캔하지 않습니다.</p>
+                            <p class="mt-0.5 text-xs text-slate-500 dark:text-slate-400">권한을 거부하더라도 알림 기반 가계부 작성 및 수동 입력 기능을 정상 이용할 수 있습니다.</p>
+                        </li>
+                        <li><strong>알림 권한 (<code class="text-xs bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">POST_NOTIFICATIONS</code> - Android 13 이상 선택)</strong>:
+                            <p class="mt-0.5">금융 알림 백그라운드 수신 상태 유지 및 자동 백업/동기화 처리 결과를 상단 알림창에 안내하기 위해 사용됩니다.</p>
+                        </li>
+                        <li><strong>인터넷 및 네트워크 접근 권한 (<code class="text-xs bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">INTERNET</code>, <code class="text-xs bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">ACCESS_NETWORK_STATE</code> - 선택)</strong>:
+                            <p class="mt-0.5">사용자가 직접 활성화한 경우에 한해, 사용자 본인의 구글 스프레드시트(Webhook) 또는 개인 자체 서버(REST API/NAS)로 가계부 데이터를 전송하고 연결 상태를 확인하기 위해 사용됩니다.</p>
+                        </li>
                     </ul>
                 </section>
 
                 <section class="space-y-3">
                     <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white border-l-4 border-emerald-600 pl-3">6. 정보주체의 권리와 행사 방법</h2>
-                    <p>사용자는 스마트폰 설정에서 언제든지 앱의 권한을 철회할 수 있으며, 앱 내의 '데이터 초기화' 기능을 통해 저장된 모든 거래 내역을 즉시 영구 삭제할 수 있습니다.</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>접근 권한 철회</strong>: 사용자는 스마트폰의 <code class="text-xs bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">[설정] &gt; [애플리케이션] &gt; [FinLog] &gt; [권한]</code> 또는 <code class="text-xs bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">[특수 접근 권한] &gt; [알림 접근 허용]</code>에서 언제든지 부여한 권한을 비활성화하거나 철회할 수 있습니다.</li>
+                        <li><strong>데이터 열람 및 수정</strong>: 사용자는 앱 내 화면에서 언제든지 본인의 가계부 내역을 직접 열람, 수정, 개별 삭제할 수 있으며, 수정 이력(Audit Log)을 확인할 수 있습니다.</li>
+                        <li><strong>데이터 완전 영구 삭제</strong>: 앱 내 <code class="text-xs bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">설정 &gt; 데이터 관리</code> 메뉴를 통해 저장된 모든 거래 데이터와 감사 로그를 즉시 영구 삭제할 수 있습니다.</li>
+                        <li><strong>수동 입력 모드 지원</strong>: 자동 감지 권한에 동의하지 않더라도 앱 내에서 수동으로 거래 내역을 기록하고 분석 기능을 제한 없이 이용할 수 있습니다.</li>
+                    </ul>
                 </section>
 
                 <section class="space-y-3">
                     <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white border-l-4 border-emerald-600 pl-3">7. 개인정보의 안전성 확보 조치</h2>
-                    <ul class="list-disc pl-5 space-y-1">
-                        <li><strong>로컬 보안</strong>: 데이터베이스는 Android 샌드박스 내부 격리 영역에 안전하게 보관됩니다.</li>
-                        <li><strong>통신 보안</strong>: 사용자의 개인 클라우드 연동 시 모든 데이터는 HTTPS / SSL 등 암호화 보안 프로토콜을 통해서만 직접 전송됩니다.</li>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>로컬 샌드박스 격리</strong>: 모든 가계부 데이터는 Android OS Sandbox의 내부 보안 저장소에 격리 보관되어 루팅 등 특수 환경이 아닌 한 타 앱의 접근이 차단됩니다.</li>
+                        <li><strong>안전한 암호화 전송</strong>: 사용자가 개인 클라우드나 자체 서버 연동을 사용하는 경우 HTTPS / TLS 암호화 프로토콜을 통해서만 통신이 이루어집니다.</li>
+                        <li><strong>무유실 로컬 큐(Queue) 보호</strong>: 앱이 백그라운드에 있거나 종료된 상태에서도 유실 방지 큐를 기기 내부 로컬 저장소에만 안전하게 적재합니다.</li>
                     </ul>
                 </section>
 
                 <section class="space-y-3">
                     <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white border-l-4 border-emerald-600 pl-3">8. 개인정보 보호책임자 및 문의처</h2>
+                    <p class="text-sm">서비스 이용 중 발생하는 개인정보 보호 관련 문의, 권한 관련 질문, 오류 제보 등은 아래의 공식 창구로 문의해 주시기 바랍니다.</p>
                     <ul class="list-disc pl-5 space-y-1">
-                        <li><strong>개발자명</strong>: FinalNeoDev</li>
+                        <li><strong>개발자/담당자</strong>: FINALNEO (FinalNeoDev)</li>
                         <li><strong>이메일</strong>: <a href="mailto:finalneodev@gmail.com" class="text-indigo-600 dark:text-indigo-400 underline">finalneodev@gmail.com</a></li>
+                        <li><strong>공식 저장소</strong>: <a href="https://github.com/FinalNeoDev" target="_blank" class="text-indigo-600 dark:text-indigo-400 underline">https://github.com/FinalNeoDev</a></li>
                     </ul>
                 </section>
 
                 <section class="space-y-3">
                     <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white border-l-4 border-emerald-600 pl-3">9. 개정 및 고지의 의무</h2>
-                    <p>본 방침의 변경이 있을 경우 시행 7일 전부터 앱 공지 또는 본 웹사이트를 통해 사전 고지합니다.</p>
+                    <p>본 개인정보처리방침은 관계 법령, 구글 플레이 정책 변경, 또는 서비스 기능 추가 및 변경에 따라 내용이 수정될 수 있습니다. 중요한 변경 사항이 발생할 경우, 앱 내 공지 또는 본 GitHub 저장소를 통해 개정 최소 7일 전(중대한 권리 변경 시 30일 전)부터 사전 고지합니다.</p>
                 </section>
             </div>
         </article>

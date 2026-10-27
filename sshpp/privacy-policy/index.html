@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSH++ 개인정보처리방침 (Privacy Policy)</title>
+    <meta name="description" content="모바일 SSH 클라이언트 및 AI 데브옵스 어시스턴트 SSH++ 개인정보처리방침 (Zero-Telemetry & Local Keystore Encryption)">
+    <meta property="og:title" content="SSH++ 개인정보처리방침">
+    <meta property="og:description" content="SSH++는 일체의 중앙 서버 수집 없이 100% 로컬 암호화 및 다이렉트 통신을 원칙으로 합니다.">
+    <meta property="og:image" content="https://0bit.kr/privacy-policy/sshpp/assets/icon-512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://0bit.kr/privacy-policy/sshpp/assets/icon-512.png">
+    
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icon-512.png">
+    
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-sky-500 selection:text-white">
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="https://0bit.kr/privacy-policy/sshpp/" class="flex items-center gap-3 font-bold text-lg text-white group">
+                <img src="assets/icon-512.png" alt="SSH++ 로고" class="w-8 h-8 rounded-xl shadow-md border border-slate-700 group-hover:scale-105 transition-transform">
+                <span class="tracking-tight">SSH<span class="text-sky-400 font-extrabold">++</span></span>
+            </a>
+            <div class="flex items-center gap-4">
+                <a href="terms-of-service.html" class="text-xs text-slate-400 hover:text-white transition-colors">이용약관</a>
+                <a href="https://0bit.kr/privacy-policy/sshpp/" class="text-xs font-semibold text-sky-400 hover:underline">← 앱 소개로 이동</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl mx-auto w-full px-4 sm:px-6 py-10 sm:py-14">
+        <article class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-xl leading-relaxed">
+            <div class="border-b border-slate-800 pb-6 mb-8">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-950/70 border border-sky-800/60 text-sky-300 text-xs font-bold mb-3">
+                    <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+                    Zero-Telemetry Privacy Policy
+                </div>
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">SSH++ 개인정보처리방침</h1>
+                <p class="text-xs sm:text-sm text-slate-400 mt-2">시행일자: 2026년 10월 27일 (최종 갱신일: 2026년 10월 27일)</p>
+            </div>
+
+            <div class="space-y-8 text-slate-300 text-sm sm:text-base">
+                <p>FINALNEO(이하 "개발자")는 정보주체의 자유와 권리 보호를 위해 「개인정보 보호법」 및 관계 법령, Google Play 개발자 배포 정책 및 사용자 데이터 정책(User Data Policy)을 엄격히 준수합니다. 'SSH++ (Mobile SSH Client & AI DevOps Assistant)'(이하 "앱" 또는 "서비스") 이용자의 개인정보 및 중요 자격증명을 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 다음과 같이 개인정보처리방침을 수립·공개합니다.</p>
+
+                <!-- Section 1 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-white border-l-4 border-sky-500 pl-3">1. 기본 원칙 (Zero-Telemetry & Local-First)</h2>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-300">
+                        <li><strong>SSH++는 이용자의 원격 서버 접속 정보, 인증 자격증명(비밀번호/개인키), 터미널 입출력 텍스트를 개발자가 운영하는 별도의 중앙 수집 서버로 일체 전송하거나 저장하지 않습니다.</strong></li>
+                        <li>본 앱은 이용자의 스마트폰 단말기(Local Device) 내부에서만 독립적으로 동작하는 <strong>온디바이스(On-Device) 로컬 퍼스트(Local-First)</strong> 원격 인프라 관리 도구입니다.</li>
+                        <li>본 앱은 사용자의 기기 식별값(ADID/IMEI)이나 행태 패턴을 추적하는 <strong>제3자 상용 광고 SDK(AdMob 등), 사용자 행태 추적기(Tracker), 서드파티 분석 툴(Google Analytics, Firebase, Sentry 등)을 일체 탑재하지 않은 100% 무광고·무추적(Zero-Telemetry) 소프트웨어</strong>입니다.</li>
+                    </ul>
+                </section>
+
+                <!-- Section 2 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-white border-l-4 border-sky-500 pl-3">2. 처리하는 데이터 항목 및 처리 목적</h2>
+                    <p class="text-sm text-slate-400">앱은 원격 SSH 터미널 접속 및 AI 보조 기능 제공을 위해 기기 내에서 다음과 같은 최소한의 데이터를 처리합니다.</p>
+                    
+                    <div class="overflow-x-auto mt-3">
+                        <table class="w-full text-left text-xs sm:text-sm border border-slate-800 rounded-lg overflow-hidden">
+                            <thead class="bg-slate-800 text-slate-200">
+                                <tr>
+                                    <th class="p-3 border-b border-slate-700">구분</th>
+                                    <th class="p-3 border-b border-slate-700">처리 항목</th>
+                                    <th class="p-3 border-b border-slate-700">처리 및 저장 방식</th>
+                                    <th class="p-3 border-b border-slate-700">처리 목적</th>
+                                    <th class="p-3 border-b border-slate-700">저장 및 전송 위치</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800 text-slate-300">
+                                <tr>
+                                    <td class="p-3 font-semibold whitespace-nowrap text-white">서버 접속 프로필</td>
+                                    <td class="p-3">호스트 주소(IP/도메인), 포트 번호, 사용자명, OS 유형, 별칭, 메모, 태그</td>
+                                    <td class="p-3">로컬 SQLite 데이터베이스 (<code class="text-xs bg-slate-800 text-sky-300 px-1 py-0.5 rounded">ssh_plus.db</code>)</td>
+                                    <td class="p-3">원격 SSH 서버 목록 관리 및 세션 연결</td>
+                                    <td class="p-3 font-medium text-emerald-400"><strong>사용자 기기 내부(로컬)</strong> 에만 저장<br><span class="text-xs text-slate-500">(개발자 서버 전송 일체 없음)</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold whitespace-nowrap text-white">접속 인증 자격증명</td>
+                                    <td class="p-3">SSH 로그인 비밀번호, OpenSSH 개인키(PEM 텍스트), 키 패스프레이즈</td>
+                                    <td class="p-3 font-medium text-sky-400"><strong>Android Keystore 기반 하드웨어 암호화</strong> (<code class="text-xs bg-slate-800 text-sky-300 px-1 py-0.5 rounded">AES-256 GCM</code>)</td>
+                                    <td class="p-3">SSH 핸드셰이크 시 원격 서버 인증</td>
+                                    <td class="p-3 font-medium text-emerald-400"><strong>사용자 기기 보안 볼트</strong>에만 암호화 보관<br><span class="text-xs text-slate-500">(외부 유출 원천 차단)</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold whitespace-nowrap text-white">호스트 키 지문</td>
+                                    <td class="p-3">원격 서버의 공개키 타입 및 SHA-256 지문 (Fingerprint)</td>
+                                    <td class="p-3">로컬 SQLite (<code class="text-xs bg-slate-800 text-sky-300 px-1 py-0.5 rounded">known_hosts</code> 테이블)</td>
+                                    <td class="p-3">신규 접속 서버 검증 및 중간자 공격(MITM) 위변조 방어</td>
+                                    <td class="p-3 text-emerald-400 font-medium">사용자 기기 내부(로컬)에만 저장</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold whitespace-nowrap text-white">단축 명령어 (스니펫)</td>
+                                    <td class="p-3">명령어 템플릿, 동적 변수, OS 타깃, 실행 확인 플래그, 카테고리</td>
+                                    <td class="p-3">로컬 SQLite (<code class="text-xs bg-slate-800 text-sky-300 px-1 py-0.5 rounded">command_snippets</code>)</td>
+                                    <td class="p-3">반복 명령어 빠른 실행 및 동적 변수 치환</td>
+                                    <td class="p-3 text-emerald-400 font-medium">사용자 기기 내부(로컬)에만 저장</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold whitespace-nowrap text-white">AI API 키 (선택)</td>
+                                    <td class="p-3">Google, OpenAI, Anthropic, DeepSeek, xAI 등의 BYOK API Key</td>
+                                    <td class="p-3">Android Keystore 기반 하드웨어 암호화 보관</td>
+                                    <td class="p-3">사용자 본인 계정의 LLM 모델 직접 호출</td>
+                                    <td class="p-3 text-sky-400 font-medium"><strong>기기 보안 볼트</strong>에 보관<br><span class="text-xs text-slate-400">(해당 AI 제공사로만 직접 전송)</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Section 3 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-white border-l-4 border-sky-500 pl-3">3. 네트워크 통신 및 제3자 데이터 전송 안내</h2>
+                    <p>SSH++는 어떠한 경우에도 개발자의 프록시 서버나 중계 서버를 경유하지 않으며, 모든 네트워크 연결은 <strong>사용자 기기에서 목적지 서버로 100% 직접(Direct P2P)</strong> 연결됩니다.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+                        <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/80">
+                            <h3 class="font-bold text-sky-400 text-sm mb-1.5">🔒 SSH 원격 접속 통신</h3>
+                            <p class="text-xs text-slate-300 leading-normal">
+                                이용자가 등록한 원격 서버와의 통신은 표준 SSH 프로토콜을 통해 단말기와 원격 서버 간에만 종단간 암호화(End-to-End Encryption) 상태로 직접 이루어집니다. 개발자는 통신 패킷 및 터미널 내용을 절대 모니터링할 수 없습니다.
+                            </p>
+                        </div>
+                        <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/80">
+                            <h3 class="font-bold text-sky-400 text-sm mb-1.5">🤖 AI 어시스턴트 BYOK 다이렉트 통신</h3>
+                            <p class="text-xs text-slate-300 leading-normal">
+                                제3자 중계 서버 없이 각 AI 공식 엔드포인트로 직접 전송됩니다. 프롬프트 전송 전 <strong>내부 마스킹 필터(Sanitizer)</strong>가 IP, API 키, 패스워드를 <code class="bg-slate-700 text-sky-200 px-1 rounded">[REDACTED]</code> 처리하여 전송합니다.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 4 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-white border-l-4 border-sky-500 pl-3">4. 데이터의 보관 및 영구 파기 절차</h2>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-300">
+                        <li><strong>로컬 데이터의 보관</strong>: 모든 호스트 프로필, 암호화된 비밀번호/개인키, 스니펫, 폰트 및 테마 설정은 사용자의 스마트폰 샌드박스 내부 격리 영역에만 보관됩니다.</li>
+                        <li><strong>영구 파기</strong>: 사용자가 호스트 또는 스니펫을 삭제하면 즉시 로컬 데이터베이스에서 물리적으로 영구 삭제됩니다.</li>
+                        <li><strong>앱 삭제 시 즉시 파기</strong>: 사용자가 스마트폰에서 <strong>앱을 삭제(언인스톨)</strong>하거나 안드로이드 설정에서 <strong>'데이터 삭제'</strong>를 실행하는 즉시, Android Keystore 암호화 키와 함께 기기 내 저장된 모든 데이터는 영구 파기되어 어떠한 방법으로도 복구할 수 없습니다.</li>
+                    </ul>
+                </section>
+
+                <!-- Section 5 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-white border-l-4 border-sky-500 pl-3">5. 앱 접근 권한 안내</h2>
+                    <p class="text-sm">SSH++는 핵심 서비스 제공을 위해 최소한의 권한만을 요청하며, 불필요한 위치, 연락처, 마이크, 카메라 등의 권한은 일체 요구하지 않습니다.</p>
+                    <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-300">
+                        <li><strong>인터넷 통신 (<code class="bg-slate-800 text-sky-300 px-1 py-0.5 rounded">android.permission.INTERNET</code> - 필수)</strong>: 사용자가 지정한 원격 SSH 서버와의 보안 쉘 접속 및 사용자가 요청한 BYOK AI API 직접 호출을 위해 사용됩니다.</li>
+                        <li><strong>네트워크 상태 확인 (<code class="bg-slate-800 text-sky-300 px-1 py-0.5 rounded">android.permission.ACCESS_NETWORK_STATE</code> - 필수)</strong>: 연결 전 Wi-Fi/모바일 데이터 활성화 여부를 사전에 확인하여 불필요한 소켓 오류를 방지합니다.</li>
+                    </ul>
+                </section>
+
+                <!-- Section 6 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-white border-l-4 border-sky-500 pl-3">6. 개발자 문의 및 공식 창구</h2>
+                    <div class="bg-slate-800/80 p-5 rounded-xl border border-slate-700 text-xs sm:text-sm space-y-2">
+                        <p><span class="text-slate-400">개발자 / 운영사:</span> <strong class="text-white">FINALNEO (FinalNeoDev)</strong></p>
+                        <p><span class="text-slate-400">대표 이메일:</span> <a href="mailto:finalneodev@gmail.com" class="text-sky-400 hover:underline font-mono">finalneodev@gmail.com</a></p>
+                        <p><span class="text-slate-400">공식 정책 저장소:</span> <a href="https://github.com/FinalNeoDev/privacy-policy" target="_blank" class="text-sky-400 hover:underline">github.com/FinalNeoDev/privacy-policy</a></p>
+                        <p><span class="text-slate-400">온라인 웹페이지:</span> <a href="https://0bit.kr/privacy-policy/sshpp/" target="_blank" class="text-sky-400 hover:underline font-mono">https://0bit.kr/privacy-policy/sshpp/</a></p>
+                    </div>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 py-8 bg-slate-900/60 text-slate-500 text-xs text-center">
+        <div class="max-w-4xl mx-auto px-4 space-y-2">
+            <p>© 2026 FINALNEO. All rights reserved.</p>
+            <p>SSH++ is an independent local-first mobile SSH utility.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSH++ 서비스 이용약관 (Terms of Service)</title>
+    <meta name="description" content="모바일 SSH 클라이언트 SSH++ 서비스 이용약관">
+    
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-512.png">
+    
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-sky-500 selection:text-white">
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="https://0bit.kr/privacy-policy/sshpp/" class="flex items-center gap-3 font-bold text-lg text-white group">
+                <img src="assets/icon-512.png" alt="SSH++ 로고" class="w-8 h-8 rounded-xl shadow-md border border-slate-700 group-hover:scale-105 transition-transform">
+                <span class="tracking-tight">SSH<span class="text-sky-400 font-extrabold">++</span></span>
+            </a>
+            <div class="flex items-center gap-4">
+                <a href="privacy-policy.html" class="text-xs text-slate-400 hover:text-white transition-colors">개인정보처리방침</a>
+                <a href="https://0bit.kr/privacy-policy/sshpp/" class="text-xs font-semibold text-sky-400 hover:underline">← 앱 소개로 이동</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl mx-auto w-full px-4 sm:px-6 py-10 sm:py-14">
+        <article class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-xl leading-relaxed">
+            <div class="border-b border-slate-800 pb-6 mb-8">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-xs font-bold mb-3">
+                    Terms of Service
+                </div>
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">SSH++ 서비스 이용약관</h1>
+                <p class="text-xs sm:text-sm text-slate-400 mt-2">시행일자: 2026년 10월 27일 (최종 갱신일: 2026년 10월 27일)</p>
+            </div>
+
+            <div class="space-y-8 text-slate-300 text-sm sm:text-base">
+                <p>본 이용약관(이하 "약관")은 FINALNEO(이하 "개발자")가 제공하는 모바일 원격 서버 관리 애플리케이션 'SSH++'(이하 "앱" 또는 "서비스")의 이용과 관련하여 개발자와 이용자 간의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.</p>
+
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-white border-l-4 border-sky-500 pl-3">1. 서비스의 성격 및 소프트웨어 라이선스</h2>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>독립형 온디바이스 유틸리티</strong>: 본 앱은 이용자의 모바일 기기에서 표준 SSH(Secure Shell) 프로토콜을 통하여 원격 서버 시스템에 접근하고 명령어를 전송할 수 있도록 돕는 클라이언트 소프트웨어 도구입니다.</li>
+                        <li><strong>서버 인프라 비제공</strong>: 개발자는 원격 호스트 서버, 도메인, 네트워크 대역폭 또는 SSH 호스팅 인프라를 직접 제공하지 않으며, 이용자 본인이 소유하거나 접근 권한을 획득한 서버에 한해 접속 도구를 제공합니다.</li>
+                    </ul>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-white border-l-4 border-sky-500 pl-3">2. 이용자의 의무 및 보안 준수</h2>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>정당한 접근 권한</strong>: 이용자는 본인이 관리 권한을 보유하고 있거나 명시적으로 허가받은 원격 서버 및 네트워크에 한해서만 본 앱을 사용해야 합니다.</li>
+                        <li><strong>자격증명 관리 책임</strong>: SSH 로그인 계정, 비밀번호, 개인키(PEM 파일) 및 키 패스프레이즈, AI API Key의 관리 책임은 전적으로 이용자 본인에게 있습니다.</li>
+                        <li><strong>호스트 키 검증(MITM 방어)</strong>: 최초 서버 접속 시 앱에 표출되는 SSH 호스트 키의 SHA-256 지문(Fingerprint)을 검증할 책임은 이용자에게 있으며, 호스트 키 불일치 경고 시 무단 무시 및 강제 덮어쓰기로 인해 발생하는 보안 사고에 대한 책임은 이용자에게 있습니다.</li>
+                        <li><strong>금지 행위</strong>: 이용자는 본 앱을 이용하여 인가되지 않은 시스템 침입(해킹), 서비스 거부 공격(DoS/DDoS), 악성코드 유포 등 관계 법령에 위배되는 불법 행위를 수행해서는 안 됩니다.</li>
+                    </ul>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-white border-l-4 border-sky-500 pl-3">3. AI 어시스턴트 기능에 관한 면책</h2>
+                    <p>AI 모델이 제안한 쉘 명령어는 참고용 권고안일 뿐이며, 실행 전 명령어의 안전성과 파괴적 동작 여부를 검토하고 승인할 최종 책임은 이용자에게 있습니다. AI 명령어 실행으로 인해 발생하는 데이터 삭제, 서비스 중단 등 시스템 장애에 대해 개발자는 법적 책임을 지지 않습니다.</p>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-white border-l-4 border-sky-500 pl-3">4. 보증의 부인 및 책임의 제한</h2>
+                    <p>본 소프트웨어는 명시적 또는 묵시적인 어떠한 형태의 보증 없이 <strong>"있는 그대로(AS-IS)"</strong> 제공됩니다. 법률이 허용하는 최대 범위 내에서, 개발자는 본 앱의 사용 또는 사용 불능으로 인하여 발생하는 직·간접적 손해, 데이터 손실, 서버 장애 등에 대하여 법적 책임을 부담하지 않습니다.</p>
+                </section>
+
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-white border-l-4 border-sky-500 pl-3">5. 문의처</h2>
+                    <div class="bg-slate-800/80 p-5 rounded-xl border border-slate-700 text-xs sm:text-sm space-y-1.5">
+                        <p><span class="text-slate-400">개발자 / 운영사:</span> <strong class="text-white">FINALNEO (FinalNeoDev)</strong></p>
+                        <p><span class="text-slate-400">대표 이메일:</span> <a href="mailto:finalneodev@gmail.com" class="text-sky-400 hover:underline">finalneodev@gmail.com</a></p>
+                    </div>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 py-8 bg-slate-900/60 text-slate-500 text-xs text-center">
+        <div class="max-w-4xl mx-auto px-4 space-y-2">
+            <p>© 2026 FINALNEO. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

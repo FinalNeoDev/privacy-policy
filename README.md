@@ -13,6 +13,8 @@ FINALNEO에서 개발 및 배포하는 애플리케이션 및 서비스의 개�
 | **FinLog** | 개인정보처리방침 | [FinLog 개인정보처리방침](./finlog/privacy-policy.md) | 2026-10-14 | [🌐 FinLog 소개 페이지](https://0bit.kr/privacy-policy/finlog/) |
 | **FinLog** | 이용약관 | [FinLog 서비스 이용약관](./finlog/terms-of-service.md) | 2026-09-09 | 독립형 소프트웨어 이용조건 및 면책사항 |
 | **FinLog** | 동기화 API 규격 | [FinLog 커스텀 동기화 API](./finlog/api.md) | 2026-09-14 | [⚡ Webhook & REST API 가이드](https://0bit.kr/privacy-policy/finlog/api/) |
+| **SSH++** | 개인정보처리방침 | [SSH++ 개인정보처리방침](./sshpp/privacy-policy.md) | 2026-10-27 | [🌐 SSH++ 정책 허브](https://0bit.kr/privacy-policy/sshpp/) |
+| **SSH++** | 서비스 이용약관 | [SSH++ 서비스 이용약관](./sshpp/terms-of-service.md) | 2026-10-27 | 모바일 온디바이스 SSH 클라이언트 라이선스 및 면책 |
 
 ---
 

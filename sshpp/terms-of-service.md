@@ -2,7 +2,7 @@
 
 **시행일자: 2026년 10월 27일** (최종 갱신일: 2026년 10월 27일)
 
-본 이용약관(이하 "약관")은 FINALNEO(이하 "개발자")가 제공하는 모바일 원격 서버 관리 애플리케이션 'SSH++'(이하 "앱" 또는 "서비스")의 이용과 관련하여 개발자와 이용자 간의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.
+본 이용약관(이하 "약관")은 FinalNeo(개발자: FinalNeoDev, 이하 "회사" 또는 "개발사")가 제공하는 모바일 원격 서버 관리 애플리케이션 'SSH++'(이하 "앱" 또는 "서비스")의 이용과 관련하여 회사와 이용자 간의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.
 
 ---
 
@@ -44,6 +44,7 @@
 ---
 
 ## 6. 문의처
-- 개발자 / 운영자: FINALNEO (FinalNeoDev)
-- 이메일: [finalneodev@gmail.com](mailto:finalneodev@gmail.com)
-- 공식 웹페이지: [https://0bit.kr/privacy-policy/sshpp/](https://0bit.kr/privacy-policy/sshpp/)
+- **개발사 (Company / Publisher)**: FinalNeo
+- **개발자 (Developer)**: FinalNeoDev
+- **대표 이메일**: [finalneodev@gmail.com](mailto:finalneodev@gmail.com)
+- **공식 웹페이지**: [https://0bit.kr/privacy-policy/sshpp/](https://0bit.kr/privacy-policy/sshpp/)

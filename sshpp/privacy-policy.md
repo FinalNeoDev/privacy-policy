@@ -2,13 +2,13 @@
 
 **시행일자: 2026년 10월 27일** (최종 갱신일: 2026년 10월 27일)
 
-FINALNEO(이하 "개발자")는 정보주체의 자유와 권리 보호를 위해 「개인정보 보호법」 및 관계 법령, Google Play 개발자 배포 정책 및 사용자 데이터 정책(User Data Policy)을 엄격히 준수합니다. 'SSH++ (Mobile SSH Client & AI DevOps Assistant)'(이하 "앱" 또는 "서비스") 이용자의 개인정보 및 중요 자격증명을 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 다음과 같이 개인정보처리방침을 수립·공개합니다.
+FINALNEO(개발자: FinalNeoDev, 이하 "개발사 및 개발자")는 정보주체의 자유와 권리 보호를 위해 「개인정보 보호법」 및 관계 법령, Google Play 개발자 배포 정책 및 사용자 데이터 정책(User Data Policy)을 엄격히 준수합니다. 'SSH++ (Mobile SSH Client & AI DevOps Assistant)'(이하 "앱" 또는 "서비스") 이용자의 개인정보 및 중요 자격증명을 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 다음과 같이 개인정보처리방침을 수립·공개합니다.
 
 ---
 
 ## 1. 기본 원칙 (Zero-Telemetry & Local-First)
 
-- **SSH++는 이용자의 원격 서버 접속 정보, 인증 자격증명(비밀번호/개인키), 터미널 입출력 텍스트를 개발자가 운영하는 별도의 중앙 서버로 일체 전송하거나 수집·저장하지 않습니다.**
+- **SSH++는 이용자의 원격 서버 접속 정보, 인증 자격증명(비밀번호/개인키), 터미널 입출력 텍스트를 개발사나 개발자가 운영하는 별도의 중앙 서버로 일체 전송하거나 수집·저장하지 않습니다.**
 - 본 앱은 이용자의 스마트폰 단말기(Local Device) 내부에서만 독립적으로 동작하는 **온디바이스(On-Device) 로컬 퍼스트(Local-First)** 원격 인프라 관리 도구입니다.
 - 본 앱은 사용자의 기기 식별값(ADID/IMEI)이나 행태 패턴을 추적하는 **제3자 상용 광고 SDK(AdMob 등), 사용자 행태 추적기(Tracker), 서드파티 분석 툴(Google Analytics, Firebase, Sentry 등)을 일체 탑재하지 않은 100% 무광고·무추적(Zero-Telemetry) 소프트웨어**입니다.
 
@@ -75,7 +75,8 @@ SSH++는 원격 터미널 통신 및 글꼴 불러오기를 위해 최소한의 
 
 SSH++의 개인정보 보호 및 보안 정책과 관련하여 문의사항, 의견, 기술적 제안이 있으신 경우 아래의 공식 창구로 연락해 주시면 신속하게 답변해 드리겠습니다.
 
-- **개발자 / 운영사**: FINALNEO (FinalNeoDev)
+- **개발사 (Company / Publisher)**: FinalNeo
+- **개발자 (Developer)**: FinalNeoDev
 - **대표 이메일**: [finalneodev@gmail.com](mailto:finalneodev@gmail.com)
 - **공식 정책 저장소**: [https://github.com/FinalNeoDev/privacy-policy](https://github.com/FinalNeoDev/privacy-policy)
 - **온라인 웹페이지**: [https://0bit.kr/privacy-policy/sshpp/](https://0bit.kr/privacy-policy/sshpp/)

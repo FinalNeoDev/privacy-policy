@@ -1,6 +1,6 @@
-# FINALNEO 서비스 정책 및 약관
+# FinalNeo 서비스 정책 및 약관
 
-FINALNEO에서 개발 및 배포하는 애플리케이션 및 서비스의 개인정보처리방침(Privacy Policy)과 이용약관(Terms of Service) 모음 저장소입니다.
+개발사 **FinalNeo**(개발자: **FinalNeoDev**)에서 개발 및 배포하는 애플리케이션 및 서비스의 개인정보처리방침(Privacy Policy)과 이용약관(Terms of Service) 모음 저장소입니다.
 
 모든 정책 문서는 투명하게 버전 관리되며, 서비스 개정 시 변경 이력이 본 저장소에 기록됩니다.
 
@@ -18,6 +18,9 @@ FINALNEO에서 개발 및 배포하는 애플리케이션 및 서비스의 개�
 
 ---
 
-## 📬 문의처
-- 개발자 / 운영자: FinalNeoDev
-- 이메일: [finalneodev@gmail.com](mailto:finalneodev@gmail.com)
+## 📬 문의 및 개발사/개발자 정보
+- **개발사 (Company / Publisher)**: FinalNeo
+- **개발자 (Developer)**: FinalNeoDev
+- **대표 이메일**: [finalneodev@gmail.com](mailto:finalneodev@gmail.com)
+- **공식 GitHub**: [https://github.com/FinalNeoDev](https://github.com/FinalNeoDev)
+

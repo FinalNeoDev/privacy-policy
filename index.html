@@ -1,7 +1,18 @@
 <!DOCTYPE html>
-<html lang="ko" class="dark">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <script>
+        // Check theme preference: Default to LIGHT mode unless explicitly enabled
+        (function() {
+            var dm = localStorage.getItem('darkMode');
+            if (dm === 'enabled') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy & Terms - FinalNeo (0bit.kr)</title>
     <meta name="description" content="FinalNeo 모바일 애플리케이션(FinLog, SSH++)의 개인정보 처리방침 및 서비스 이용약관 안내 허브입니다.">
@@ -54,8 +65,7 @@
         }
         body {
             font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: #0b0f19;
-            color: #f1f5f9;
+            transition: background-color 0.25s ease, color 0.25s ease;
         }
         .text-gradient {
             background-image: var(--accent-gradient-strong);
@@ -66,32 +76,44 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-purple-600 selection:text-white">
+<body class="bg-[#f8fafc] text-gray-800 dark:bg-[#0b0f19] dark:text-gray-100 min-h-screen flex flex-col selection:bg-purple-600 selection:text-white">
 
     <!-- Navigation Header (0bit.kr Unified Style) -->
-    <header class="sticky top-0 z-50 bg-[#0b0f19]/80 backdrop-blur-md border-b border-gray-800/80">
+    <header class="sticky top-0 z-50 bg-white/85 dark:bg-[#0b0f19]/85 backdrop-blur-md border-b border-gray-200/80 dark:border-gray-800/80 transition-colors">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
             <!-- Brand Logo -->
             <a href="https://0bit.kr/" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-purple-500 shadow-md group-hover:scale-105 transition-transform duration-200 shrink-0">
+                <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-purple-500 shadow-sm group-hover:scale-105 transition-transform duration-200 shrink-0">
                     <img src="assets/favicon-512.png" alt="FinalNeo Falcon" class="w-full h-full object-cover">
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-extrabold text-lg tracking-tight text-white group-hover:text-purple-400 transition-colors">FinalNeo</span>
-                    <span class="text-[11px] text-gray-400 font-mono -mt-0.5">0bit.kr</span>
+                    <span class="font-extrabold text-lg tracking-tight text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">FinalNeo</span>
+                    <span class="text-[11px] text-gray-400 dark:text-gray-500 font-mono -mt-0.5">0bit.kr</span>
                 </div>
             </a>
 
             <!-- Navigation Links -->
             <nav class="flex items-center gap-4 sm:gap-6 text-sm font-medium">
-                <a href="https://0bit.kr/" class="text-gray-300 hover:text-white transition-colors">Home</a>
-                <a href="https://0bit.kr/#portfolio" class="text-gray-300 hover:text-white transition-colors">Portfolio</a>
-                <a href="https://0bit.kr/posts" class="text-gray-300 hover:text-white transition-colors">Posts</a>
-                <a href="https://0bit.kr/privacy-policy/" class="text-purple-400 font-bold border-b-2 border-purple-500 pb-0.5">Privacy Policy</a>
-                <a href="https://github.com/FinalNeoDev" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1 text-gray-400 hover:text-white transition-colors">
+                <a href="https://0bit.kr/" class="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-white transition-colors">Home</a>
+                <a href="https://0bit.kr/#portfolio" class="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-white transition-colors">Portfolio</a>
+                <a href="https://0bit.kr/posts" class="text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-white transition-colors">Posts</a>
+                <a href="https://0bit.kr/privacy-policy/" class="text-purple-600 dark:text-purple-400 font-bold border-b-2 border-purple-600 pb-0.5">Privacy Policy</a>
+                <a href="https://github.com/FinalNeoDev" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
                     <span>GitHub</span>
                     <span class="text-xs">↗</span>
                 </a>
+
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" type="button" aria-label="Toggle theme" class="p-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors cursor-pointer">
+                    <!-- Sun (visible in dark) -->
+                    <svg id="theme-toggle-light-icon" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                    <!-- Moon (visible in light) -->
+                    <svg id="theme-toggle-dark-icon" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                </button>
             </nav>
         </div>
     </header>
@@ -101,29 +123,29 @@
         <div class="max-w-5xl mx-auto">
             
             <!-- Hero Header -->
-            <div class="text-center max-w-3xl mx-auto mb-14 md:mb-18">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-purple-500/10 border border-purple-500/30 text-purple-300 mb-4">
+            <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-purple-100 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 mb-4 shadow-sm">
                     <span>🛡️</span>
                     <span>Legal & Privacy Hub</span>
                 </div>
-                <h1 class="text-3xl sm:text-5xl font-black tracking-tight mb-4">
+                <h1 class="text-3xl sm:text-5xl font-black tracking-tight mb-4 text-gray-900 dark:text-white">
                     Privacy Policy & <span class="text-gradient">Terms</span>
                 </h1>
-                <p class="text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
+                <p class="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
                     FinalNeo에서 기획하고 배포하는 모바일 애플리케이션의 개인정보 처리방침 및 서비스 이용약관 안내 허브입니다.
                 </p>
                 
                 <!-- Core Privacy Banner -->
-                <div class="p-4 sm:p-5 rounded-2xl bg-gray-900/80 border border-purple-500/20 text-xs sm:text-sm text-gray-300 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
-                    <div class="flex items-center gap-2 text-emerald-400 font-medium">
+                <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-gray-900/80 border border-gray-200 dark:border-purple-500/20 text-xs sm:text-sm text-gray-700 dark:text-gray-300 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 shadow-sm">
+                    <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-semibold">
                         <span class="text-base">✓</span>
                         <span>Zero-Server 온디바이스 처리</span>
                     </div>
-                    <div class="flex items-center gap-2 text-teal-400 font-medium">
+                    <div class="flex items-center gap-2 text-teal-600 dark:text-teal-400 font-semibold">
                         <span class="text-base">✓</span>
                         <span>개인 금융·서버 정보 무단 수집 금지</span>
                     </div>
-                    <div class="flex items-center gap-2 text-purple-400 font-medium">
+                    <div class="flex items-center gap-2 text-purple-600 dark:text-purple-400 font-semibold">
                         <span class="text-base">✓</span>
                         <span>사용자 개인 클라우드 암호화 백업</span>
                     </div>
@@ -134,57 +156,57 @@
             <div class="grid gap-8 md:grid-cols-2">
 
                 <!-- 1. FinLog Card -->
-                <article class="p-7 sm:p-9 bg-gray-900/70 border border-gray-800 rounded-3xl shadow-xl hover:border-purple-500/50 hover:shadow-purple-500/10 transition-all duration-300 flex flex-col justify-between group">
+                <article class="p-7 sm:p-9 bg-white dark:bg-gray-900/80 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-sm hover:shadow-xl hover:border-purple-400 dark:hover:border-purple-500/50 transition-all duration-300 flex flex-col justify-between group">
                     <div>
                         <!-- Header & Icon -->
                         <div class="flex items-start gap-4 mb-5">
-                            <div class="w-16 h-16 rounded-2xl overflow-hidden border border-emerald-500/30 shadow-lg bg-emerald-950/20 shrink-0 p-1">
+                            <div class="w-16 h-16 rounded-2xl overflow-hidden border border-emerald-200 dark:border-emerald-500/30 shadow-md bg-emerald-50 dark:bg-emerald-950/20 shrink-0 p-1">
                                 <img src="finlog/assets/icon-512.png" alt="FinLog Logo" class="w-full h-full object-cover rounded-xl">
                             </div>
                             <div>
                                 <div class="flex items-center gap-2 flex-wrap mb-1">
-                                    <h2 class="text-2xl font-black text-white group-hover:text-purple-400 transition-colors">FinLog</h2>
-                                    <span class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">스마트 가계부</span>
+                                    <h2 class="text-2xl font-black text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">FinLog</h2>
+                                    <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-emerald-50 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/30">스마트 가계부</span>
                                 </div>
-                                <p class="text-xs text-gray-400 font-medium">내 금융 데이터는 오직 내 손안에, 독립형 스마트 가계부</p>
+                                <p class="text-xs text-purple-600 dark:text-purple-400 font-semibold">내 금융 데이터는 오직 내 손안에, 독립형 스마트 가계부</p>
                             </div>
                         </div>
 
                         <!-- Description -->
-                        <p class="text-sm text-gray-300 leading-relaxed mb-6">
-                            금융 푸시 알림과 문자를 감지하여 개발사 서버 전송 없이 <strong class="text-white">100% 스마트폰 내부에서만</strong> 안전하게 가계부를 자동 정리합니다. 사용자의 개인 Google Drive를 통한 프라이빗 백업만을 지원합니다.
+                        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                            금융 푸시 알림과 문자를 감지하여 개발사 서버 전송 없이 <strong class="text-gray-900 dark:text-white font-bold">100% 스마트폰 내부에서만</strong> 안전하게 가계부를 자동 정리합니다. 사용자의 개인 Google Drive를 통한 프라이빗 백업만을 지원합니다.
                         </p>
 
                         <!-- Highlights List -->
-                        <div class="space-y-2 mb-8 bg-gray-950/60 p-4 rounded-2xl border border-gray-800/80">
-                            <div class="flex items-start gap-2.5 text-xs text-gray-300">
-                                <span class="text-emerald-400 font-bold shrink-0">📱</span>
-                                <span><strong>100% 온디바이스 처리</strong>: 금융 거래 내역이 외부 서버로 일체 전송되지 않습니다.</span>
+                        <div class="space-y-2.5 mb-8 bg-purple-50/50 dark:bg-gray-950/60 p-4 rounded-2xl border border-purple-100 dark:border-gray-800/80">
+                            <div class="flex items-start gap-2.5 text-xs text-gray-700 dark:text-gray-300">
+                                <span class="text-emerald-600 dark:text-emerald-400 font-bold shrink-0">📱</span>
+                                <span><strong class="text-gray-900 dark:text-white">100% 온디바이스 처리</strong>: 금융 거래 내역이 외부 서버로 일체 전송되지 않습니다.</span>
                             </div>
-                            <div class="flex items-start gap-2.5 text-xs text-gray-300">
-                                <span class="text-teal-400 font-bold shrink-0">☁️</span>
-                                <span><strong>프라이빗 Google Drive 백업</strong>: 사용자 본인의 개인 계정 드라이브에만 암호화 보관됩니다.</span>
+                            <div class="flex items-start gap-2.5 text-xs text-gray-700 dark:text-gray-300">
+                                <span class="text-teal-600 dark:text-teal-400 font-bold shrink-0">☁️</span>
+                                <span><strong class="text-gray-900 dark:text-white">프라이빗 Google Drive 백업</strong>: 사용자 본인의 개인 계정 드라이브에만 암호화 보관됩니다.</span>
                             </div>
-                            <div class="flex items-start gap-2.5 text-xs text-gray-300">
-                                <span class="text-purple-400 font-bold shrink-0">⚡</span>
-                                <span><strong>자동 카테고리 분류</strong>: 입출금 알림을 감지하여 지출 유형을 스마트하게 정리합니다.</span>
+                            <div class="flex items-start gap-2.5 text-xs text-gray-700 dark:text-gray-300">
+                                <span class="text-purple-600 dark:text-purple-400 font-bold shrink-0">⚡</span>
+                                <span><strong class="text-gray-900 dark:text-white">자동 카테고리 분류</strong>: 입출금 알림을 감지하여 지출 유형을 스마트하게 정리합니다.</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Action Policy Links -->
-                    <div class="pt-5 border-t border-gray-800 space-y-2.5">
+                    <div class="pt-5 border-t border-gray-100 dark:border-gray-800 space-y-2.5">
                         <div class="grid grid-cols-2 gap-2">
-                            <a href="finlog/privacy-policy.html" class="py-2.5 px-3 rounded-xl bg-purple-600/20 hover:bg-purple-600/35 border border-purple-500/40 text-purple-300 hover:text-white font-bold text-xs text-center transition-all inline-flex items-center justify-center gap-1.5 shadow-sm">
+                            <a href="finlog/privacy-policy.html" class="py-2.5 px-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs text-center transition-all inline-flex items-center justify-center gap-1.5 shadow-md shadow-purple-600/20">
                                 <span>📄</span>
                                 <span>개인정보처리방침</span>
                             </a>
-                            <a href="finlog/terms-of-service.html" class="py-2.5 px-3 rounded-xl bg-gray-800 hover:bg-gray-750 border border-gray-700 text-gray-200 hover:text-white font-bold text-xs text-center transition-all inline-flex items-center justify-center gap-1.5">
+                            <a href="finlog/terms-of-service.html" class="py-2.5 px-3 rounded-xl bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-bold text-xs text-center transition-all inline-flex items-center justify-center gap-1.5 shadow-sm">
                                 <span>📜</span>
                                 <span>서비스 이용약관</span>
                             </a>
                         </div>
-                        <a href="finlog/index.html" class="w-full py-2.5 px-4 rounded-xl bg-gray-800/60 hover:bg-gray-800 border border-gray-700/70 text-gray-300 hover:text-white font-medium text-xs text-center transition-all flex items-center justify-center gap-1 group/btn">
+                        <a href="finlog/index.html" class="w-full py-2.5 px-4 rounded-xl bg-gray-100/80 dark:bg-gray-800/60 hover:bg-gray-200/70 dark:hover:bg-gray-800 border border-gray-200 dark:border-gray-700/70 text-gray-700 dark:text-gray-300 font-medium text-xs text-center transition-all flex items-center justify-center gap-1 group/btn">
                             <span>FinLog 서비스 상세 소개 및 가이드</span>
                             <span class="group-hover/btn:translate-x-1 transition-transform">→</span>
                         </a>
@@ -192,61 +214,61 @@
                 </article>
 
                 <!-- 2. SSH++ Card -->
-                <article class="p-7 sm:p-9 bg-gray-900/70 border border-gray-800 rounded-3xl shadow-xl hover:border-purple-500/50 hover:shadow-purple-500/10 transition-all duration-300 flex flex-col justify-between group">
+                <article class="p-7 sm:p-9 bg-white dark:bg-gray-900/80 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-sm hover:shadow-xl hover:border-purple-400 dark:hover:border-purple-500/50 transition-all duration-300 flex flex-col justify-between group">
                     <div>
                         <!-- Header & Icon -->
                         <div class="flex items-start gap-4 mb-5">
-                            <div class="w-16 h-16 rounded-2xl overflow-hidden border border-sky-500/30 shadow-lg bg-sky-950/20 shrink-0 p-1">
+                            <div class="w-16 h-16 rounded-2xl overflow-hidden border border-sky-200 dark:border-sky-500/30 shadow-md bg-sky-50 dark:bg-sky-950/20 shrink-0 p-1">
                                 <img src="sshpp/assets/icon-512.png" alt="SSH++ Logo" class="w-full h-full object-cover rounded-xl">
                             </div>
                             <div>
                                 <div class="flex items-center gap-2 flex-wrap mb-1">
-                                    <h2 class="text-2xl font-black text-white group-hover:text-purple-400 transition-colors">SSH<span class="text-sky-400">++</span></h2>
-                                    <span class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-sky-500/15 text-sky-400 border border-sky-500/30">Mobile SSH Client</span>
+                                    <h2 class="text-2xl font-black text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">SSH<span class="text-sky-500 dark:text-sky-400">++</span></h2>
+                                    <span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-sky-50 text-sky-700 dark:bg-sky-500/15 dark:text-sky-400 border border-sky-200 dark:border-sky-500/30">Mobile SSH Client</span>
                                 </div>
-                                <p class="text-xs text-gray-400 font-medium">안전하고 스마트한 모바일 원격 서버 관리의 새로운 기준</p>
+                                <p class="text-xs text-purple-600 dark:text-purple-400 font-semibold">안전하고 스마트한 모바일 원격 서버 관리의 새로운 기준</p>
                             </div>
                         </div>
 
                         <!-- Description -->
-                        <p class="text-sm text-gray-300 leading-relaxed mb-6">
-                            모바일 환경에서 리눅스 원격 서버를 안전하게 접속하고 관리하는 클라이언트입니다. <strong class="text-white">Zero-Telemetry 원칙</strong>과 안드로이드 Keystore 하드웨어 암호화, AI 터미널 가드레일을 제공합니다.
+                        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                            모바일 환경에서 리눅스 원격 서버를 안전하게 접속하고 관리하는 클라이언트입니다. <strong class="text-gray-900 dark:text-white font-bold">Zero-Telemetry 원칙</strong>과 안드로이드 Keystore 하드웨어 암호화, AI 터미널 가드레일을 제공합니다.
                         </p>
 
                         <!-- Highlights List -->
-                        <div class="space-y-2 mb-8 bg-gray-950/60 p-4 rounded-2xl border border-gray-800/80">
-                            <div class="flex items-start gap-2.5 text-xs text-gray-300">
-                                <span class="text-sky-400 font-bold shrink-0">🔐</span>
-                                <span><strong>Keystore 하드웨어 암호화</strong>: SSH 개인키와 비밀번호가 보안 칩셋에 철저히 격리됩니다.</span>
+                        <div class="space-y-2.5 mb-8 bg-purple-50/50 dark:bg-gray-950/60 p-4 rounded-2xl border border-purple-100 dark:border-gray-800/80">
+                            <div class="flex items-start gap-2.5 text-xs text-gray-700 dark:text-gray-300">
+                                <span class="text-sky-600 dark:text-sky-400 font-bold shrink-0">🔐</span>
+                                <span><strong class="text-gray-900 dark:text-white">Keystore 하드웨어 암호화</strong>: SSH 개인키와 비밀번호가 보안 칩셋에 철저히 격리됩니다.</span>
                             </div>
-                            <div class="flex items-start gap-2.5 text-xs text-gray-300">
-                                <span class="text-purple-400 font-bold shrink-0">🤖</span>
-                                <span><strong>AI 터미널 가드레일</strong>: 위험 명령어(rm -rf 등)를 실시간 감지하여 모바일 오입력을 방지합니다.</span>
+                            <div class="flex items-start gap-2.5 text-xs text-gray-700 dark:text-gray-300">
+                                <span class="text-purple-600 dark:text-purple-400 font-bold shrink-0">🤖</span>
+                                <span><strong class="text-gray-900 dark:text-white">AI 터미널 가드레일</strong>: 위험 명령어(rm -rf 등)를 실시간 감지하여 모바일 오입력을 방지합니다.</span>
                             </div>
-                            <div class="flex items-start gap-2.5 text-xs text-gray-300">
-                                <span class="text-emerald-400 font-bold shrink-0">🚫</span>
-                                <span><strong>Zero-Telemetry 보장</strong>: 터미널 세션, 호스트 주소, 입력 명령어를 절대 수집하지 않습니다.</span>
+                            <div class="flex items-start gap-2.5 text-xs text-gray-700 dark:text-gray-300">
+                                <span class="text-emerald-600 dark:text-emerald-400 font-bold shrink-0">🚫</span>
+                                <span><strong class="text-gray-900 dark:text-white">Zero-Telemetry 보장</strong>: 터미널 세션, 호스트 주소, 입력 명령어를 절대 수집하지 않습니다.</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Action Policy Links -->
-                    <div class="pt-5 border-t border-gray-800 space-y-2.5">
+                    <div class="pt-5 border-t border-gray-100 dark:border-gray-800 space-y-2.5">
                         <div class="grid grid-cols-2 gap-2">
-                            <a href="sshpp/privacy-policy.html" class="py-2.5 px-3 rounded-xl bg-purple-600/20 hover:bg-purple-600/35 border border-purple-500/40 text-purple-300 hover:text-white font-bold text-xs text-center transition-all inline-flex items-center justify-center gap-1.5 shadow-sm">
+                            <a href="sshpp/privacy-policy.html" class="py-2.5 px-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs text-center transition-all inline-flex items-center justify-center gap-1.5 shadow-md shadow-purple-600/20">
                                 <span>📄</span>
                                 <span>개인정보처리방침</span>
                             </a>
-                            <a href="sshpp/terms-of-service.html" class="py-2.5 px-3 rounded-xl bg-gray-800 hover:bg-gray-750 border border-gray-700 text-gray-200 hover:text-white font-bold text-xs text-center transition-all inline-flex items-center justify-center gap-1.5">
+                            <a href="sshpp/terms-of-service.html" class="py-2.5 px-3 rounded-xl bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-bold text-xs text-center transition-all inline-flex items-center justify-center gap-1.5 shadow-sm">
                                 <span>📜</span>
                                 <span>서비스 이용약관</span>
                             </a>
                         </div>
                         <div class="grid grid-cols-2 gap-2">
-                            <a href="sshpp/releases.html" class="py-2 px-3 rounded-xl bg-gray-800/60 hover:bg-gray-800 border border-gray-700/70 text-gray-300 hover:text-white font-medium text-xs text-center transition-all">
+                            <a href="sshpp/releases.html" class="py-2 px-3 rounded-xl bg-gray-100/80 dark:bg-gray-800/60 hover:bg-gray-200/70 dark:hover:bg-gray-800 border border-gray-200 dark:border-gray-700/70 text-gray-700 dark:text-gray-300 font-medium text-xs text-center transition-all">
                                 <span>🚀 릴리즈 노트</span>
                             </a>
-                            <a href="sshpp/index.html" class="py-2 px-3 rounded-xl bg-gray-800/60 hover:bg-gray-800 border border-gray-700/70 text-gray-300 hover:text-white font-medium text-xs text-center transition-all">
+                            <a href="sshpp/index.html" class="py-2 px-3 rounded-xl bg-gray-100/80 dark:bg-gray-800/60 hover:bg-gray-200/70 dark:hover:bg-gray-800 border border-gray-200 dark:border-gray-700/70 text-gray-700 dark:text-gray-300 font-medium text-xs text-center transition-all">
                                 <span>소개 페이지 →</span>
                             </a>
                         </div>
@@ -256,16 +278,16 @@
             </div>
 
             <!-- Inquiries & Contact Section -->
-            <div class="mt-14 p-8 rounded-3xl bg-gray-900/50 border border-gray-800/80 text-center">
-                <h3 class="text-lg font-bold text-white mb-2">개인정보 보호 관련 문의 및 권리 행사</h3>
-                <p class="text-sm text-gray-400 max-w-xl mx-auto mb-5 leading-relaxed">
+            <div class="mt-14 p-8 rounded-3xl bg-white dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800/80 text-center shadow-sm">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">개인정보 보호 관련 문의 및 권리 행사</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400 max-w-xl mx-auto mb-5 leading-relaxed">
                     개인정보 열람, 정정, 삭제 요청 또는 보안 관련 문의사항이 있으실 경우 아래 개발자 연락처로 문의해 주시면 신속하고 성실하게 조치하겠습니다.
                 </p>
-                <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-xl bg-gray-800/80 border border-gray-700 text-sm">
-                    <span class="text-purple-400 font-semibold">담당자:</span>
-                    <span class="text-gray-200">FinalNeo Dev Team</span>
-                    <span class="text-gray-500">|</span>
-                    <a href="mailto:finalneodev@gmail.com" class="text-purple-400 hover:text-purple-300 underline font-mono">finalneodev@gmail.com</a>
+                <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-xl bg-gray-50 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 text-sm">
+                    <span class="text-purple-600 dark:text-purple-400 font-semibold">담당자:</span>
+                    <span class="text-gray-700 dark:text-gray-200">FinalNeo Dev Team</span>
+                    <span class="text-gray-400 dark:text-gray-500">|</span>
+                    <a href="mailto:finalneodev@gmail.com" class="text-purple-600 dark:text-purple-400 hover:underline font-mono">finalneodev@gmail.com</a>
                 </div>
             </div>
 
@@ -273,24 +295,24 @@
     </main>
 
     <!-- Footer (0bit.kr Unified Style) -->
-    <footer class="border-t border-gray-800/80 bg-[#080b12] py-10 mt-auto">
+    <footer class="border-t border-gray-200 dark:border-gray-800 bg-gray-50/80 dark:bg-[#080b12] py-10 mt-auto transition-colors">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-full overflow-hidden border border-purple-500/60 shrink-0">
+                <div class="w-8 h-8 rounded-full overflow-hidden border border-purple-500/60 shadow-sm shrink-0">
                     <img src="assets/favicon-512.png" alt="FinalNeo Falcon" class="w-full h-full object-cover">
                 </div>
                 <div>
-                    <span class="font-bold text-sm text-gray-200">FinalNeo</span>
+                    <span class="font-bold text-sm text-gray-900 dark:text-gray-200">FinalNeo</span>
                     <p class="text-[11px] text-gray-500">Connecting Ideas with Technology</p>
                 </div>
             </div>
 
-            <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-400">
-                <a href="https://0bit.kr/" class="hover:text-purple-400 transition-colors">Home</a>
-                <a href="https://0bit.kr/#portfolio" class="hover:text-purple-400 transition-colors">Portfolio</a>
-                <a href="https://0bit.kr/posts" class="hover:text-purple-400 transition-colors">Posts</a>
-                <a href="https://github.com/FinalNeoDev" target="_blank" rel="noopener noreferrer" class="hover:text-purple-400 transition-colors">GitHub</a>
-                <a href="https://0bit.kr/privacy-policy/" class="text-purple-400 font-semibold">Privacy Policy</a>
+            <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-500 dark:text-gray-400">
+                <a href="https://0bit.kr/" class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Home</a>
+                <a href="https://0bit.kr/#portfolio" class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Portfolio</a>
+                <a href="https://0bit.kr/posts" class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Posts</a>
+                <a href="https://github.com/FinalNeoDev" target="_blank" rel="noopener noreferrer" class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">GitHub</a>
+                <a href="https://0bit.kr/privacy-policy/" class="text-purple-600 dark:text-purple-400 font-semibold">Privacy Policy</a>
             </div>
 
             <p class="text-[11px] text-gray-500">
@@ -298,6 +320,38 @@
             </p>
         </div>
     </footer>
+
+    <!-- Theme Toggle Script Sync -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        function updateToggleIcons() {
+            if (document.documentElement.classList.contains('dark')) {
+                themeToggleLightIcon.classList.remove('hidden');
+                themeToggleDarkIcon.classList.add('hidden');
+            } else {
+                themeToggleLightIcon.classList.add('hidden');
+                themeToggleDarkIcon.classList.remove('hidden');
+            }
+        }
+
+        updateToggleIcons();
+
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', function() {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('darkMode', 'disabled');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('darkMode', 'enabled');
+                }
+                updateToggleIcons();
+            });
+        }
+    </script>
 
 </body>
 </html>

@@ -42,6 +42,7 @@
                 <span class="tracking-tight">SSH<span class="text-sky-400 font-extrabold">++</span></span>
             </div>
             <nav class="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm">
+                <a href="releases.html" class="text-slate-300 hover:text-white transition-colors" data-i18n="nav_releases">업데이트 이력</a>
                 <a href="privacy-policy.html" class="text-slate-300 hover:text-white transition-colors" data-i18n="nav_privacy">개인정보처리방침</a>
                 <a href="terms-of-service.html" class="text-slate-300 hover:text-white transition-colors" data-i18n="nav_terms">이용약관</a>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSepCRqNQOp8WhuMItF1PqLlOghnIpRWmr4gVLXFKM66OmvuBw/viewform?usp=sharing&ouid=115111235936881352808" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 hover:text-white hover:bg-emerald-500/20 text-xs font-semibold transition-all">
@@ -62,10 +63,11 @@
     <!-- Hero Section -->
     <main class="flex-grow max-w-4xl mx-auto w-full px-4 sm:px-6 py-12 sm:py-20">
         <div class="text-center space-y-6">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/80 border border-sky-800/80 text-sky-300 text-xs font-semibold">
+            <a href="releases.html" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/80 border border-sky-800/80 text-sky-300 text-xs font-semibold hover:border-sky-500 hover:bg-sky-900/80 transition-all group">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span data-i18n="release_badge">Official Production Release v1.0.4</span>
-            </div>
+                <span class="text-sky-400 group-hover:translate-x-0.5 transition-transform text-[11px]">→</span>
+            </a>
             
             <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight" data-i18n="hero_title">
                 모바일 원격 서버 관리의 새로운 기준<br>
@@ -186,6 +188,7 @@
     <script>
         const translations = {
             ko: {
+                nav_releases: "업데이트 이력",
                 nav_privacy: "개인정보처리방침",
                 nav_terms: "이용약관",
                 nav_survey: "설문 참여",
@@ -211,6 +214,7 @@
                 footer_rights: '© 2026 FinalNeo. All rights reserved.'
             },
             en: {
+                nav_releases: "Changelog",
                 nav_privacy: "Privacy Policy",
                 nav_terms: "Terms of Service",
                 nav_survey: "Feedback Survey",

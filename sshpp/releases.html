@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSH++ : 릴리스 노트 & 업데이트 이력 (Changelog)</title>
+    <meta name="description" content="SSH++의 버전별 새로운 기능, 보안 강화, 플랫폼 최적화 및 릴리스 변경 이력 (Release Notes & Changelog)">
+    <meta property="og:title" content="SSH++ : 릴리스 노트 & 업데이트 이력">
+    <meta property="og:description" content="v1.0.4 다국어 지원부터 하드웨어 암호화 및 AI 가드레일까지, SSH++의 공식 업데이트 이력을 확인하세요.">
+    <meta property="og:image" content="https://0bit.kr/privacy-policy/sshpp/assets/icon-512.png">
+    
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-512.png">
+    
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-sky-500 selection:text-white">
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 font-bold text-lg text-white group">
+                <img src="assets/icon-512.png" alt="SSH++ 로고" class="w-8 h-8 rounded-xl shadow-md border border-slate-700 group-hover:scale-105 transition-transform">
+                <span class="tracking-tight">SSH<span class="text-sky-400 font-extrabold">++</span></span>
+            </a>
+            <nav class="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm">
+                <a href="index.html" class="text-slate-300 hover:text-white transition-colors" data-i18n="nav_home">홈</a>
+                <a href="releases.html" class="text-sky-400 font-bold border-b-2 border-sky-400 pb-0.5" data-i18n="nav_releases">업데이트 이력</a>
+                <a href="privacy-policy.html" class="text-slate-300 hover:text-white transition-colors" data-i18n="nav_privacy">개인정보처리방침</a>
+                <a href="terms-of-service.html" class="text-slate-300 hover:text-white transition-colors" data-i18n="nav_terms">이용약관</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSepCRqNQOp8WhuMItF1PqLlOghnIpRWmr4gVLXFKM66OmvuBw/viewform?usp=sharing&ouid=115111235936881352808" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 hover:text-white hover:bg-emerald-500/20 text-xs font-semibold transition-all">
+                    <span>📝</span> <span data-i18n="nav_survey">설문 참여</span>
+                </a>
+                <!-- Language Toggle Pill -->
+                <div class="inline-flex items-center bg-slate-800/90 p-0.5 rounded-lg border border-slate-700/80 text-xs font-semibold ml-1">
+                    <button id="btn-lang-ko" onclick="setLanguage('ko')" class="px-2 py-0.5 rounded-md transition-all text-white bg-sky-600 shadow-sm">KO</button>
+                    <button id="btn-lang-en" onclick="setLanguage('en')" class="px-2 py-0.5 rounded-md transition-all text-slate-400 hover:text-white">EN</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl mx-auto w-full px-4 sm:px-6 py-10 sm:py-16">
+        <!-- Hero Title -->
+        <div class="text-center space-y-4 mb-12 sm:mb-16">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/80 border border-sky-800/80 text-sky-300 text-xs font-semibold">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span data-i18n="page_badge">Changelog & Version History</span>
+            </div>
+            
+            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight" data-i18n="page_title">
+                SSH++ 릴리스 노트 & 업데이트 이력
+            </h1>
+
+            <p class="text-slate-400 text-xs sm:text-base max-w-2xl mx-auto leading-relaxed" data-i18n="page_desc">
+                SSH++의 버전별 새로운 기능, 보안 강화, 플랫폼 규격 준수 및 최적화 내역을 투명하게 안내해 드립니다.
+            </p>
+        </div>
+
+        <!-- Release Timeline -->
+        <div class="space-y-8 sm:space-y-10 relative before:absolute before:inset-0 before:left-3.5 sm:before:left-5 before:w-0.5 before:bg-slate-800">
+            
+            <!-- v1.0.4 (Build 17) [Latest] -->
+            <div class="relative pl-9 sm:pl-12 group">
+                <!-- Timeline Dot -->
+                <div class="absolute left-1.5 sm:left-3 top-1.5 -translate-x-1/2 w-5 h-5 rounded-full bg-sky-500 ring-4 ring-slate-950 flex items-center justify-center">
+                    <span class="w-2 h-2 rounded-full bg-white"></span>
+                </div>
+
+                <div class="bg-slate-900/90 border border-sky-500/40 rounded-2xl p-6 sm:p-8 shadow-xl shadow-sky-500/5 transition-all hover:border-sky-500/60">
+                    <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800/80 pb-4 mb-5">
+                        <div class="flex flex-wrap items-center gap-2.5">
+                            <h2 class="text-xl sm:text-2xl font-extrabold text-white font-mono">v1.0.4</h2>
+                            <span class="px-2.5 py-0.5 rounded-md bg-sky-500/20 text-sky-300 border border-sky-500/40 text-xs font-bold" data-i18n="v104_badge">최신 릴리스 (Build 17)</span>
+                        </div>
+                        <div class="text-xs text-slate-400 font-mono" data-i18n="v104_date">2026.10.28 • Android 16 (API 36)</div>
+                    </div>
+
+                    <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_feature">신규 기능</span>
+                            <div data-i18n="v104_item1">
+                                <strong class="text-white">최초 실행 시 언어 및 스니펫 초기화 모달:</strong> 앱 첫 실행 시 한국어(KO) 또는 영어(EN)를 선택할 수 있으며, 선호하는 언어의 기본 명령어 스니펫 세트를 자동으로 구성합니다.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_snippets">스니펫</span>
+                            <div data-i18n="v104_item2">
+                                <strong class="text-white">18종 필수 DevOps 스니펫 다국어화 & 재설정:</strong> 패키지 관리, 서비스(systemd), Docker, 방화벽 스니펫의 국문/영문 번역을 완성하고 앱 설정 화면에서 언제든 프리셋을 재초기화할 수 있습니다.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_feedback">피드백</span>
+                            <div data-i18n="v104_item3">
+                                <strong class="text-white">사용자 설문 및 의견 수렴 링크 추가:</strong> 설정 화면에서 구글 폼 설문지 링크를 원클릭으로 복사하여 편리하게 기능 제안 및 피드백을 전달할 수 있습니다.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_stability">안정성</span>
+                            <div data-i18n="v104_item4">
+                                <strong class="text-white">블루투스 외장 키보드 매핑 및 세션 보호 로직 보강:</strong> 하드웨어 ESC 키 오동작 방지 및 실수로 인한 세션 종료 방지 팝업을 안정화하였습니다.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- v1.0.3 (Build 16) -->
+            <div class="relative pl-9 sm:pl-12 group">
+                <!-- Timeline Dot -->
+                <div class="absolute left-1.5 sm:left-3 top-1.5 -translate-x-1/2 w-4 h-4 rounded-full bg-slate-700 ring-4 ring-slate-950 flex items-center justify-center">
+                    <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                </div>
+
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-lg hover:border-slate-700 transition-all">
+                    <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800/80 pb-4 mb-5">
+                        <div class="flex flex-wrap items-center gap-2.5">
+                            <h2 class="text-xl sm:text-2xl font-bold text-white font-mono">v1.0.3</h2>
+                            <span class="px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 border border-slate-700 text-xs font-semibold">Build 16</span>
+                        </div>
+                        <div class="text-xs text-slate-400 font-mono" data-i18n="v103_date">2026.10.28 • Target SDK 36</div>
+                    </div>
+
+                    <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_platform">플랫폼</span>
+                            <div data-i18n="v103_item1">
+                                <strong class="text-white">Android 16 (API 36) 공식 타깃 지원:</strong> 최신 안드로이드 16 OS의 보안 모델과 런타임 환경에 맞추어 `targetSdkVersion` 및 `compileSdkVersion`을 36으로 업그레이드하였습니다.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- v1.0.2 (Build 15) -->
+            <div class="relative pl-9 sm:pl-12 group">
+                <!-- Timeline Dot -->
+                <div class="absolute left-1.5 sm:left-3 top-1.5 -translate-x-1/2 w-4 h-4 rounded-full bg-slate-700 ring-4 ring-slate-950 flex items-center justify-center">
+                    <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                </div>
+
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-lg hover:border-slate-700 transition-all">
+                    <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800/80 pb-4 mb-5">
+                        <div class="flex flex-wrap items-center gap-2.5">
+                            <h2 class="text-xl sm:text-2xl font-bold text-white font-mono">v1.0.2</h2>
+                            <span class="px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 border border-slate-700 text-xs font-semibold">Build 15</span>
+                        </div>
+                        <div class="text-xs text-slate-400 font-mono" data-i18n="v102_date">2026.10.27 • Google Play 규정 준수</div>
+                    </div>
+
+                    <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_compliance">규정 준수</span>
+                            <div data-i18n="v102_item1">
+                                <strong class="text-white">Google Play 광고 ID(AD_ID) 및 권한 선언 완료:</strong> 플레이 콘솔 정책에 따른 데이터 안전성 및 권한 선언을 완비하였습니다.
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_memory">메모리 규격</span>
+                            <div data-i18n="v102_item2">
+                                <strong class="text-white">16KB 메모리 페이지 크기(16KB Page Size) 지원:</strong> AGP 8.5.2, Gradle 8.7 및 최신 NDK r30을 적용하여 16KB 정렬을 지원함으로써 차세대 고성능 기기에서의 호환성을 확보했습니다.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- v1.0.1 (Build 14) [Official Launch] -->
+            <div class="relative pl-9 sm:pl-12 group">
+                <!-- Timeline Dot -->
+                <div class="absolute left-1.5 sm:left-3 top-1.5 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-600 ring-4 ring-slate-950 flex items-center justify-center">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-200"></span>
+                </div>
+
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-lg hover:border-slate-700 transition-all">
+                    <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800/80 pb-4 mb-5">
+                        <div class="flex flex-wrap items-center gap-2.5">
+                            <h2 class="text-xl sm:text-2xl font-bold text-white font-mono">v1.0.1</h2>
+                            <span class="px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold" data-i18n="v101_badge">정식 상용 론칭 (Build 14)</span>
+                        </div>
+                        <div class="text-xs text-slate-400 font-mono" data-i18n="v101_date">2026.10.27 • Production Release</div>
+                    </div>
+
+                    <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_security">보안</span>
+                            <div data-i18n="v101_item1">
+                                <strong class="text-white">Zero-Telemetry & Android Keystore 하드웨어 암호화:</strong> 중앙 서버/트래커가 일체 없는 온디바이스 유틸리티로, 비밀번호 및 OpenSSH 개인키를 AES-256 GCM 하드웨어 보안 칩에만 암호화하여 저장합니다.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-fuchsia-500/20 text-fuchsia-300 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_ai">AI 코파일럿</span>
+                            <div data-i18n="v101_item2">
+                                <strong class="text-white">AI 터미널 코파일럿 (BYOK) & 안전 가드레일:</strong> Gemini, GPT-4o, Claude 3.7, DeepSeek, Ollama 직접 연동 및 IP/API키 마스킹, 위험 명령어 실행 방지 가드레일을 기본 제공합니다.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_snippets">스니펫</span>
+                            <div data-i18n="v101_item3">
+                                <strong class="text-white">OS 맞춤형 스마트 스니펫:</strong> 접속 서버의 OS(Ubuntu, Rocky, Alpine, Docker 등)에 맞춘 단축 명령어를 자동 추천하며 <code>{{variable}}</code> 런타임 변수 치환 모달을 지원합니다.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-slate-700 text-slate-200 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_terminal">터미널</span>
+                            <div data-i18n="v101_item4">
+                                <strong class="text-white">데스크톱급 터미널 엔진:</strong> xterm-256color, ANSI escape 코드, 가상 특수키 바(^C, ^R, Esc, Tab, Pipe) 및 외장 키보드 완벽 지원.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Back to App / Survey CTA -->
+        <div class="mt-14 sm:mt-20 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800/80 border border-slate-700/80 text-center space-y-4">
+            <h3 class="text-lg sm:text-xl font-bold text-white" data-i18n="cta_title">새로운 기능이나 개선 아이디어가 있으신가요?</h3>
+            <p class="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto" data-i18n="cta_desc">
+                SSH++는 개발자 여러분의 생생한 피드백을 통해 매주 더욱 강력하고 안전한 클라이언트로 진화하고 있습니다.
+            </p>
+            <div class="pt-2 flex flex-wrap justify-center gap-3">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSepCRqNQOp8WhuMItF1PqLlOghnIpRWmr4gVLXFKM66OmvuBw/viewform?usp=sharing&ouid=115111235936881352808" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs sm:text-sm transition-all shadow-md inline-flex items-center gap-1.5" data-i18n="cta_btn_survey">
+                    <span>📝</span> 설문 참여 및 의견 남기기
+                </a>
+                <a href="index.html" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs sm:text-sm transition-all border border-slate-700" data-i18n="cta_btn_home">
+                    ← SSH++ 소개 메인으로
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-slate-950/80 py-8 text-center text-xs text-slate-500">
+        <div class="max-w-4xl mx-auto px-4 space-y-2">
+            <p data-i18n="footer_rights">© 2026 FinalNeo. All rights reserved.</p>
+            <p>Developed with passion by <span class="text-sky-400 font-semibold">FinalNeoDev</span> • <a href="mailto:finalneodev@gmail.com" class="hover:underline text-slate-400">finalneodev@gmail.com</a></p>
+        </div>
+    </footer>
+
+    <!-- Multilingual Script -->
+    <script>
+        const translations = {
+            ko: {
+                nav_home: "홈",
+                nav_releases: "업데이트 이력",
+                nav_privacy: "개인정보처리방침",
+                nav_terms: "이용약관",
+                nav_survey: "설문 참여",
+                page_badge: "Changelog & Version History",
+                page_title: "SSH++ 릴리스 노트 & 업데이트 이력",
+                page_desc: "SSH++의 버전별 새로운 기능, 보안 강화, 플랫폼 규격 준수 및 최적화 내역을 투명하게 안내해 드립니다.",
+                tag_feature: "신규 기능",
+                tag_snippets: "스니펫",
+                tag_feedback: "피드백",
+                tag_stability: "안정성",
+                tag_platform: "플랫폼",
+                tag_compliance: "규정 준수",
+                tag_memory: "메모리 규격",
+                tag_security: "보안",
+                tag_ai: "AI 코파일럿",
+                tag_terminal: "터미널",
+                v104_badge: "최신 릴리스 (Build 17)",
+                v104_date: "2026.10.28 • Android 16 (API 36)",
+                v104_item1: '<strong class="text-white">최초 실행 시 언어 및 스니펫 초기화 모달:</strong> 앱 첫 실행 시 한국어(KO) 또는 영어(EN)를 선택할 수 있으며, 선호하는 언어의 기본 명령어 스니펫 세트를 자동으로 구성합니다.',
+                v104_item2: '<strong class="text-white">18종 필수 DevOps 스니펫 다국어화 & 재설정:</strong> 패키지 관리, 서비스(systemd), Docker, 방화벽 스니펫의 국문/영문 번역을 완성하고 앱 설정 화면에서 언제든 프리셋을 재초기화할 수 있습니다.',
+                v104_item3: '<strong class="text-white">사용자 설문 및 의견 수렴 링크 추가:</strong> 설정 화면에서 구글 폼 설문지 링크를 원클릭으로 복사하여 편리하게 기능 제안 및 피드백을 전달할 수 있습니다.',
+                v104_item4: '<strong class="text-white">블루투스 외장 키보드 매핑 및 세션 보호 로직 보강:</strong> 하드웨어 ESC 키 오동작 방지 및 실수로 인한 세션 종료 방지 팝업을 안정화하였습니다.',
+                v103_date: "2026.10.28 • Target SDK 36",
+                v103_item1: '<strong class="text-white">Android 16 (API 36) 공식 타깃 지원:</strong> 최신 안드로이드 16 OS의 보안 모델과 런타임 환경에 맞추어 targetSdkVersion 및 compileSdkVersion을 36으로 업그레이드하였습니다.',
+                v102_date: "2026.10.27 • Google Play 규정 준수",
+                v102_item1: '<strong class="text-white">Google Play 광고 ID(AD_ID) 및 권한 선언 완료:</strong> 플레이 콘솔 정책에 따른 데이터 안전성 및 권한 선언을 완비하였습니다.',
+                v102_item2: '<strong class="text-white">16KB 메모리 페이지 크기(16KB Page Size) 지원:</strong> AGP 8.5.2, Gradle 8.7 및 최신 NDK r30을 적용하여 16KB 정렬을 지원함으로써 차세대 고성능 기기에서의 호환성을 확보했습니다.',
+                v101_badge: "정식 상용 론칭 (Build 14)",
+                v101_date: "2026.10.27 • Production Release",
+                v101_item1: '<strong class="text-white">Zero-Telemetry & Android Keystore 하드웨어 암호화:</strong> 중앙 서버/트래커가 일체 없는 온디바이스 유틸리티로, 비밀번호 및 OpenSSH 개인키를 AES-256 GCM 하드웨어 보안 칩에만 암호화하여 저장합니다.',
+                v101_item2: '<strong class="text-white">AI 터미널 코파일럿 (BYOK) & 안전 가드레일:</strong> Gemini, GPT-4o, Claude 3.7, DeepSeek, Ollama 직접 연동 및 IP/API키 마스킹, 위험 명령어 실행 방지 가드레일을 기본 제공합니다.',
+                v101_item3: '<strong class="text-white">OS 맞춤형 스마트 스니펫:</strong> 접속 서버의 OS(Ubuntu, Rocky, Alpine, Docker 등)에 맞춘 단축 명령어를 자동 추천하며 <code>{{variable}}</code> 런타임 변수 치환 모달을 지원합니다.',
+                v101_item4: '<strong class="text-white">데스크톱급 터미널 엔진:</strong> xterm-256color, ANSI escape 코드, 가상 특수키 바(^C, ^R, Esc, Tab, Pipe) 및 외장 키보드 완벽 지원.',
+                cta_title: "새로운 기능이나 개선 아이디어가 있으신가요?",
+                cta_desc: "SSH++는 개발자 여러분의 생생한 피드백을 통해 매주 더욱 강력하고 안전한 클라이언트로 진화하고 있습니다.",
+                cta_btn_survey: "<span>📝</span> 설문 참여 및 의견 남기기",
+                cta_btn_home: "← SSH++ 소개 메인으로",
+                footer_rights: "© 2026 FinalNeo. All rights reserved."
+            },
+            en: {
+                nav_home: "Home",
+                nav_releases: "Changelog",
+                nav_privacy: "Privacy Policy",
+                nav_terms: "Terms of Service",
+                nav_survey: "Survey",
+                page_badge: "Changelog & Version History",
+                page_title: "SSH++ Release Notes & Changelog",
+                page_desc: "A transparent log of new features, security hardening, platform compliances, and optimizations across every SSH++ release.",
+                tag_feature: "Feature",
+                tag_snippets: "Snippets",
+                tag_feedback: "Feedback",
+                tag_stability: "Stability",
+                tag_platform: "Platform",
+                tag_compliance: "Compliance",
+                tag_memory: "Page Size",
+                tag_security: "Security",
+                tag_ai: "AI Copilot",
+                tag_terminal: "Terminal",
+                v104_badge: "Latest Release (Build 17)",
+                v104_date: "2026.10.28 • Android 16 (API 36)",
+                v104_item1: '<strong class="text-white">Initial Language & Snippet Onboarding Modal:</strong> Prompts the user to pick English (EN) or Korean (KO) on first launch, auto-configuring localized default snippet libraries.',
+                v104_item2: '<strong class="text-white">18 Curated DevOps Snippets Localization & Reset:</strong> Completed bilingual translations across package managers, systemd, Docker, and firewalls, with one-tap preset resets in Settings.',
+                v104_item3: '<strong class="text-white">User Survey & Feedback Link Integration:</strong> Added one-tap Google Forms survey link copying in Settings for direct user feedback and feature requests.',
+                v104_item4: '<strong class="text-white">External Bluetooth Keyboard & Session Protection:</strong> Hardened hardware ESC key mapping and prevented accidental session disconnects with double-check dialogs.',
+                v103_date: "2026.10.28 • Target SDK 36",
+                v103_item1: '<strong class="text-white">Official Android 16 (API 36) Support:</strong> Upgraded targetSdkVersion and compileSdkVersion to 36, fully aligning with modern Android 16 permission and execution lifecycles.',
+                v102_date: "2026.10.27 • Google Play Compliance",
+                v102_item1: '<strong class="text-white">Advertising ID (AD_ID) & Permission Declaration:</strong> Fully satisfied Google Play policy declarations regarding privacy and runtime permissions.',
+                v102_item2: '<strong class="text-white">16 KB Memory Page Size Ready:</strong> Integrated AGP 8.5.2, Gradle 8.7, and NDK r30 to guarantee 16 KB ELF alignment for upcoming 64-bit Android platforms.',
+                v101_badge: "Commercial Launch (Build 14)",
+                v101_date: "2026.10.27 • Production Release",
+                v101_item1: '<strong class="text-white">Zero-Telemetry & Android Keystore Hardware Vault:</strong> Pure on-device architecture with zero tracking SDKs. Passwords and OpenSSH private keys are protected by AES-256 GCM in the hardware secure chip.',
+                v101_item2: '<strong class="text-white">AI Terminal Copilot (BYOK) & Safety Guardrails:</strong> Direct integration with Gemini, GPT-4o, Claude 3.7, DeepSeek, and local Ollama, with IP/key redaction and dangerous command blocks.',
+                v101_item3: '<strong class="text-white">OS-Tailored Smart Snippets:</strong> Automatically surfaces context-aware CLI shortcuts for Ubuntu, Rocky, Alpine, and Docker with dynamic <code>{{variable}}</code> parameter prompts.',
+                v101_item4: '<strong class="text-white">Desktop-Class Terminal Engine:</strong> Full xterm-256color, ANSI sequences, special key bar (^C, ^R, Esc, Tab, Pipe), and external keyboard support.',
+                cta_title: "Have an idea or feature request?",
+                cta_desc: "SSH++ evolves continuously based on real-world engineering feedback.",
+                cta_btn_survey: "<span>📝</span> Share Your Feedback on Google Forms",
+                cta_btn_home: "← Back to SSH++ Overview",
+                footer_rights: "© 2026 FinalNeo. All rights reserved."
+            }
+        };
+
+        function detectInitialLanguage() {
+            const saved = localStorage.getItem('site_lang');
+            if (saved === 'ko' || saved === 'en') return saved;
+            const langs = navigator.languages || [navigator.language || 'en'];
+            const isKorean = langs.some(l => l && l.toLowerCase().startsWith('ko'));
+            return isKorean ? 'ko' : 'en';
+        }
+
+        function setLanguage(lang) {
+            localStorage.setItem('site_lang', lang);
+            document.documentElement.lang = lang;
+            const dict = translations[lang] || translations.ko;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) el.innerHTML = dict[key];
+            });
+
+            const btnKo = document.getElementById('btn-lang-ko');
+            const btnEn = document.getElementById('btn-lang-en');
+            if (btnKo && btnEn) {
+                if (lang === 'ko') {
+                    btnKo.className = 'px-2 py-0.5 rounded-md transition-all text-white bg-sky-600 shadow-sm';
+                    btnEn.className = 'px-2 py-0.5 rounded-md transition-all text-slate-400 hover:text-white';
+                } else {
+                    btnEn.className = 'px-2 py-0.5 rounded-md transition-all text-white bg-sky-600 shadow-sm';
+                    btnKo.className = 'px-2 py-0.5 rounded-md transition-all text-slate-400 hover:text-white';
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialLang = detectInitialLanguage();
+            setLanguage(initialLang);
+        });
+    </script>
+</body>
+</html>

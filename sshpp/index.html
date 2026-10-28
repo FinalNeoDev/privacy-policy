@@ -41,15 +41,20 @@
                 <img src="assets/icon-512.png" alt="SSH++ 로고" class="w-8 h-8 rounded-xl shadow-md border border-slate-700">
                 <span class="tracking-tight">SSH<span class="text-sky-400 font-extrabold">++</span></span>
             </div>
-            <nav class="flex items-center gap-4 text-xs sm:text-sm">
-                <a href="privacy-policy.html" class="text-slate-300 hover:text-white transition-colors">개인정보처리방침</a>
-                <a href="terms-of-service.html" class="text-slate-300 hover:text-white transition-colors">이용약관</a>
+            <nav class="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm">
+                <a href="privacy-policy.html" class="text-slate-300 hover:text-white transition-colors" data-i18n="nav_privacy">개인정보처리방침</a>
+                <a href="terms-of-service.html" class="text-slate-300 hover:text-white transition-colors" data-i18n="nav_terms">이용약관</a>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSepCRqNQOp8WhuMItF1PqLlOghnIpRWmr4gVLXFKM66OmvuBw/viewform?usp=sharing&ouid=115111235936881352808" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 hover:text-white hover:bg-emerald-500/20 text-xs font-semibold transition-all">
-                    <span>📝</span> 설문 참여
+                    <span>📝</span> <span data-i18n="nav_survey">설문 참여</span>
                 </a>
                 <a href="https://buymeacoffee.com/finalneodef" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-500/10 border border-sky-500/30 text-sky-300 hover:text-white hover:bg-sky-500/20 text-xs font-semibold transition-all">
                     <span>☕</span> Buy me a coffee
                 </a>
+                <!-- Language Toggle Pill -->
+                <div class="inline-flex items-center bg-slate-800/90 p-0.5 rounded-lg border border-slate-700/80 text-xs font-semibold ml-1">
+                    <button id="btn-lang-ko" onclick="setLanguage('ko')" class="px-2 py-0.5 rounded-md transition-all text-white bg-sky-600 shadow-sm">KO</button>
+                    <button id="btn-lang-en" onclick="setLanguage('en')" class="px-2 py-0.5 rounded-md transition-all text-slate-400 hover:text-white">EN</button>
+                </div>
             </nav>
         </div>
     </header>
@@ -59,26 +64,26 @@
         <div class="text-center space-y-6">
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/80 border border-sky-800/80 text-sky-300 text-xs font-semibold">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                Official Production Release v1.0.4
+                <span data-i18n="release_badge">Official Production Release v1.0.4</span>
             </div>
             
-            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight" data-i18n="hero_title">
                 모바일 원격 서버 관리의 새로운 기준<br>
                 <span class="bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">SSH++ (SSH Plus Plus)</span>
             </h1>
 
-            <p class="text-slate-400 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p class="text-slate-400 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed" data-i18n="hero_desc">
                 최신 xterm 터미널 스트리밍, AI 터미널 코파일럿 안전 가드레일, OS 맞춤 스니펫 및 Android Keystore 하드웨어 암호화 볼트를 결합한 차세대 모바일 DevOps 클라이언트입니다.
             </p>
 
             <div class="pt-4 flex flex-wrap justify-center gap-3">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSepCRqNQOp8WhuMItF1PqLlOghnIpRWmr4gVLXFKM66OmvuBw/viewform?usp=sharing&ouid=115111235936881352808" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-emerald-500/20 inline-flex items-center gap-2">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSepCRqNQOp8WhuMItF1PqLlOghnIpRWmr4gVLXFKM66OmvuBw/viewform?usp=sharing&ouid=115111235936881352808" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-emerald-500/20 inline-flex items-center gap-2" data-i18n="btn_survey">
                     <span>📝</span> 사용자 설문 / 피드백 (Survey)
                 </a>
-                <a href="privacy-policy.html" class="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-sky-500/20">
+                <a href="privacy-policy.html" class="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-sky-500/20" data-i18n="btn_privacy">
                     📜 개인정보처리방침
                 </a>
-                <a href="terms-of-service.html" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm border border-slate-700 transition-all">
+                <a href="terms-of-service.html" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm border border-slate-700 transition-all" data-i18n="btn_terms">
                     📄 서비스 이용약관
                 </a>
             </div>
@@ -93,32 +98,32 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-16">
             <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-2.5">
                 <div class="text-2xl">🤖</div>
-                <h3 class="text-lg font-bold text-white">AI 터미널 코파일럿 & 가드레일</h3>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                <h3 class="text-lg font-bold text-white" data-i18n="feat1_title">AI 터미널 코파일럿 & 가드레일</h3>
+                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="feat1_desc">
                     Gemini, GPT-4o, Claude 3.7, DeepSeek, Grok 및 로컬 Ollama 모델을 BYOK 다이렉트 통신으로 호출하며, IPv4/API키 자동 마스킹 및 파괴적 명령어(Denylist) 차단 가드레일을 제공합니다.
                 </p>
             </div>
 
             <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-2.5">
                 <div class="text-2xl">⚡</div>
-                <h3 class="text-lg font-bold text-white">OS 맞춤형 스마트 스니펫</h3>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                <h3 class="text-lg font-bold text-white" data-i18n="feat2_title">OS 맞춤형 스마트 스니펫</h3>
+                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="feat2_desc">
                     Ubuntu, Rocky, Alpine, Docker 등 접속 서버의 OS에 최적화된 명령어를 자동 추천하며, <code>{{variable}}</code> 런타임 변수 치환 팝업으로 오타 없는 원클릭 실행을 보장합니다.
                 </p>
             </div>
 
             <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-2.5">
                 <div class="text-2xl">🛡️</div>
-                <h3 class="text-lg font-bold text-white">엔터프라이즈 Keystore 보안</h3>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                <h3 class="text-lg font-bold text-white" data-i18n="feat3_title">엔터프라이즈 Keystore 보안</h3>
+                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="feat3_desc">
                     서버 비밀번호와 OpenSSH 개인키는 Android Keystore의 AES-256 GCM 하드웨어 암호화 볼트에만 보관되며, SHA-256 호스트 키 지문 검증을 통해 중간자 공격(MITM)을 원천 차단합니다.
                 </p>
             </div>
 
             <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-2.5">
                 <div class="text-2xl">🔒</div>
-                <h3 class="text-lg font-bold text-white">Zero-Telemetry 무수집 프라이버시</h3>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                <h3 class="text-lg font-bold text-white" data-i18n="feat4_title">Zero-Telemetry 무수집 프라이버시</h3>
+                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="feat4_desc">
                     개발자 중앙 수집 서버, 광고 SDK, 사용자 행태 추적기가 일체 탑재되지 않은 순수 독립형 온디바이스 유틸리티입니다. 데이터는 단말기와 대상 서버 간에만 직접 오갑니다.
                 </p>
             </div>
@@ -132,16 +137,16 @@
                     <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-2xl">
                         📝
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">
+                    <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight" data-i18n="survey_card_title">
                         사용자 피드백 & 설문 참여
                     </h3>
-                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="survey_card_desc">
                         SSH++의 지속적인 발전을 위해 소중한 의견을 들려주세요.<br class="hidden sm:inline">
                         기능 제안, 버그 리포트, 사용 경험에 관한 설문에 응해주시면 다음 업데이트에 적극 반영하겠습니다.
                     </p>
                 </div>
                 <div class="pt-2">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSepCRqNQOp8WhuMItF1PqLlOghnIpRWmr4gVLXFKM66OmvuBw/viewform?usp=sharing&ouid=115111235936881352808" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full py-3 px-5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-emerald-500/20">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSepCRqNQOp8WhuMItF1PqLlOghnIpRWmr4gVLXFKM66OmvuBw/viewform?usp=sharing&ouid=115111235936881352808" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full py-3 px-5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-emerald-500/20" data-i18n="survey_card_btn">
                         <span>📋</span> 구글 폼 설문 참여하기 (Google Forms)
                         <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                     </a>
@@ -154,10 +159,10 @@
                     <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/30 text-2xl">
                         ☕
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">
+                    <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight" data-i18n="bmc_card_title">
                         SSH++ 개발자 응원하기
                     </h3>
-                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="bmc_card_desc">
                         SSH++는 100% 무광고·무추적(Zero-Telemetry) 독립 오픈 유틸리티입니다.<br class="hidden sm:inline">
                         개발자에게 따뜻한 커피 한 잔을 후원해 주시면 지속적인 기능 업데이트와 인프라 개선에 큰 힘이 됩니다!
                     </p>
@@ -172,9 +177,102 @@
     <!-- Footer -->
     <footer class="border-t border-slate-800 py-8 bg-slate-900/60 text-slate-500 text-xs text-center">
         <div class="max-w-4xl mx-auto px-4 space-y-2">
-            <p>© 2026 FinalNeo. All rights reserved.</p>
+            <p data-i18n="footer_rights">© 2026 FinalNeo. All rights reserved.</p>
             <p>Company: <strong class="text-slate-300">FinalNeo</strong> · Developer: <strong class="text-slate-300">FinalNeoDev</strong> (<a href="mailto:finalneodev@gmail.com" class="text-slate-400 hover:underline">finalneodev@gmail.com</a>)</p>
         </div>
     </footer>
+
+    <!-- i18n Script (Auto Language Detection + Manual Switcher) -->
+    <script>
+        const translations = {
+            ko: {
+                nav_privacy: "개인정보처리방침",
+                nav_terms: "이용약관",
+                nav_survey: "설문 참여",
+                release_badge: "Official Production Release v1.0.4",
+                hero_title: '모바일 원격 서버 관리의 새로운 기준<br><span class="bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">SSH++ (SSH Plus Plus)</span>',
+                hero_desc: "최신 xterm 터미널 스트리밍, AI 터미널 코파일럿 안전 가드레일, OS 맞춤 스니펫 및 Android Keystore 하드웨어 암호화 볼트를 결합한 차세대 모바일 DevOps 클라이언트입니다.",
+                btn_survey: '<span>📝</span> 사용자 설문 / 피드백 (Survey)',
+                btn_privacy: '📜 개인정보처리방침',
+                btn_terms: '📄 서비스 이용약관',
+                feat1_title: 'AI 터미널 코파일럿 & 가드레일',
+                feat1_desc: 'Gemini, GPT-4o, Claude 3.7, DeepSeek, Grok 및 로컬 Ollama 모델을 BYOK 다이렉트 통신으로 호출하며, IPv4/API키 자동 마스킹 및 파괴적 명령어(Denylist) 차단 가드레일을 제공합니다.',
+                feat2_title: 'OS 맞춤형 스마트 스니펫',
+                feat2_desc: 'Ubuntu, Rocky, Alpine, Docker 등 접속 서버의 OS에 최적화된 명령어를 자동 추천하며, <code>{{variable}}</code> 런타임 변수 치환 팝업으로 오타 없는 원클릭 실행을 보장합니다.',
+                feat3_title: '엔터프라이즈 Keystore 보안',
+                feat3_desc: '서버 비밀번호와 OpenSSH 개인키는 Android Keystore의 AES-256 GCM 하드웨어 암호화 볼트에만 보관되며, SHA-256 호스트 키 지문 검증을 통해 중간자 공격(MITM)을 원천 차단합니다.',
+                feat4_title: 'Zero-Telemetry 무수집 프라이버시',
+                feat4_desc: '개발자 중앙 수집 서버, 광고 SDK, 사용자 행태 추적기가 일체 탑재되지 않은 순수 독립형 온디바이스 유틸리티입니다. 데이터는 단말기와 대상 서버 간에만 직접 오갑니다.',
+                survey_card_title: '사용자 피드백 & 설문 참여',
+                survey_card_desc: 'SSH++의 지속적인 발전을 위해 소중한 의견을 들려주세요.<br class="hidden sm:inline">기능 제안, 버그 리포트, 사용 경험에 관한 설문에 응해주시면 다음 업데이트에 적극 반영하겠습니다.',
+                survey_card_btn: '<span>📋</span> 구글 폼 설문 참여하기 (Google Forms) <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>',
+                bmc_card_title: 'SSH++ 개발자 응원하기',
+                bmc_card_desc: 'SSH++는 100% 무광고·무추적(Zero-Telemetry) 독립 오픈 유틸리티입니다.<br class="hidden sm:inline">개발자에게 따뜻한 커피 한 잔을 후원해 주시면 지속적인 기능 업데이트와 인프라 개선에 큰 힘이 됩니다!',
+                footer_rights: '© 2026 FinalNeo. All rights reserved.'
+            },
+            en: {
+                nav_privacy: "Privacy Policy",
+                nav_terms: "Terms of Service",
+                nav_survey: "Feedback Survey",
+                release_badge: "Official Production Release v1.0.4",
+                hero_title: 'Next-Gen Mobile Remote Server Management<br><span class="bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">SSH++ (SSH Plus Plus)</span>',
+                hero_desc: "The next-generation mobile DevOps client combining real-time xterm streaming, AI terminal copilot safety guardrails, OS-tailored smart snippets, and Android Keystore hardware-encrypted vault.",
+                btn_survey: '<span>📝</span> User Feedback & Survey',
+                btn_privacy: '📜 Privacy Policy',
+                btn_terms: '📄 Terms of Service',
+                feat1_title: 'AI Terminal Copilot & Guardrails',
+                feat1_desc: 'Direct BYOK integration with Gemini, GPT-4o, Claude 3.7, DeepSeek, Grok, and local Ollama. Includes automatic IPv4/API-key sanitization and dangerous command (Denylist) execution protection.',
+                feat2_title: 'OS-Tailored Smart Snippets',
+                feat2_desc: 'Automatic command recommendations optimized for Ubuntu, Rocky, Alpine, Docker, etc., with <code>{{variable}}</code> runtime replacement modals for error-free one-tap terminal execution.',
+                feat3_title: 'Enterprise Keystore Security',
+                feat3_desc: 'SSH passwords and OpenSSH private keys are strictly guarded inside Android Keystore with AES-256 GCM hardware encryption. SHA-256 fingerprint verification thwarts MITM attacks.',
+                feat4_title: 'Zero-Telemetry Strict Privacy',
+                feat4_desc: 'A pure standalone on-device utility containing zero central telemetry servers, advertising SDKs, or analytics trackers. Network packets travel only between your device and target servers.',
+                survey_card_title: 'User Feedback & Survey',
+                survey_card_desc: 'Help us shape the future of SSH++!<br class="hidden sm:inline">Share your ideas, feature requests, bug reports, and overall experience to help guide upcoming releases.',
+                survey_card_btn: '<span>📋</span> Open Google Forms Survey <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>',
+                bmc_card_title: 'Support the SSH++ Project',
+                bmc_card_desc: 'SSH++ is an independent, 100% zero-telemetry utility.<br class="hidden sm:inline">Buying the developer a warm cup of coffee fuels ongoing maintenance, security updates, and new features!',
+                footer_rights: '© 2026 FinalNeo. All rights reserved.'
+            }
+        };
+
+        function detectInitialLanguage() {
+            const saved = localStorage.getItem('site_lang');
+            if (saved === 'ko' || saved === 'en') return saved;
+            // Check browser locale list
+            const langs = navigator.languages || [navigator.language || 'en'];
+            const isKorean = langs.some(l => l && l.toLowerCase().startsWith('ko'));
+            return isKorean ? 'ko' : 'en';
+        }
+
+        function setLanguage(lang) {
+            localStorage.setItem('site_lang', lang);
+            document.documentElement.lang = lang;
+            const dict = translations[lang] || translations.ko;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) el.innerHTML = dict[key];
+            });
+
+            const btnKo = document.getElementById('btn-lang-ko');
+            const btnEn = document.getElementById('btn-lang-en');
+            if (btnKo && btnEn) {
+                if (lang === 'ko') {
+                    btnKo.className = 'px-2 py-0.5 rounded-md transition-all text-white bg-sky-600 shadow-sm';
+                    btnEn.className = 'px-2 py-0.5 rounded-md transition-all text-slate-400 hover:text-white';
+                } else {
+                    btnEn.className = 'px-2 py-0.5 rounded-md transition-all text-white bg-sky-600 shadow-sm';
+                    btnKo.className = 'px-2 py-0.5 rounded-md transition-all text-slate-400 hover:text-white';
+                }
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialLang = detectInitialLanguage();
+            setLanguage(initialLang);
+        });
+    </script>
 </body>
 </html>

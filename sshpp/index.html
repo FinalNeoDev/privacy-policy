@@ -44,6 +44,9 @@
             <nav class="flex items-center gap-4 text-xs sm:text-sm">
                 <a href="privacy-policy.html" class="text-slate-300 hover:text-white transition-colors">개인정보처리방침</a>
                 <a href="terms-of-service.html" class="text-slate-300 hover:text-white transition-colors">이용약관</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSepCRqNQOp8WhuMItF1PqLlOghnIpRWmr4gVLXFKM66OmvuBw/viewform?usp=sharing&ouid=115111235936881352808" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 hover:text-white hover:bg-emerald-500/20 text-xs font-semibold transition-all">
+                    <span>📝</span> 설문 참여
+                </a>
                 <a href="https://buymeacoffee.com/finalneodef" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-500/10 border border-sky-500/30 text-sky-300 hover:text-white hover:bg-sky-500/20 text-xs font-semibold transition-all">
                     <span>☕</span> Buy me a coffee
                 </a>
@@ -69,11 +72,14 @@
             </p>
 
             <div class="pt-4 flex flex-wrap justify-center gap-3">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSepCRqNQOp8WhuMItF1PqLlOghnIpRWmr4gVLXFKM66OmvuBw/viewform?usp=sharing&ouid=115111235936881352808" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-emerald-500/20 inline-flex items-center gap-2">
+                    <span>📝</span> 사용자 설문 / 피드백 (Survey)
+                </a>
                 <a href="privacy-policy.html" class="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-sky-500/20">
-                    📜 개인정보처리방침 (Privacy Policy)
+                    📜 개인정보처리방침
                 </a>
                 <a href="terms-of-service.html" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm border border-slate-700 transition-all">
-                    📄 서비스 이용약관 (Terms)
+                    📄 서비스 이용약관
                 </a>
             </div>
 
@@ -118,20 +124,47 @@
             </div>
         </div>
 
-        <!-- Support & Community Card Section -->
-        <div class="mt-16 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-sky-950/40 border border-sky-800/40 text-center space-y-4 shadow-xl">
-            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/30 text-2xl mb-1">
-                ☕
+        <!-- Feedback & Support Section (2-Column Grid) -->
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Feedback / Survey Card -->
+            <div class="p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/30 border border-emerald-800/40 text-center flex flex-col justify-between space-y-4 shadow-xl">
+                <div class="space-y-3">
+                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-2xl">
+                        📝
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">
+                        사용자 피드백 & 설문 참여
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        SSH++의 지속적인 발전을 위해 소중한 의견을 들려주세요.<br class="hidden sm:inline">
+                        기능 제안, 버그 리포트, 사용 경험에 관한 설문에 응해주시면 다음 업데이트에 적극 반영하겠습니다.
+                    </p>
+                </div>
+                <div class="pt-2">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSepCRqNQOp8WhuMItF1PqLlOghnIpRWmr4gVLXFKM66OmvuBw/viewform?usp=sharing&ouid=115111235936881352808" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full py-3 px-5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-emerald-500/20">
+                        <span>📋</span> 구글 폼 설문 참여하기 (Google Forms)
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
             </div>
-            <h3 class="text-xl font-bold text-white tracking-tight">
-                SSH++ 개발자 응원하기 (Support the Project)
-            </h3>
-            <p class="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto leading-relaxed">
-                SSH++는 100% 무광고·무추적(Zero-Telemetry)으로 운영되는 독립 오픈 유틸리티입니다.<br class="hidden sm:inline">
-                개발자에게 따뜻한 커피 한 잔을 후원해 주시면 지속적인 기능 업데이트와 인프라 개선에 큰 힘이 됩니다!
-            </p>
-            <div class="pt-2 flex justify-center items-center">
-                <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="finalneodef" data-color="#057eff" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#ffffff" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
+
+            <!-- Support / Buy Me A Coffee Card -->
+            <div class="p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-sky-950/40 border border-sky-800/40 text-center flex flex-col justify-between space-y-4 shadow-xl">
+                <div class="space-y-3">
+                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/30 text-2xl">
+                        ☕
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">
+                        SSH++ 개발자 응원하기
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        SSH++는 100% 무광고·무추적(Zero-Telemetry) 독립 오픈 유틸리티입니다.<br class="hidden sm:inline">
+                        개발자에게 따뜻한 커피 한 잔을 후원해 주시면 지속적인 기능 업데이트와 인프라 개선에 큰 힘이 됩니다!
+                    </p>
+                </div>
+                <div class="pt-2 flex justify-center items-center">
+                    <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="finalneodef" data-color="#057eff" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#ffffff" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
+                </div>
             </div>
         </div>
     </main>

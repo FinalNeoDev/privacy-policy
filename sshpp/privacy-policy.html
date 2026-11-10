@@ -70,7 +70,7 @@
                     <span data-i18n="badge_policy">Zero-Telemetry Privacy Policy</span>
                 </div>
                 <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight" data-i18n="page_title">SSH++ 개인정보처리방침</h1>
-                <p class="text-xs sm:text-sm text-slate-400 mt-2" data-i18n="effective_date">시행일자: 2026년 10월 27일 (최종 갱신일: 2026년 10월 27일)</p>
+                <p class="text-xs sm:text-sm text-slate-400 mt-2" data-i18n="effective_date">시행일자: 2026년 10월 27일 (최종 갱신일: 2026년 11월 10일)</p>
             </div>
 
             <div class="space-y-8 text-slate-300 text-sm sm:text-base">
@@ -78,11 +78,11 @@
 
                 <!-- Section 1 -->
                 <section class="space-y-3">
-                    <h2 class="text-lg sm:text-xl font-bold text-white border-l-4 border-sky-500 pl-3" data-i18n="sec1_title">1. 기본 원칙 (Zero-Telemetry & Local-First)</h2>
+                    <h2 class="text-lg sm:text-xl font-bold text-white border-l-4 border-sky-500 pl-3" data-i18n="sec1_title">1. 기본 원칙 (Local-First & On-Device Security)</h2>
                     <ul class="list-disc pl-5 space-y-2 text-slate-300">
                         <li data-i18n="sec1_li1"><strong>SSH++는 이용자의 원격 서버 접속 정보, 인증 자격증명(비밀번호/개인키), 터미널 입출력 텍스트를 개발사나 개발자가 운영하는 별도의 중앙 수집 서버로 일체 전송하거나 저장하지 않습니다.</strong></li>
                         <li data-i18n="sec1_li2">본 앱은 이용자의 스마트폰 단말기(Local Device) 내부에서만 독립적으로 동작하는 <strong>온디바이스(On-Device) 로컬 퍼스트(Local-First)</strong> 원격 인프라 관리 도구입니다.</li>
-                        <li data-i18n="sec1_li3">본 앱은 사용자의 기기 식별값(ADID/IMEI)이나 행태 패턴을 추적하는 <strong>제3자 상용 광고 SDK(AdMob 등), 사용자 행태 추적기(Tracker), 서드파티 분석 툴(Google Analytics, Firebase, Sentry 등)을 일체 탑재하지 않은 100% 무광고·무추적(Zero-Telemetry) 소프트웨어</strong>입니다.</li>
+                        <li data-i18n="sec1_li3">본 앱은 무료 서비스 운영을 위해 <strong>서버 목록 화면 하단에 한하여 Google AdMob 배너 광고</strong>를 게재합니다. 광고 SDK는 Google Play 정책에 따라 기기 광고 식별자(AD_ID)를 사용할 수 있으나, <strong>SSH 접속 정보, 개인키, 비밀번호, SFTP 파일 및 터미널 세션 데이터는 광고 SDK를 포함한 어떠한 외부 서버와도 절대 공유되지 않으며 100% 기기 내부에만 격리 보관</strong>됩니다.</li>
                     </ul>
                 </section>
 
@@ -179,9 +179,9 @@
                     <h2 class="text-lg sm:text-xl font-bold text-white border-l-4 border-sky-500 pl-3" data-i18n="sec5_title">5. 앱 접근 권한 안내</h2>
                     <p class="text-sm" data-i18n="sec5_desc">SSH++는 핵심 서비스 제공을 위해 최소한의 권한만을 요청하며, 불필요한 위치, 연락처, 마이크, 카메라 등의 권한은 일체 요구하지 않습니다.</p>
                     <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-300">
-                        <li data-i18n="sec5_li1"><strong>인터넷 통신 (<code class="bg-slate-800 text-sky-300 px-1 py-0.5 rounded">android.permission.INTERNET</code> - 필수)</strong>: 사용자가 지정한 원격 SSH 서버와의 보안 쉘 접속 및 사용자가 요청한 BYOK AI API 직접 호출을 위해 사용됩니다.</li>
+                        <li data-i18n="sec5_li1"><strong>인터넷 통신 (<code class="bg-slate-800 text-sky-300 px-1 py-0.5 rounded">android.permission.INTERNET</code> - 필수)</strong>: 사용자가 지정한 원격 SSH/SFTP 서버와의 보안 쉘 접속, BYOK AI API 직접 호출 및 서버 목록 하단 배너 광고 로드를 위해 사용됩니다.</li>
                         <li data-i18n="sec5_li2"><strong>네트워크 상태 확인 (<code class="bg-slate-800 text-sky-300 px-1 py-0.5 rounded">android.permission.ACCESS_NETWORK_STATE</code> - 필수)</strong>: 연결 전 Wi-Fi/모바일 데이터 활성화 여부를 사전에 확인하여 불필요한 소켓 오류를 방지합니다.</li>
-                        <li data-i18n="sec5_li3"><strong>광고 식별자 권한 (<code class="bg-slate-800 text-sky-300 px-1 py-0.5 rounded">com.google.android.gms.permission.AD_ID</code> - 규정 준수)</strong>: Google Play 스토어의 앱 배포 규정 및 플랫폼 호환성을 위한 선언 권한입니다. SSH++는 앱 내에 제3자 광고를 송출하지 않으며 상업적 광고 목적의 추적 및 데이터 수집을 일체 수행하지 않습니다.</li>
+                        <li data-i18n="sec5_li3"><strong>생체인증 및 광고 식별자 (<code class="bg-slate-800 text-sky-300 px-1 py-0.5 rounded">USE_BIOMETRIC</code> / <code class="bg-slate-800 text-sky-300 px-1 py-0.5 rounded">com.google.android.gms.permission.AD_ID</code>)</strong>: 생체인증 권한은 앱 잠금 해제 시 기기 로컬 인증에만 사용되며, 광고 식별자(AD_ID) 권한은 서버 목록 화면 하단의 Google AdMob 배너 광고 표출 및 Google Play 정책 준수를 위해 사용됩니다.</li>
                     </ul>
                 </section>
 
@@ -221,12 +221,12 @@
                 nav_survey: "설문 참여",
                 badge_policy: "Zero-Telemetry Privacy Policy",
                 page_title: "SSH++ 개인정보처리방침",
-                effective_date: "시행일자: 2026년 10월 27일 (최종 갱신일: 2026년 10월 27일)",
+                effective_date: "시행일자: 2026년 10월 27일 (최종 갱신일: 2026년 11월 10일)",
                 intro_desc: "FINALNEO(개발자: FinalNeoDev, 이하 \"개발사 및 개발자\")는 정보주체의 자유와 권리 보호를 위해 「개인정보 보호법」 및 관계 법령, Google Play 개발자 배포 정책 및 사용자 데이터 정책(User Data Policy)을 엄격히 준수합니다. 'SSH++ (Mobile SSH Client & AI DevOps Assistant)'(이하 \"앱\" 또는 \"서비스\") 이용자의 개인정보 및 중요 자격증명을 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 다음과 같이 개인정보처리방침을 수립·공개합니다.",
-                sec1_title: "1. 기본 원칙 (Zero-Telemetry & Local-First)",
+                sec1_title: "1. 기본 원칙 (Local-First & On-Device Security)",
                 sec1_li1: "<strong>SSH++는 이용자의 원격 서버 접속 정보, 인증 자격증명(비밀번호/개인키), 터미널 입출력 텍스트를 개발사나 개발자가 운영하는 별도의 중앙 수집 서버로 일체 전송하거나 저장하지 않습니다.</strong>",
                 sec1_li2: "본 앱은 이용자의 스마트폰 단말기(Local Device) 내부에서만 독립적으로 동작하는 <strong>온디바이스(On-Device) 로컬 퍼스트(Local-First)</strong> 원격 인프라 관리 도구입니다.",
-                sec1_li3: "본 앱은 사용자의 기기 식별값(ADID/IMEI)이나 행태 패턴을 추적하는 <strong>제3자 상용 광고 SDK(AdMob 등), 사용자 행태 추적기(Tracker), 서드파티 분석 툴(Google Analytics, Firebase, Sentry 등)을 일체 탑재하지 않은 100% 무광고·무추적(Zero-Telemetry) 소프트웨어</strong>입니다.",
+                sec1_li3: "본 앱은 무료 서비스 운영을 위해 <strong>서버 목록 화면 하단에 한하여 Google AdMob 배너 광고</strong>를 게재합니다. 광고 SDK는 Google Play 정책에 따라 기기 광고 식별자(AD_ID)를 사용할 수 있으나, <strong>SSH 접속 정보, 개인키, 비밀번호, SFTP 파일 및 터미널 세션 데이터는 광고 SDK를 포함한 어떠한 외부 서버와도 절대 공유되지 않으며 100% 기기 내부에만 격리 보관</strong>됩니다.",
                 sec2_title: "2. 처리하는 데이터 항목 및 처리 목적",
                 sec2_desc: "앱은 원격 SSH 터미널 접속 및 AI 보조 기능 제공을 위해 기기 내에서 다음과 같은 최소한의 데이터를 처리합니다.",
                 th_category: "구분",
@@ -271,9 +271,9 @@
                 sec4_li3: "<strong>앱 삭제 시 즉시 파기</strong>: 사용자가 스마트폰에서 <strong>앱을 삭제(언인스톨)</strong>하거나 안드로이드 설정에서 <strong>'데이터 삭제'</strong>를 실행하는 즉시, Android Keystore 암호화 키와 함께 기기 내 저장된 모든 데이터는 영구 파기되어 어떠한 방법으로도 복구할 수 없습니다.",
                 sec5_title: "5. 앱 접근 권한 안내",
                 sec5_desc: "SSH++는 핵심 서비스 제공을 위해 최소한의 권한만을 요청하며, 불필요한 위치, 연락처, 마이크, 카메라 등의 권한은 일체 요구하지 않습니다.",
-                sec5_li1: "<strong>인터넷 통신 (<code class=\"bg-slate-800 text-sky-300 px-1 py-0.5 rounded\">android.permission.INTERNET</code> - 필수)</strong>: 사용자가 지정한 원격 SSH 서버와의 보안 쉘 접속 및 사용자가 요청한 BYOK AI API 직접 호출을 위해 사용됩니다.",
+                sec5_li1: "<strong>인터넷 통신 (<code class=\"bg-slate-800 text-sky-300 px-1 py-0.5 rounded\">android.permission.INTERNET</code> - 필수)</strong>: 사용자가 지정한 원격 SSH/SFTP 서버와의 보안 쉘 접속, BYOK AI API 직접 호출 및 서버 목록 하단 배너 광고 로드를 위해 사용됩니다.",
                 sec5_li2: "<strong>네트워크 상태 확인 (<code class=\"bg-slate-800 text-sky-300 px-1 py-0.5 rounded\">android.permission.ACCESS_NETWORK_STATE</code> - 필수)</strong>: 연결 전 Wi-Fi/모바일 데이터 활성화 여부를 사전에 확인하여 불필요한 소켓 오류를 방지합니다.",
-                sec5_li3: "<strong>광고 식별자 권한 (<code class=\"bg-slate-800 text-sky-300 px-1 py-0.5 rounded\">com.google.android.gms.permission.AD_ID</code> - 규정 준수)</strong>: Google Play 스토어의 앱 배포 규정 및 플랫폼 호환성을 위한 선언 권한입니다. SSH++는 앱 내에 제3자 광고를 송출하지 않으며 상업적 광고 목적의 추적 및 데이터 수집을 일체 수행하지 않습니다.",
+                sec5_li3: "<strong>생체인증 및 광고 식별자 (<code class=\"bg-slate-800 text-sky-300 px-1 py-0.5 rounded\">USE_BIOMETRIC</code> / <code class=\"bg-slate-800 text-sky-300 px-1 py-0.5 rounded\">com.google.android.gms.permission.AD_ID</code>)</strong>: 생체인증 권한은 앱 잠금 해제 시 기기 로컬 인증에만 사용되며, 광고 식별자(AD_ID) 권한은 서버 목록 화면 하단의 Google AdMob 배너 광고 표출 및 Google Play 정책 준수를 위해 사용됩니다.",
                 sec6_title: "6. 개발사 및 개발자 공식 창구",
                 sec6_lbl_company: "개발사 (Company):",
                 sec6_lbl_dev: "개발자 (Developer):",
@@ -295,12 +295,12 @@
                 nav_survey: "Feedback Survey",
                 badge_policy: "Zero-Telemetry Privacy Policy",
                 page_title: "SSH++ Privacy Policy",
-                effective_date: "Effective Date: October 27, 2026 (Last Updated: October 27, 2026)",
+                effective_date: "Effective Date: October 27, 2026 (Last Updated: November 10, 2026)",
                 intro_desc: "FINALNEO (Developer: FinalNeoDev, hereinafter referred to as the \"Developer\") strictly complies with applicable data protection laws, Google Play Developer Distribution Agreements, and User Data Policies to protect users' privacy, freedom, and fundamental rights. We have established this Privacy Policy to transparently explain how user credentials and data are handled for 'SSH++ (Mobile SSH Client & AI DevOps Assistant)' (hereinafter referred to as the \"App\" or \"Service\").",
-                sec1_title: "1. Core Principles (Zero-Telemetry & Local-First)",
+                sec1_title: "1. Core Principles (Local-First & On-Device Security)",
                 sec1_li1: "<strong>SSH++ does not transmit, collect, or store users' remote server connection credentials (passwords/private keys), host information, or terminal I/O streams on any external or developer-hosted central servers.</strong>",
                 sec1_li2: "This App is a standalone <strong>On-Device, Local-First</strong> remote infrastructure management utility operating entirely within the user's mobile device.",
-                sec1_li3: "This App contains <strong>zero commercial advertising SDKs (e.g., AdMob), analytics trackers, or telemetry monitoring libraries (e.g., Google Analytics, Firebase, Sentry)</strong> that harvest advertising IDs (ADID/IMEI) or track user behaviors. It is 100% zero-telemetry and ad-free software.",
+                sec1_li3: "To support free development and maintenance, the App displays a <strong>Google AdMob banner ad solely at the bottom of the server list screen</strong>. While the AdMob SDK may use the device Advertising ID (AD_ID) in accordance with Google Play policies, <strong>all SSH connection profiles, private keys, passwords, SFTP files, and terminal session streams remain 100% isolated on-device and are never shared with any external party</strong>.",
                 sec2_title: "2. Processed Data Items and Purpose of Processing",
                 sec2_desc: "The App processes the minimum necessary data locally on-device to deliver SSH terminal connectivity and AI copilot capabilities:",
                 th_category: "Category",
@@ -345,9 +345,9 @@
                 sec4_li3: "<strong>App Uninstall & Reset</strong>: When the user <strong>uninstalls the app</strong> or executes <strong>'Clear Data'</strong> in Android System Settings, all on-device data alongside the Android Keystore encryption keys are irreversibly destroyed and cannot be recovered.",
                 sec5_title: "5. App Permissions Notice",
                 sec5_desc: "SSH++ requests only the bare minimum permissions strictly required to provide core terminal functionality, never asking for location, contacts, microphone, camera, or shared external storage.",
-                sec5_li1: "<strong>Internet Access (<code class=\"bg-slate-800 text-sky-300 px-1 py-0.5 rounded\">android.permission.INTERNET</code> - Required)</strong>: Required to establish encrypted SSH socket connections to user-specified remote servers and make direct BYOK AI API requests.",
+                sec5_li1: "<strong>Internet Access (<code class=\"bg-slate-800 text-sky-300 px-1 py-0.5 rounded\">android.permission.INTERNET</code> - Required)</strong>: Required to establish encrypted SSH/SFTP socket connections to user-specified remote servers, make direct BYOK AI API requests, and load the bottom banner ad on the server list screen.",
                 sec5_li2: "<strong>Network State Access (<code class=\"bg-slate-800 text-sky-300 px-1 py-0.5 rounded\">android.permission.ACCESS_NETWORK_STATE</code> - Required)</strong>: Used to check Wi-Fi and mobile data connectivity before attempting socket handshakes to avoid unnecessary socket errors.",
-                sec5_li3: "<strong>Advertising ID (<code class=\"bg-slate-800 text-sky-300 px-1 py-0.5 rounded\">com.google.android.gms.permission.AD_ID</code> - Policy Compliance)</strong>: Declared solely for Google Play build and distribution compatibility. SSH++ serves zero advertisements and performs zero commercial tracking or ad data harvesting.",
+                sec5_li3: "<strong>Biometric & Advertising ID (<code class=\"bg-slate-800 text-sky-300 px-1 py-0.5 rounded\">USE_BIOMETRIC</code> / <code class=\"bg-slate-800 text-sky-300 px-1 py-0.5 rounded\">com.google.android.gms.permission.AD_ID</code>)</strong>: Biometric permission is used strictly on-device for optional App Lock authentication, and the Advertising ID permission is used by Google AdMob to display the banner ad at the bottom of the server list screen in compliance with Google Play policies.",
                 sec6_title: "6. Contact Information & Official Inquiries",
                 sec6_lbl_company: "Company:",
                 sec6_lbl_dev: "Developer:",

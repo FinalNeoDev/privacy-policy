@@ -79,7 +79,7 @@
         <!-- Release Timeline -->
         <div class="space-y-8 sm:space-y-10 relative before:absolute before:inset-0 before:left-3.5 sm:before:left-5 before:w-0.5 before:bg-slate-800">
             
-            <!-- v1.0.4 (Build 17) [Latest] -->
+            <!-- v1.0.5 [Latest] -->
             <div class="relative pl-9 sm:pl-12 group">
                 <!-- Timeline Dot -->
                 <div class="absolute left-1.5 sm:left-3 top-1.5 -translate-x-1/2 w-5 h-5 rounded-full bg-sky-500 ring-4 ring-slate-950 flex items-center justify-center">
@@ -89,8 +89,56 @@
                 <div class="bg-slate-900/90 border border-sky-500/40 rounded-2xl p-6 sm:p-8 shadow-xl shadow-sky-500/5 transition-all hover:border-sky-500/60">
                     <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800/80 pb-4 mb-5">
                         <div class="flex flex-wrap items-center gap-2.5">
-                            <h2 class="text-xl sm:text-2xl font-extrabold text-white font-mono">v1.0.4</h2>
-                            <span class="px-2.5 py-0.5 rounded-md bg-sky-500/20 text-sky-300 border border-sky-500/40 text-xs font-bold" data-i18n="v104_badge">최신 릴리스 (Build 17)</span>
+                            <h2 class="text-xl sm:text-2xl font-extrabold text-white font-mono">v1.0.5</h2>
+                            <span class="px-2.5 py-0.5 rounded-md bg-sky-500/20 text-sky-300 border border-sky-500/40 text-xs font-bold" data-i18n="v105_badge">최신 릴리스</span>
+                        </div>
+                        <div class="text-xs text-slate-400 font-mono" data-i18n="v105_date">2026.11.10 • Android 16 (API 36)</div>
+                    </div>
+
+                    <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_feature">신규 기능</span>
+                            <div data-i18n="v105_item1">
+                                <strong class="text-white">다단계 Jump Host (Bastion) 터널링 & 연결 테스트:</strong> 베스천 서버를 경유하는 다중 홉 SSH 프록시 포워딩(순환 참조 방지 포함)과 호스트 저장 전 실시간 SSH 연결·인증 테스트 기능을 추가했습니다.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_sftp">SFTP</span>
+                            <div data-i18n="v105_item2">
+                                <strong class="text-white">풀 SFTP 파일 브라우저:</strong> 원격 디렉터리 탐색, 파일 업로드·다운로드, 이름 변경, 삭제, 새 폴더 생성, 폴더 내 실시간 검색·정렬(이름/크기/수정일) 및 숨김 파일(<code>.</code>) 토글을 지원합니다.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_security">보안</span>
+                            <div data-i18n="v105_item3">
+                                <strong class="text-white">생체인증 앱 잠금 & 화면 캡처 차단 (FLAG_SECURE):</strong> 지문/안면인식을 통한 앱 실행 및 백그라운드 복귀 잠금과 앱 스위처·스크린샷 노출 차단 옵션을 추가했습니다.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_stability">안정성 & UX</span>
+                            <div data-i18n="v105_item4">
+                                <strong class="text-white">터미널 UX 고도화 및 Google Play 정책 준수:</strong> 30초 주기 SSH Keep-Alive, 멀티탭 포커스·선택 영역 완벽 격리, 실시간 UTF-8 스트리밍 디코딩, 상단 액션바 슬림화 및 서버 목록 하단 배너 적용(Play 스토어 포그라운드 서비스 정책 준수 포함)을 완료했습니다.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- v1.0.4 -->
+            <div class="relative pl-9 sm:pl-12 group">
+                <!-- Timeline Dot -->
+                <div class="absolute left-1.5 sm:left-3 top-1.5 -translate-x-1/2 w-4 h-4 rounded-full bg-slate-700 ring-4 ring-slate-950 flex items-center justify-center">
+                    <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                </div>
+
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-lg hover:border-slate-700 transition-all">
+                    <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800/80 pb-4 mb-5">
+                        <div class="flex flex-wrap items-center gap-2.5">
+                            <h2 class="text-xl sm:text-2xl font-bold text-white font-mono">v1.0.4</h2>
+                            <span class="px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 border border-slate-700 text-xs font-semibold" data-i18n="v104_badge">정식 릴리스</span>
                         </div>
                         <div class="text-xs text-slate-400 font-mono" data-i18n="v104_date">2026.10.28 • Android 16 (API 36)</div>
                     </div>
@@ -127,7 +175,7 @@
                 </div>
             </div>
 
-            <!-- v1.0.3 (Build 16) -->
+            <!-- v1.0.3 -->
             <div class="relative pl-9 sm:pl-12 group">
                 <!-- Timeline Dot -->
                 <div class="absolute left-1.5 sm:left-3 top-1.5 -translate-x-1/2 w-4 h-4 rounded-full bg-slate-700 ring-4 ring-slate-950 flex items-center justify-center">
@@ -138,7 +186,6 @@
                     <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800/80 pb-4 mb-5">
                         <div class="flex flex-wrap items-center gap-2.5">
                             <h2 class="text-xl sm:text-2xl font-bold text-white font-mono">v1.0.3</h2>
-                            <span class="px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 border border-slate-700 text-xs font-semibold">Build 16</span>
                         </div>
                         <div class="text-xs text-slate-400 font-mono" data-i18n="v103_date">2026.10.28 • Target SDK 36</div>
                     </div>
@@ -154,7 +201,7 @@
                 </div>
             </div>
 
-            <!-- v1.0.2 (Build 15) -->
+            <!-- v1.0.2 -->
             <div class="relative pl-9 sm:pl-12 group">
                 <!-- Timeline Dot -->
                 <div class="absolute left-1.5 sm:left-3 top-1.5 -translate-x-1/2 w-4 h-4 rounded-full bg-slate-700 ring-4 ring-slate-950 flex items-center justify-center">
@@ -165,7 +212,6 @@
                     <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800/80 pb-4 mb-5">
                         <div class="flex flex-wrap items-center gap-2.5">
                             <h2 class="text-xl sm:text-2xl font-bold text-white font-mono">v1.0.2</h2>
-                            <span class="px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 border border-slate-700 text-xs font-semibold">Build 15</span>
                         </div>
                         <div class="text-xs text-slate-400 font-mono" data-i18n="v102_date">2026.10.27 • Google Play 규정 준수</div>
                     </div>
@@ -187,7 +233,7 @@
                 </div>
             </div>
 
-            <!-- v1.0.1 (Build 14) [Official Launch] -->
+            <!-- v1.0.1 [Official Launch] -->
             <div class="relative pl-9 sm:pl-12 group">
                 <!-- Timeline Dot -->
                 <div class="absolute left-1.5 sm:left-3 top-1.5 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-600 ring-4 ring-slate-950 flex items-center justify-center">
@@ -198,7 +244,7 @@
                     <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800/80 pb-4 mb-5">
                         <div class="flex flex-wrap items-center gap-2.5">
                             <h2 class="text-xl sm:text-2xl font-bold text-white font-mono">v1.0.1</h2>
-                            <span class="px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold" data-i18n="v101_badge">정식 상용 론칭 (Build 14)</span>
+                            <span class="px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold" data-i18n="v101_badge">정식 상용 론칭</span>
                         </div>
                         <div class="text-xs text-slate-400 font-mono" data-i18n="v101_date">2026.10.27 • Production Release</div>
                     </div>
@@ -275,16 +321,23 @@
                 page_title: "SSH++ 릴리스 노트 & 업데이트 이력",
                 page_desc: "SSH++의 버전별 새로운 기능, 보안 강화, 플랫폼 규격 준수 및 최적화 내역을 투명하게 안내해 드립니다.",
                 tag_feature: "신규 기능",
+                tag_sftp: "SFTP",
                 tag_snippets: "스니펫",
                 tag_feedback: "피드백",
-                tag_stability: "안정성",
+                tag_stability: "안정성 & UX",
                 tag_platform: "플랫폼",
                 tag_compliance: "규정 준수",
                 tag_memory: "메모리 규격",
                 tag_security: "보안",
                 tag_ai: "AI 코파일럿",
                 tag_terminal: "터미널",
-                v104_badge: "최신 릴리스 (Build 17)",
+                v105_badge: "최신 릴리스",
+                v105_date: "2026.11.10 • Android 16 (API 36)",
+                v105_item1: '<strong class="text-white">다단계 Jump Host (Bastion) 터널링 & 연결 테스트:</strong> 베스천 서버를 경유하는 다중 홉 SSH 프록시 포워딩(순환 참조 방지 포함)과 호스트 저장 전 실시간 SSH 연결·인증 테스트 기능을 추가했습니다.',
+                v105_item2: '<strong class="text-white">풀 SFTP 파일 브라우저:</strong> 원격 디렉터리 탐색, 파일 업로드·다운로드, 이름 변경, 삭제, 새 폴더 생성, 폴더 내 실시간 검색·정렬(이름/크기/수정일) 및 숨김 파일(<code>.</code>) 토글을 지원합니다.',
+                v105_item3: '<strong class="text-white">생체인증 앱 잠금 & 화면 캡처 차단 (FLAG_SECURE):</strong> 지문/안면인식을 통한 앱 실행 및 백그라운드 복귀 잠금과 앱 스위처·스크린샷 노출 차단 옵션을 추가했습니다.',
+                v105_item4: '<strong class="text-white">터미널 UX 고도화 및 Google Play 정책 준수:</strong> 30초 주기 SSH Keep-Alive, 멀티탭 포커스·선택 영역 완벽 격리, 실시간 UTF-8 스트리밍 디코딩, 상단 액션바 슬림화 및 서버 목록 하단 배너 적용(Play 스토어 포그라운드 서비스 정책 준수 포함)을 완료했습니다.',
+                v104_badge: "정식 릴리스",
                 v104_date: "2026.10.28 • Android 16 (API 36)",
                 v104_item1: '<strong class="text-white">최초 실행 시 언어 및 스니펫 초기화 모달:</strong> 앱 첫 실행 시 한국어(KO) 또는 영어(EN)를 선택할 수 있으며, 선호하는 언어의 기본 명령어 스니펫 세트를 자동으로 구성합니다.',
                 v104_item2: '<strong class="text-white">18종 필수 DevOps 스니펫 다국어화 & 재설정:</strong> 패키지 관리, 서비스(systemd), Docker, 방화벽 스니펫의 국문/영문 번역을 완성하고 앱 설정 화면에서 언제든 프리셋을 재초기화할 수 있습니다.',
@@ -295,7 +348,7 @@
                 v102_date: "2026.10.27 • Google Play 규정 준수",
                 v102_item1: '<strong class="text-white">Google Play 광고 ID(AD_ID) 및 권한 선언 완료:</strong> 플레이 콘솔 정책에 따른 데이터 안전성 및 권한 선언을 완비하였습니다.',
                 v102_item2: '<strong class="text-white">16KB 메모리 페이지 크기(16KB Page Size) 지원:</strong> AGP 8.5.2, Gradle 8.7 및 최신 NDK r30을 적용하여 16KB 정렬을 지원함으로써 차세대 고성능 기기에서의 호환성을 확보했습니다.',
-                v101_badge: "정식 상용 론칭 (Build 14)",
+                v101_badge: "정식 상용 론칭",
                 v101_date: "2026.10.27 • Production Release",
                 v101_item1: '<strong class="text-white">Zero-Telemetry & Android Keystore 하드웨어 암호화:</strong> 중앙 서버/트래커가 일체 없는 온디바이스 유틸리티로, 비밀번호 및 OpenSSH 개인키를 AES-256 GCM 하드웨어 보안 칩에만 암호화하여 저장합니다.',
                 v101_item2: '<strong class="text-white">AI 터미널 코파일럿 (BYOK) & 안전 가드레일:</strong> Gemini, GPT-4o, Claude 3.7, DeepSeek, Ollama 직접 연동 및 IP/API키 마스킹, 위험 명령어 실행 방지 가드레일을 기본 제공합니다.',
@@ -317,16 +370,23 @@
                 page_title: "SSH++ Release Notes & Changelog",
                 page_desc: "A transparent log of new features, security hardening, platform compliances, and optimizations across every SSH++ release.",
                 tag_feature: "Feature",
+                tag_sftp: "SFTP",
                 tag_snippets: "Snippets",
                 tag_feedback: "Feedback",
-                tag_stability: "Stability",
+                tag_stability: "Stability & UX",
                 tag_platform: "Platform",
                 tag_compliance: "Compliance",
                 tag_memory: "Page Size",
                 tag_security: "Security",
                 tag_ai: "AI Copilot",
                 tag_terminal: "Terminal",
-                v104_badge: "Latest Release (Build 17)",
+                v105_badge: "Latest Release",
+                v105_date: "2026.11.10 • Android 16 (API 36)",
+                v105_item1: '<strong class="text-white">Multi-Hop Jump Host (Bastion) & Connection Test:</strong> Added multi-hop SSH proxy forwarding through Bastion servers with cycle detection, plus a pre-save real-time SSH connection & authentication test button.',
+                v105_item2: '<strong class="text-white">Full SFTP File Browser:</strong> Supports remote directory navigation, file upload/download, rename, delete, mkdir, real-time in-folder search, sorting (name/size/date), and hidden files (<code>.</code>) toggle.',
+                v105_item3: '<strong class="text-white">Biometric App Lock & Screen Capture Protection (FLAG_SECURE):</strong> Added fingerprint/face authentication lock on app launch and resume, alongside optional screenshot and task-switcher preview blocking.',
+                v105_item4: '<strong class="text-white">Terminal UX & Google Play Policy Compliance:</strong> Implemented 30s SSH Keep-Alive, multi-tab focus/selection isolation, streaming UTF-8 decoding, compact AppBar menu, and bottom server-list banner ad with full Play Console FGS policy compliance.',
+                v104_badge: "Official Release",
                 v104_date: "2026.10.28 • Android 16 (API 36)",
                 v104_item1: '<strong class="text-white">Initial Language & Snippet Onboarding Modal:</strong> Prompts the user to pick English (EN) or Korean (KO) on first launch, auto-configuring localized default snippet libraries.',
                 v104_item2: '<strong class="text-white">18 Curated DevOps Snippets Localization & Reset:</strong> Completed bilingual translations across package managers, systemd, Docker, and firewalls, with one-tap preset resets in Settings.',
@@ -337,9 +397,9 @@
                 v102_date: "2026.10.27 • Google Play Compliance",
                 v102_item1: '<strong class="text-white">Advertising ID (AD_ID) & Permission Declaration:</strong> Fully satisfied Google Play policy declarations regarding privacy and runtime permissions.',
                 v102_item2: '<strong class="text-white">16 KB Memory Page Size Ready:</strong> Integrated AGP 8.5.2, Gradle 8.7, and NDK r30 to guarantee 16 KB ELF alignment for upcoming 64-bit Android platforms.',
-                v101_badge: "Commercial Launch (Build 14)",
+                v101_badge: "Commercial Launch",
                 v101_date: "2026.10.27 • Production Release",
-                v101_item1: '<strong class="text-white">Zero-Telemetry & Android Keystore Hardware Vault:</strong> Pure on-device architecture with zero tracking SDKs. Passwords and OpenSSH private keys are protected by AES-256 GCM in the hardware secure chip.',
+                v101_item1: '<strong class="text-white">Local-First & Android Keystore Hardware Vault:</strong> On-device architecture with zero central developer servers. Passwords and OpenSSH private keys are protected by AES-256 GCM in the hardware secure chip.',
                 v101_item2: '<strong class="text-white">AI Terminal Copilot (BYOK) & Safety Guardrails:</strong> Direct integration with Gemini, GPT-4o, Claude 3.7, DeepSeek, and local Ollama, with IP/key redaction and dangerous command blocks.',
                 v101_item3: '<strong class="text-white">OS-Tailored Smart Snippets:</strong> Automatically surfaces context-aware CLI shortcuts for Ubuntu, Rocky, Alpine, and Docker with dynamic <code>{{variable}}</code> parameter prompts.',
                 v101_item4: '<strong class="text-white">Desktop-Class Terminal Engine:</strong> Full xterm-256color, ANSI sequences, special key bar (^C, ^R, Esc, Tab, Pipe), and external keyboard support.',

@@ -65,7 +65,7 @@
         <div class="text-center space-y-6">
             <a href="releases.html" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/80 border border-sky-800/80 text-sky-300 text-xs font-semibold hover:border-sky-500 hover:bg-sky-900/80 transition-all group">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span data-i18n="release_badge">Official Production Release v1.0.4</span>
+                <span data-i18n="release_badge">Official Production Release v1.0.5</span>
                 <span class="text-sky-400 group-hover:translate-x-0.5 transition-transform text-[11px]">→</span>
             </a>
             
@@ -75,7 +75,7 @@
             </h1>
 
             <p class="text-slate-400 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed" data-i18n="hero_desc">
-                최신 xterm 터미널 스트리밍, AI 터미널 코파일럿 안전 가드레일, OS 맞춤 스니펫 및 Android Keystore 하드웨어 암호화 볼트를 결합한 차세대 모바일 DevOps 클라이언트입니다.
+                최신 xterm 멀티탭 터미널, 다단계 Jump Host(Bastion), 풀 SFTP 파일 탐색기, AI 코파일럿 가드레일 및 Android Keystore 하드웨어 암호화 볼트를 결합한 차세대 모바일 DevOps 클라이언트입니다.
             </p>
 
             <div class="pt-4 flex flex-wrap justify-center gap-3">
@@ -124,9 +124,9 @@
 
             <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-2.5">
                 <div class="text-2xl">🔒</div>
-                <h3 class="text-lg font-bold text-white" data-i18n="feat4_title">Zero-Telemetry 무수집 프라이버시</h3>
+                <h3 class="text-lg font-bold text-white" data-i18n="feat4_title">다단계 Jump Host & 풀 SFTP·온디바이스 격리</h3>
                 <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="feat4_desc">
-                    개발자 중앙 수집 서버, 광고 SDK, 사용자 행태 추적기가 일체 탑재되지 않은 순수 독립형 온디바이스 유틸리티입니다. 데이터는 단말기와 대상 서버 간에만 직접 오갑니다.
+                    다중 홉 Bastion 경유 접속과 풀 SFTP 탐색기(업로드·다운로드·검색·정렬), 생체인증 앱 잠금 및 화면 캡처 차단을 지원하며 모든 SSH 자격증명은 100% 기기 내부에만 안전하게 격리됩니다.
                 </p>
             </div>
         </div>
@@ -165,7 +165,7 @@
                         SSH++ 개발자 응원하기
                     </h3>
                     <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="bmc_card_desc">
-                        SSH++는 100% 무광고·무추적(Zero-Telemetry) 독립 오픈 유틸리티입니다.<br class="hidden sm:inline">
+                        SSH++는 중앙 중계 서버 없이 100% 온디바이스 다이렉트 통신으로 동작하는 독립 DevOps 유틸리티입니다.<br class="hidden sm:inline">
                         개발자에게 따뜻한 커피 한 잔을 후원해 주시면 지속적인 기능 업데이트와 인프라 개선에 큰 힘이 됩니다!
                     </p>
                 </div>
@@ -192,9 +192,9 @@
                 nav_privacy: "개인정보처리방침",
                 nav_terms: "이용약관",
                 nav_survey: "설문 참여",
-                release_badge: "Official Production Release v1.0.4",
+                release_badge: "Official Production Release v1.0.5",
                 hero_title: '모바일 원격 서버 관리의 새로운 기준<br><span class="bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">SSH++ (SSH Plus Plus)</span>',
-                hero_desc: "최신 xterm 터미널 스트리밍, AI 터미널 코파일럿 안전 가드레일, OS 맞춤 스니펫 및 Android Keystore 하드웨어 암호화 볼트를 결합한 차세대 모바일 DevOps 클라이언트입니다.",
+                hero_desc: "최신 xterm 멀티탭 터미널, 다단계 Jump Host(Bastion), 풀 SFTP 파일 탐색기, AI 코파일럿 가드레일 및 Android Keystore 하드웨어 암호화 볼트를 결합한 차세대 모바일 DevOps 클라이언트입니다.",
                 btn_survey: '<span>📝</span> 사용자 설문 / 피드백 (Survey)',
                 btn_privacy: '📜 개인정보처리방침',
                 btn_terms: '📄 서비스 이용약관',
@@ -204,13 +204,13 @@
                 feat2_desc: 'Ubuntu, Rocky, Alpine, Docker 등 접속 서버의 OS에 최적화된 명령어를 자동 추천하며, <code>{{variable}}</code> 런타임 변수 치환 팝업으로 오타 없는 원클릭 실행을 보장합니다.',
                 feat3_title: '엔터프라이즈 Keystore 보안',
                 feat3_desc: '서버 비밀번호와 OpenSSH 개인키는 Android Keystore의 AES-256 GCM 하드웨어 암호화 볼트에만 보관되며, SHA-256 호스트 키 지문 검증을 통해 중간자 공격(MITM)을 원천 차단합니다.',
-                feat4_title: 'Zero-Telemetry 무수집 프라이버시',
-                feat4_desc: '개발자 중앙 수집 서버, 광고 SDK, 사용자 행태 추적기가 일체 탑재되지 않은 순수 독립형 온디바이스 유틸리티입니다. 데이터는 단말기와 대상 서버 간에만 직접 오갑니다.',
+                feat4_title: '다단계 Jump Host & 풀 SFTP·온디바이스 격리',
+                feat4_desc: '다중 홉 Bastion 경유 접속과 풀 SFTP 탐색기(업로드·다운로드·검색·정렬), 생체인증 앱 잠금 및 화면 캡처 차단을 지원하며 모든 SSH 자격증명은 100% 기기 내부에만 안전하게 격리됩니다.',
                 survey_card_title: '사용자 피드백 & 설문 참여',
                 survey_card_desc: 'SSH++의 지속적인 발전을 위해 소중한 의견을 들려주세요.<br class="hidden sm:inline">기능 제안, 버그 리포트, 사용 경험에 관한 설문에 응해주시면 다음 업데이트에 적극 반영하겠습니다.',
                 survey_card_btn: '<span>📋</span> 구글 폼 설문 참여하기 (Google Forms) <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>',
                 bmc_card_title: 'SSH++ 개발자 응원하기',
-                bmc_card_desc: 'SSH++는 100% 무광고·무추적(Zero-Telemetry) 독립 오픈 유틸리티입니다.<br class="hidden sm:inline">개발자에게 따뜻한 커피 한 잔을 후원해 주시면 지속적인 기능 업데이트와 인프라 개선에 큰 힘이 됩니다!',
+                bmc_card_desc: 'SSH++는 중앙 중계 서버 없이 100% 온디바이스 다이렉트 통신으로 동작하는 독립 DevOps 유틸리티입니다.<br class="hidden sm:inline">개발자에게 따뜻한 커피 한 잔을 후원해 주시면 지속적인 기능 업데이트와 인프라 개선에 큰 힘이 됩니다!',
                 footer_rights: '© 2026 FinalNeo. All rights reserved.'
             },
             en: {
@@ -218,9 +218,9 @@
                 nav_privacy: "Privacy Policy",
                 nav_terms: "Terms of Service",
                 nav_survey: "Feedback Survey",
-                release_badge: "Official Production Release v1.0.4",
+                release_badge: "Official Production Release v1.0.5",
                 hero_title: 'Next-Gen Mobile Remote Server Management<br><span class="bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">SSH++ (SSH Plus Plus)</span>',
-                hero_desc: "The next-generation mobile DevOps client combining real-time xterm streaming, AI terminal copilot safety guardrails, OS-tailored smart snippets, and Android Keystore hardware-encrypted vault.",
+                hero_desc: "The next-generation mobile DevOps client combining multi-tab xterm streaming, multi-hop Jump Host (Bastion), full SFTP file explorer, AI copilot guardrails, and Android Keystore hardware-encrypted vault.",
                 btn_survey: '<span>📝</span> User Feedback & Survey',
                 btn_privacy: '📜 Privacy Policy',
                 btn_terms: '📄 Terms of Service',
@@ -230,13 +230,13 @@
                 feat2_desc: 'Automatic command recommendations optimized for Ubuntu, Rocky, Alpine, Docker, etc., with <code>{{variable}}</code> runtime replacement modals for error-free one-tap terminal execution.',
                 feat3_title: 'Enterprise Keystore Security',
                 feat3_desc: 'SSH passwords and OpenSSH private keys are strictly guarded inside Android Keystore with AES-256 GCM hardware encryption. SHA-256 fingerprint verification thwarts MITM attacks.',
-                feat4_title: 'Zero-Telemetry Strict Privacy',
-                feat4_desc: 'A pure standalone on-device utility containing zero central telemetry servers, advertising SDKs, or analytics trackers. Network packets travel only between your device and target servers.',
+                feat4_title: 'Multi-Hop Jump Host, Full SFTP & On-Device Isolation',
+                feat4_desc: 'Supports multi-hop Bastion Jump Hosts, a full SFTP file browser (upload, download, search, sort), Biometric App Lock, and screenshot protection while keeping all SSH credentials 100% isolated on-device.',
                 survey_card_title: 'User Feedback & Survey',
                 survey_card_desc: 'Help us shape the future of SSH++!<br class="hidden sm:inline">Share your ideas, feature requests, bug reports, and overall experience to help guide upcoming releases.',
                 survey_card_btn: '<span>📋</span> Open Google Forms Survey <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>',
                 bmc_card_title: 'Support the SSH++ Project',
-                bmc_card_desc: 'SSH++ is an independent, 100% zero-telemetry utility.<br class="hidden sm:inline">Buying the developer a warm cup of coffee fuels ongoing maintenance, security updates, and new features!',
+                bmc_card_desc: 'SSH++ is an independent, local-first utility with 100% direct P2P connections.<br class="hidden sm:inline">Buying the developer a warm cup of coffee fuels ongoing maintenance, security updates, and new features!',
                 footer_rights: '© 2026 FinalNeo. All rights reserved.'
             }
         };

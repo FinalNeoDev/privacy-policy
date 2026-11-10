@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko" class="dark">
+<html lang="ko" class="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SSH++ : Mobile SSH Client & AI DevOps Assistant</title>
-    <meta name="description" content="안전하고 스마트한 모바일 원격 서버 관리의 새로운 기준, SSH++ (Zero-Telemetry, AI Guardrails, Keystore Encrypted)">
+    <meta name="description" content="안전하고 스마트한 모바일 원격 서버 관리의 새로운 기준, SSH++ (Local-First, AI Guardrails, Keystore Encrypted)">
     <meta property="og:title" content="SSH++ : Mobile SSH Client & AI DevOps Assistant">
     <meta property="og:description" content="AI 터미널 가드레일, 조건부 단축 스니펫, 안드로이드 Keystore 하드웨어 암호화">
     <meta property="og:image" content="https://0bit.kr/privacy-policy/sshpp/assets/icon-512.png">
@@ -33,28 +33,28 @@
         body { font-family: 'Pretendard', sans-serif; }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-sky-500 selection:text-white">
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased selection:bg-sky-500 selection:text-white">
     <!-- Header -->
-    <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-3 font-bold text-lg text-white">
-                <img src="assets/icon-512.png" alt="SSH++ 로고" class="w-8 h-8 rounded-xl shadow-md border border-slate-700">
-                <span class="tracking-tight">SSH<span class="text-sky-400 font-extrabold">++</span></span>
+            <div class="flex items-center gap-3 font-bold text-lg text-slate-900">
+                <img src="assets/icon-512.png" alt="SSH++ 로고" class="w-8 h-8 rounded-xl shadow-sm border border-slate-200">
+                <span class="tracking-tight">SSH<span class="text-sky-600 font-extrabold">++</span></span>
             </div>
             <nav class="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm">
-                <a href="releases.html" class="text-slate-300 hover:text-white transition-colors" data-i18n="nav_releases">업데이트 이력</a>
-                <a href="privacy-policy.html" class="text-slate-300 hover:text-white transition-colors" data-i18n="nav_privacy">개인정보처리방침</a>
-                <a href="terms-of-service.html" class="text-slate-300 hover:text-white transition-colors" data-i18n="nav_terms">이용약관</a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSepCRqNQOp8WhuMItF1PqLlOghnIpRWmr4gVLXFKM66OmvuBw/viewform?usp=sharing&ouid=115111235936881352808" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 hover:text-white hover:bg-emerald-500/20 text-xs font-semibold transition-all">
+                <a href="releases.html" class="text-slate-600 hover:text-sky-600 font-medium transition-colors" data-i18n="nav_releases">업데이트 이력</a>
+                <a href="privacy-policy.html" class="text-slate-600 hover:text-sky-600 font-medium transition-colors" data-i18n="nav_privacy">개인정보처리방침</a>
+                <a href="terms-of-service.html" class="text-slate-600 hover:text-sky-600 font-medium transition-colors" data-i18n="nav_terms">이용약관</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSepCRqNQOp8WhuMItF1PqLlOghnIpRWmr4gVLXFKM66OmvuBw/viewform?usp=sharing&ouid=115111235936881352808" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 hover:text-emerald-800 hover:bg-emerald-100 text-xs font-semibold transition-all">
                     <span>📝</span> <span data-i18n="nav_survey">설문 참여</span>
                 </a>
-                <a href="https://buymeacoffee.com/finalneodef" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-500/10 border border-sky-500/30 text-sky-300 hover:text-white hover:bg-sky-500/20 text-xs font-semibold transition-all">
+                <a href="https://buymeacoffee.com/finalneodef" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-50 border border-sky-200 text-sky-700 hover:text-sky-800 hover:bg-sky-100 text-xs font-semibold transition-all">
                     <span>☕</span> Buy me a coffee
                 </a>
                 <!-- Language Toggle Pill -->
-                <div class="inline-flex items-center bg-slate-800/90 p-0.5 rounded-lg border border-slate-700/80 text-xs font-semibold ml-1">
+                <div class="inline-flex items-center bg-slate-100 p-0.5 rounded-lg border border-slate-200 text-xs font-semibold ml-1">
                     <button id="btn-lang-ko" onclick="setLanguage('ko')" class="px-2 py-0.5 rounded-md transition-all text-white bg-sky-600 shadow-sm">KO</button>
-                    <button id="btn-lang-en" onclick="setLanguage('en')" class="px-2 py-0.5 rounded-md transition-all text-slate-400 hover:text-white">EN</button>
+                    <button id="btn-lang-en" onclick="setLanguage('en')" class="px-2 py-0.5 rounded-md transition-all text-slate-500 hover:text-slate-900">EN</button>
                 </div>
             </nav>
         </div>
@@ -63,69 +63,69 @@
     <!-- Hero Section -->
     <main class="flex-grow max-w-4xl mx-auto w-full px-4 sm:px-6 py-12 sm:py-20">
         <div class="text-center space-y-6">
-            <a href="releases.html" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/80 border border-sky-800/80 text-sky-300 text-xs font-semibold hover:border-sky-500 hover:bg-sky-900/80 transition-all group">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <a href="releases.html" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-sky-700 text-xs font-semibold hover:border-sky-400 hover:bg-sky-100 transition-all group shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                 <span data-i18n="release_badge">Official Production Release v1.0.5</span>
-                <span class="text-sky-400 group-hover:translate-x-0.5 transition-transform text-[11px]">→</span>
+                <span class="text-sky-600 group-hover:translate-x-0.5 transition-transform text-[11px]">→</span>
             </a>
             
-            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight" data-i18n="hero_title">
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight" data-i18n="hero_title">
                 모바일 원격 서버 관리의 새로운 기준<br>
-                <span class="bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">SSH++ (SSH Plus Plus)</span>
+                <span class="bg-gradient-to-r from-sky-600 to-indigo-600 bg-clip-text text-transparent">SSH++ (SSH Plus Plus)</span>
             </h1>
 
-            <p class="text-slate-400 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed" data-i18n="hero_desc">
+            <p class="text-slate-600 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed" data-i18n="hero_desc">
                 최신 xterm 멀티탭 터미널, 다단계 Jump Host(Bastion), 풀 SFTP 파일 탐색기, AI 코파일럿 가드레일 및 Android Keystore 하드웨어 암호화 볼트를 결합한 차세대 모바일 DevOps 클라이언트입니다.
             </p>
 
             <div class="pt-4 flex flex-wrap justify-center gap-3">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSepCRqNQOp8WhuMItF1PqLlOghnIpRWmr4gVLXFKM66OmvuBw/viewform?usp=sharing&ouid=115111235936881352808" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-emerald-500/20 inline-flex items-center gap-2" data-i18n="btn_survey">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSepCRqNQOp8WhuMItF1PqLlOghnIpRWmr4gVLXFKM66OmvuBw/viewform?usp=sharing&ouid=115111235936881352808" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-bold text-sm transition-all shadow-md shadow-emerald-500/20 inline-flex items-center gap-2" data-i18n="btn_survey">
                     <span>📝</span> 사용자 설문 / 피드백 (Survey)
                 </a>
-                <a href="privacy-policy.html" class="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-sky-500/20" data-i18n="btn_privacy">
+                <a href="privacy-policy.html" class="px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm transition-all shadow-md shadow-sky-600/20" data-i18n="btn_privacy">
                     📜 개인정보처리방침
                 </a>
-                <a href="terms-of-service.html" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm border border-slate-700 transition-all" data-i18n="btn_terms">
+                <a href="terms-of-service.html" class="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 font-semibold text-sm border border-slate-300 shadow-sm transition-all" data-i18n="btn_terms">
                     📄 서비스 이용약관
                 </a>
             </div>
 
             <!-- Buy Me A Coffee Quick Widget in Hero -->
             <div class="pt-2 flex justify-center items-center">
-                <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="finalneodef" data-color="#057eff" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#ffffff" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
+                <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="finalneodef" data-color="#0284c7" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#ffffff" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
             </div>
         </div>
 
         <!-- 4 Key Highlights -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-16">
-            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-2.5">
+            <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-2.5">
                 <div class="text-2xl">🤖</div>
-                <h3 class="text-lg font-bold text-white" data-i18n="feat1_title">AI 터미널 코파일럿 & 가드레일</h3>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="feat1_desc">
+                <h3 class="text-lg font-bold text-slate-900" data-i18n="feat1_title">AI 터미널 코파일럿 & 가드레일</h3>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="feat1_desc">
                     Gemini, GPT-4o, Claude 3.7, DeepSeek, Grok 및 로컬 Ollama 모델을 BYOK 다이렉트 통신으로 호출하며, IPv4/API키 자동 마스킹 및 파괴적 명령어(Denylist) 차단 가드레일을 제공합니다.
                 </p>
             </div>
 
-            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-2.5">
+            <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-2.5">
                 <div class="text-2xl">⚡</div>
-                <h3 class="text-lg font-bold text-white" data-i18n="feat2_title">OS 맞춤형 스마트 스니펫</h3>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="feat2_desc">
-                    Ubuntu, Rocky, Alpine, Docker 등 접속 서버의 OS에 최적화된 명령어를 자동 추천하며, <code>{{variable}}</code> 런타임 변수 치환 팝업으로 오타 없는 원클릭 실행을 보장합니다.
+                <h3 class="text-lg font-bold text-slate-900" data-i18n="feat2_title">OS 맞춤형 스마트 스니펫</h3>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="feat2_desc">
+                    Ubuntu, Rocky, Alpine, Docker 등 접속 서버의 OS에 최적화된 명령어를 자동 추천하며, <code class="bg-slate-100 text-sky-700 px-1 py-0.5 rounded font-mono text-xs">{{variable}}</code> 런타임 변수 치환 팝업으로 오타 없는 원클릭 실행을 보장합니다.
                 </p>
             </div>
 
-            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-2.5">
+            <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-2.5">
                 <div class="text-2xl">🛡️</div>
-                <h3 class="text-lg font-bold text-white" data-i18n="feat3_title">엔터프라이즈 Keystore 보안</h3>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="feat3_desc">
+                <h3 class="text-lg font-bold text-slate-900" data-i18n="feat3_title">엔터프라이즈 Keystore 보안</h3>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="feat3_desc">
                     서버 비밀번호와 OpenSSH 개인키는 Android Keystore의 AES-256 GCM 하드웨어 암호화 볼트에만 보관되며, SHA-256 호스트 키 지문 검증을 통해 중간자 공격(MITM)을 원천 차단합니다.
                 </p>
             </div>
 
-            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-2.5">
+            <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-2.5">
                 <div class="text-2xl">🔒</div>
-                <h3 class="text-lg font-bold text-white" data-i18n="feat4_title">다단계 Jump Host & 풀 SFTP·온디바이스 격리</h3>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="feat4_desc">
+                <h3 class="text-lg font-bold text-slate-900" data-i18n="feat4_title">다단계 Jump Host & 풀 SFTP·온디바이스 격리</h3>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="feat4_desc">
                     다중 홉 Bastion 경유 접속과 풀 SFTP 탐색기(업로드·다운로드·검색·정렬), 생체인증 앱 잠금 및 화면 캡처 차단을 지원하며 모든 SSH 자격증명은 100% 기기 내부에만 안전하게 격리됩니다.
                 </p>
             </div>
@@ -134,21 +134,21 @@
         <!-- Feedback & Support Section (2-Column Grid) -->
         <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Feedback / Survey Card -->
-            <div class="p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/30 border border-emerald-800/40 text-center flex flex-col justify-between space-y-4 shadow-xl">
+            <div class="p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-white via-white to-emerald-50/70 border border-emerald-200 text-center flex flex-col justify-between space-y-4 shadow-sm">
                 <div class="space-y-3">
-                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-2xl">
+                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-100 border border-emerald-200 text-2xl">
                         📝
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight" data-i18n="survey_card_title">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight" data-i18n="survey_card_title">
                         사용자 피드백 & 설문 참여
                     </h3>
-                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="survey_card_desc">
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="survey_card_desc">
                         SSH++의 지속적인 발전을 위해 소중한 의견을 들려주세요.<br class="hidden sm:inline">
                         기능 제안, 버그 리포트, 사용 경험에 관한 설문에 응해주시면 다음 업데이트에 적극 반영하겠습니다.
                     </p>
                 </div>
                 <div class="pt-2">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSepCRqNQOp8WhuMItF1PqLlOghnIpRWmr4gVLXFKM66OmvuBw/viewform?usp=sharing&ouid=115111235936881352808" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full py-3 px-5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-emerald-500/20" data-i18n="survey_card_btn">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSepCRqNQOp8WhuMItF1PqLlOghnIpRWmr4gVLXFKM66OmvuBw/viewform?usp=sharing&ouid=115111235936881352808" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full py-3 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm transition-all shadow-md shadow-emerald-600/20" data-i18n="survey_card_btn">
                         <span>📋</span> 구글 폼 설문 참여하기 (Google Forms)
                         <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                     </a>
@@ -156,31 +156,31 @@
             </div>
 
             <!-- Support / Buy Me A Coffee Card -->
-            <div class="p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-sky-950/40 border border-sky-800/40 text-center flex flex-col justify-between space-y-4 shadow-xl">
+            <div class="p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-white via-white to-sky-50/70 border border-sky-200 text-center flex flex-col justify-between space-y-4 shadow-sm">
                 <div class="space-y-3">
-                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/30 text-2xl">
+                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-amber-100 border border-amber-200 text-2xl">
                         ☕
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight" data-i18n="bmc_card_title">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight" data-i18n="bmc_card_title">
                         SSH++ 개발자 응원하기
                     </h3>
-                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="bmc_card_desc">
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="bmc_card_desc">
                         SSH++는 중앙 중계 서버 없이 100% 온디바이스 다이렉트 통신으로 동작하는 독립 DevOps 유틸리티입니다.<br class="hidden sm:inline">
                         개발자에게 따뜻한 커피 한 잔을 후원해 주시면 지속적인 기능 업데이트와 인프라 개선에 큰 힘이 됩니다!
                     </p>
                 </div>
                 <div class="pt-2 flex justify-center items-center">
-                    <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="finalneodef" data-color="#057eff" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#ffffff" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
+                    <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="finalneodef" data-color="#0284c7" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#ffffff" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
                 </div>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800 py-8 bg-slate-900/60 text-slate-500 text-xs text-center">
+    <footer class="border-t border-slate-200 py-8 bg-white text-slate-500 text-xs text-center">
         <div class="max-w-4xl mx-auto px-4 space-y-2">
             <p data-i18n="footer_rights">© 2026 FinalNeo. All rights reserved.</p>
-            <p>Company: <strong class="text-slate-300">FinalNeo</strong> · Developer: <strong class="text-slate-300">FinalNeoDev</strong> (<a href="mailto:finalneodev@gmail.com" class="text-slate-400 hover:underline">finalneodev@gmail.com</a>)</p>
+            <p>Company: <strong class="text-slate-700">FinalNeo</strong> · Developer: <strong class="text-slate-700">FinalNeoDev</strong> (<a href="mailto:finalneodev@gmail.com" class="text-sky-600 hover:underline">finalneodev@gmail.com</a>)</p>
         </div>
     </footer>
 
@@ -193,7 +193,7 @@
                 nav_terms: "이용약관",
                 nav_survey: "설문 참여",
                 release_badge: "Official Production Release v1.0.5",
-                hero_title: '모바일 원격 서버 관리의 새로운 기준<br><span class="bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">SSH++ (SSH Plus Plus)</span>',
+                hero_title: '모바일 원격 서버 관리의 새로운 기준<br><span class="bg-gradient-to-r from-sky-600 to-indigo-600 bg-clip-text text-transparent">SSH++ (SSH Plus Plus)</span>',
                 hero_desc: "최신 xterm 멀티탭 터미널, 다단계 Jump Host(Bastion), 풀 SFTP 파일 탐색기, AI 코파일럿 가드레일 및 Android Keystore 하드웨어 암호화 볼트를 결합한 차세대 모바일 DevOps 클라이언트입니다.",
                 btn_survey: '<span>📝</span> 사용자 설문 / 피드백 (Survey)',
                 btn_privacy: '📜 개인정보처리방침',
@@ -201,7 +201,7 @@
                 feat1_title: 'AI 터미널 코파일럿 & 가드레일',
                 feat1_desc: 'Gemini, GPT-4o, Claude 3.7, DeepSeek, Grok 및 로컬 Ollama 모델을 BYOK 다이렉트 통신으로 호출하며, IPv4/API키 자동 마스킹 및 파괴적 명령어(Denylist) 차단 가드레일을 제공합니다.',
                 feat2_title: 'OS 맞춤형 스마트 스니펫',
-                feat2_desc: 'Ubuntu, Rocky, Alpine, Docker 등 접속 서버의 OS에 최적화된 명령어를 자동 추천하며, <code>{{variable}}</code> 런타임 변수 치환 팝업으로 오타 없는 원클릭 실행을 보장합니다.',
+                feat2_desc: 'Ubuntu, Rocky, Alpine, Docker 등 접속 서버의 OS에 최적화된 명령어를 자동 추천하며, <code class="bg-slate-100 text-sky-700 px-1 py-0.5 rounded font-mono text-xs">{{variable}}</code> 런타임 변수 치환 팝업으로 오타 없는 원클릭 실행을 보장합니다.',
                 feat3_title: '엔터프라이즈 Keystore 보안',
                 feat3_desc: '서버 비밀번호와 OpenSSH 개인키는 Android Keystore의 AES-256 GCM 하드웨어 암호화 볼트에만 보관되며, SHA-256 호스트 키 지문 검증을 통해 중간자 공격(MITM)을 원천 차단합니다.',
                 feat4_title: '다단계 Jump Host & 풀 SFTP·온디바이스 격리',
@@ -219,7 +219,7 @@
                 nav_terms: "Terms of Service",
                 nav_survey: "Feedback Survey",
                 release_badge: "Official Production Release v1.0.5",
-                hero_title: 'Next-Gen Mobile Remote Server Management<br><span class="bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">SSH++ (SSH Plus Plus)</span>',
+                hero_title: 'Next-Gen Mobile Remote Server Management<br><span class="bg-gradient-to-r from-sky-600 to-indigo-600 bg-clip-text text-transparent">SSH++ (SSH Plus Plus)</span>',
                 hero_desc: "The next-generation mobile DevOps client combining multi-tab xterm streaming, multi-hop Jump Host (Bastion), full SFTP file explorer, AI copilot guardrails, and Android Keystore hardware-encrypted vault.",
                 btn_survey: '<span>📝</span> User Feedback & Survey',
                 btn_privacy: '📜 Privacy Policy',
@@ -227,7 +227,7 @@
                 feat1_title: 'AI Terminal Copilot & Guardrails',
                 feat1_desc: 'Direct BYOK integration with Gemini, GPT-4o, Claude 3.7, DeepSeek, Grok, and local Ollama. Includes automatic IPv4/API-key sanitization and dangerous command (Denylist) execution protection.',
                 feat2_title: 'OS-Tailored Smart Snippets',
-                feat2_desc: 'Automatic command recommendations optimized for Ubuntu, Rocky, Alpine, Docker, etc., with <code>{{variable}}</code> runtime replacement modals for error-free one-tap terminal execution.',
+                feat2_desc: 'Automatic command recommendations optimized for Ubuntu, Rocky, Alpine, Docker, etc., with <code class="bg-slate-100 text-sky-700 px-1 py-0.5 rounded font-mono text-xs">{{variable}}</code> runtime replacement modals for error-free one-tap terminal execution.',
                 feat3_title: 'Enterprise Keystore Security',
                 feat3_desc: 'SSH passwords and OpenSSH private keys are strictly guarded inside Android Keystore with AES-256 GCM hardware encryption. SHA-256 fingerprint verification thwarts MITM attacks.',
                 feat4_title: 'Multi-Hop Jump Host, Full SFTP & On-Device Isolation',
@@ -244,7 +244,6 @@
         function detectInitialLanguage() {
             const saved = localStorage.getItem('site_lang');
             if (saved === 'ko' || saved === 'en') return saved;
-            // Check browser locale list
             const langs = navigator.languages || [navigator.language || 'en'];
             const isKorean = langs.some(l => l && l.toLowerCase().startsWith('ko'));
             return isKorean ? 'ko' : 'en';
@@ -264,15 +263,14 @@
             if (btnKo && btnEn) {
                 if (lang === 'ko') {
                     btnKo.className = 'px-2 py-0.5 rounded-md transition-all text-white bg-sky-600 shadow-sm';
-                    btnEn.className = 'px-2 py-0.5 rounded-md transition-all text-slate-400 hover:text-white';
+                    btnEn.className = 'px-2 py-0.5 rounded-md transition-all text-slate-500 hover:text-slate-900';
                 } else {
                     btnEn.className = 'px-2 py-0.5 rounded-md transition-all text-white bg-sky-600 shadow-sm';
-                    btnKo.className = 'px-2 py-0.5 rounded-md transition-all text-slate-400 hover:text-white';
+                    btnKo.className = 'px-2 py-0.5 rounded-md transition-all text-slate-500 hover:text-slate-900';
                 }
             }
         }
 
-        // Initialize on page load
         document.addEventListener('DOMContentLoaded', () => {
             const initialLang = detectInitialLanguage();
             setLanguage(initialLang);

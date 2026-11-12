@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ko" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>밑줄 (Mitjul) 개인정보처리방침 (Privacy Policy)</title>
+    <meta name="description" content="다국어 웹 리더 및 AI 단어 학습 애플리케이션 밑줄(Mitjul) 개인정보처리방침 (Local-First, Google API Limited Use 준수)">
+    <meta property="og:title" content="밑줄 (Mitjul) 개인정보처리방침">
+    <meta property="og:description" content="밑줄(Mitjul)은 로컬 우선(Local-First) 아키텍처를 원칙으로 하며, 검색 원문 서버 미저장 및 구글 드라이브 제한적 사용 정책을 엄격히 준수합니다.">
+    <meta property="og:image" content="https://0bit.kr/privacy-policy/Mitjul/assets/icon-512.svg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://0bit.kr/privacy-policy/Mitjul/assets/icon-512.svg">
+    
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/svg+xml" href="assets/icon-512.svg">
+    
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 font-bold text-lg text-slate-900 group">
+                <img src="assets/icon-512.svg" alt="밑줄 로고" class="w-8 h-8 rounded-xl shadow-sm border border-slate-200 group-hover:scale-105 transition-transform">
+                <span class="tracking-tight">밑줄 <span class="text-indigo-600 font-extrabold">(Mitjul)</span></span>
+            </a>
+            <nav class="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm">
+                <a href="index.html" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors" data-i18n="nav_home">소개</a>
+                <a href="privacy-policy.html" class="text-indigo-600 font-bold border-b-2 border-indigo-600 pb-0.5" data-i18n="nav_privacy">개인정보처리방침</a>
+                <a href="terms-of-service.html" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors" data-i18n="nav_terms">이용약관</a>
+                <a href="https://buymeacoffee.com/finalneodef" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 border border-indigo-200 text-indigo-700 hover:text-indigo-800 hover:bg-indigo-100 text-xs font-semibold transition-all">
+                    <span>☕</span> Buy me a coffee
+                </a>
+                <!-- Language Toggle Pill -->
+                <div class="inline-flex items-center bg-slate-100 p-0.5 rounded-lg border border-slate-200 text-xs font-semibold ml-1">
+                    <button id="btn-lang-ko" onclick="setLanguage('ko')" class="px-2 py-0.5 rounded-md transition-all text-white bg-indigo-600 shadow-sm">KO</button>
+                    <button id="btn-lang-en" onclick="setLanguage('en')" class="px-2 py-0.5 rounded-md transition-all text-slate-500 hover:text-slate-900">EN</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl mx-auto w-full px-4 sm:px-6 py-10 sm:py-14">
+        <article class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-10 shadow-sm leading-relaxed">
+            <div class="border-b border-slate-200 pb-6 mb-8">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-bold mb-3">
+                    <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+                    <span data-i18n="badge_policy">Local-First Privacy Policy</span>
+                </div>
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" data-i18n="page_title">밑줄 (Mitjul) 개인정보처리방침</h1>
+                <p class="text-xs sm:text-sm text-slate-500 mt-2" data-i18n="effective_date">시행일자: 2026년 11월 11일</p>
+            </div>
+
+            <div class="space-y-8 text-slate-700 text-sm sm:text-base">
+                <p data-i18n="intro_desc">
+                    <strong>FinalNeo</strong>(개발자: <strong>FinalNeoDev</strong>, 이하 "회사" 또는 "개발자")는 「개인정보 보호법」 등 대한민국 법령과 Google Play 개발자 배포 정책 및 Google API 서비스 사용자 데이터 정책(Google API Services User Data Policy)을 엄격히 준수하며, 이용자의 개인정보와 권익을 보호하기 위해 다음과 같이 개인정보처리방침을 수립·공개합니다. 본 방침은 개발자가 제공하는 다국어 웹 리더 및 AI 단어 학습 애플리케이션 <strong>'밑줄'(영문명: Mitjul, 패키지명: com.finalneodev.mitjul, 이하 "앱" 또는 "서비스")</strong>에 적용됩니다.
+                </p>
+
+                <!-- Section 1 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3" data-i18n="sec1_title">제1조 (수집 및 처리하는 개인정보의 항목 및 처리 목적)</h2>
+                    <p data-i18n="sec1_lead">앱은 원칙적으로 이용자의 학습 데이터를 이용자 기기 내부(Local DB)에 저장하는 <strong>'로컬 우선(Local-First)'</strong> 방식으로 구동되며, 서비스 제공에 필요한 최소한의 정보만을 처리합니다.</p>
+
+                    <div class="overflow-x-auto mt-4">
+                        <table class="w-full text-left text-xs sm:text-sm border border-slate-200 rounded-lg overflow-hidden">
+                            <thead class="bg-slate-100 text-slate-800">
+                                <tr>
+                                    <th class="p-3 border-b border-slate-200" data-i18n="th_category">구분</th>
+                                    <th class="p-3 border-b border-slate-200" data-i18n="th_items">처리 항목</th>
+                                    <th class="p-3 border-b border-slate-200" data-i18n="th_purpose">처리 목적</th>
+                                    <th class="p-3 border-b border-slate-200" data-i18n="th_storage">저장 및 보호 방식</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200">
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="p-3 font-semibold text-slate-900" data-i18n="row1_cat">1. AI 문맥 번역 및 사용량 관리</td>
+                                    <td class="p-3" data-i18n="row1_items">이용자가 브라우저에서 드래그(선택)한 단어/문장 텍스트, 언어 설정 코드, 일일 번역 요청 횟수(카운트)</td>
+                                    <td class="p-3" data-i18n="row1_purpose">AI 기반 문맥 맞춤형 번역 결과 생성, 품사/원형 분석 제공 및 요금제별 일일 쿼터 확인</td>
+                                    <td class="p-3 text-slate-600" data-i18n="row1_storage">
+                                        <strong class="text-slate-900">검색어 원문 서버 미저장 (Zero-Retention)</strong>: 번역 응답 생성 즉시 메모리 폐기. 서버에는 단순 요청 횟수(카운트)만 일일 기록.
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="p-3 font-semibold text-slate-900" data-i18n="row2_cat">2. Google Drive 백업 및 동기화 (선택)</td>
+                                    <td class="p-3" data-i18n="row2_items">Google 계정 식별자(이메일 또는 고유 ID), Google Drive 내 앱 전용 백업 데이터 (단어장, SRS 복습 기록, 설정값)</td>
+                                    <td class="p-3" data-i18n="row2_purpose">기기 변경·재설치 시 단어장 및 망각곡선 학습 데이터 복원 및 기기 간 동기화</td>
+                                    <td class="p-3 text-slate-600" data-i18n="row2_storage">
+                                        <strong class="text-slate-900">Google API Limited Use 엄격 준수</strong>: 이용자 본인의 Google Drive 내 앱 전용 폴더에만 백업되며 개발자 중앙 서버로 전송되지 않음.
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="p-3 font-semibold text-slate-900" data-i18n="row3_cat">3. Google Play 인앱 결제 및 정기 구독</td>
+                                    <td class="p-3" data-i18n="row3_items">Google Play 결제 구매 토큰(Purchase Token), 주문 번호, 구독 상품 ID 및 만료 여부</td>
+                                    <td class="p-3" data-i18n="row3_purpose">유료 정기 구독권(Mitjul Pro) 구매 확인, 프리미엄 혜택 활성화, 구독 갱신 및 환불 상태 검증</td>
+                                    <td class="p-3 text-slate-600" data-i18n="row3_storage">
+                                        모든 결제는 Google Play 결제 시스템(Google Play Billing)을 통해 처리되며, 개발자는 <strong class="text-slate-900">신용카드 번호나 금융 정보를 일절 수집하지 않습니다.</strong>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="p-3 font-semibold text-slate-900" data-i18n="row4_cat">4. 기기 내 로컬 저장 데이터 (온디바이스)</td>
+                                    <td class="p-3" data-i18n="row4_items">저장 단어장, 예문, 망각곡선(SRS) 복습 기록, 마지막 방문 웹페이지 주소(URL), 주 언어 설정값</td>
+                                    <td class="p-3" data-i18n="row4_purpose">오프라인 단어 학습 제공, 일일 간격 복습 큐 계산, 독해 이어보기 기능 제공</td>
+                                    <td class="p-3 text-slate-600" data-i18n="row4_storage">
+                                        스마트폰 단말기 내부 저장소(SQLite/SharedPreferences)에만 저장되며, 이용자가 직접 동기화를 수행하지 않는 한 <strong class="text-slate-900">외부 서버로 절대 전송되지 않습니다.</strong>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Google API Limited Use Highlight Callout -->
+                    <div class="mt-4 p-4 rounded-xl bg-indigo-50/60 border border-indigo-200 text-xs sm:text-sm text-indigo-950 space-y-2">
+                        <div class="font-bold flex items-center gap-2">
+                            <span>📌</span> <span data-i18n="callout_drive_title">Google API 제한적 사용(Limited Use) 요건 준수 공지</span>
+                        </div>
+                        <p data-i18n="callout_drive_desc">
+                            앱이 Google API로부터 수신한 정보의 사용 및 타 앱으로의 전송은 '제한적 사용(Limited Use)' 요건을 포함한 <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer" class="underline font-semibold text-indigo-700 hover:text-indigo-900">Google API 서비스 사용자 데이터 정책</a>을 엄격히 준수합니다. 앱은 이용자의 개인 Google Drive 내 앱 전용 공간(또는 백업 파일)에만 접근하며, 이용자의 다른 일반 문서나 파일에는 일절 접근하지 않습니다.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Section 2 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3" data-i18n="sec2_title">제2조 (필요한 앱 권한 안내)</h2>
+                    <p data-i18n="sec2_lead">앱은 서비스 제공을 위해 다음의 최소 권한만을 요청합니다.</p>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-700">
+                        <li data-i18n="sec2_li1"><strong class="text-slate-900">인터넷 접속 (<code class="bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono">INTERNET</code> / <code class="bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono">ACCESS_NETWORK_STATE</code>)</strong>: 인앱 웹 브라우저를 통한 웹페이지 열람, AI 번역 요청, Google Drive 동기화 및 결제 라이선스 상태 확인에 사용됩니다.</li>
+                        <li data-i18n="sec2_li2"><strong class="text-slate-900">인앱 결제 (<code class="bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono">com.android.vending.BILLING</code>)</strong>: Google Play 정기 구독 상품(Mitjul Pro) 결제 및 구독 유효성 확인에 사용됩니다.</li>
+                        <li data-i18n="sec2_li3"><strong class="text-slate-900">음성 합성 서비스 (<code class="bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono">TTS_SERVICE</code>)</strong>: 안드로이드 기본 TTS 엔진을 활용하여 외국어 단어 및 예문 발음을 재생하는 데 사용됩니다.</li>
+                    </ul>
+                </section>
+
+                <!-- Section 3 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3" data-i18n="sec3_title">제3조 (개인정보의 보유 및 이용기간)</h2>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-700">
+                        <li data-i18n="sec3_li1"><strong class="text-slate-900">기기 내부 데이터</strong>: 이용자가 앱을 삭제하거나 앱 설정에서 데이터 초기화를 실행할 때까지 기기 내에 보관되며, 앱 삭제 시 즉시 파기됩니다.</li>
+                        <li data-i18n="sec3_li2"><strong class="text-slate-900">Google Drive 동기화 데이터</strong>: 이용자가 본인의 Google Drive에 백업한 데이터는 이용자 본인의 구글 계정에 보관되며, 앱 내 백업 삭제 기능을 실행하거나 Google Drive 설정에서 앱 연결 및 백업 파일을 직접 삭제할 때까지 유지됩니다.</li>
+                        <li data-i18n="sec3_li3"><strong class="text-slate-900">결제 및 사용량 카운트 정보</strong>: 유료 구독 유지 기간 및 관련 법령(「전자상거래 등에서의 소비자보호에 관한 법률」 등)에서 정한 보존 의무 기간 동안 보관 후 안전하게 파기합니다.</li>
+                    </ul>
+                </section>
+
+                <!-- Section 4 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3" data-i18n="sec4_title">제4조 (개인정보의 제3자 제공 및 처리위탁)</h2>
+                    <p data-i18n="sec4_lead">개발자는 이용자의 개인정보를 제3자에게 판매하거나 임의로 제공하지 않습니다. 다만, 핵심 기능 구동을 위해 아래와 같이 글로벌 플랫폼 및 AI API를 이용합니다.</p>
+                    
+                    <div class="overflow-x-auto mt-2">
+                        <table class="w-full text-left text-xs sm:text-sm border border-slate-200 rounded-lg">
+                            <thead class="bg-slate-100 text-slate-800">
+                                <tr>
+                                    <th class="p-3 border-b border-slate-200" data-i18n="th_partner">제공 및 수탁자</th>
+                                    <th class="p-3 border-b border-slate-200" data-i18n="th_partner_purpose">위탁 목적</th>
+                                    <th class="p-3 border-b border-slate-200" data-i18n="th_partner_items">위탁 항목</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200">
+                                <tr>
+                                    <td class="p-3 font-semibold text-slate-900" data-i18n="partner1_name">Google LLC</td>
+                                    <td class="p-3" data-i18n="partner1_purpose">Google Play 인앱 정기 결제 처리 및 이용자 주도형 Google Drive 클라우드 백업·동기화</td>
+                                    <td class="p-3" data-i18n="partner1_items">Google 계정 식별자, 결제 구매 토큰, 주문 번호, 앱 전용 백업 파일</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold text-slate-900" data-i18n="partner2_name">AI 번역 API 제공사</td>
+                                    <td class="p-3" data-i18n="partner2_purpose">이용자가 선택한 단어 및 문맥의 실시간 다국어 번역 결과 생성</td>
+                                    <td class="p-3" data-i18n="partner2_items">선택한 문장 텍스트, 언어 코드 (개인 식별 정보 일체 미포함)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Section 5 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3" data-i18n="sec5_title">제5조 (이용자의 권리와 데이터 삭제 방법)</h2>
+                    <p data-i18n="sec5_lead">이용자는 언제든지 자신의 데이터에 대해 열람, 수정, 삭제 및 처리 정지를 요청할 수 있습니다.</p>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-700">
+                        <li data-i18n="sec5_li1"><strong class="text-slate-900">기기 내 데이터 삭제</strong>: 스마트폰 [설정 > 애플리케이션 > 밑줄 (Mitjul) > 저장공간 > 데이터 삭제] 또는 앱 삭제(언인스톨)를 통해 기기 내 모든 단어장과 기록을 즉시 완전 삭제할 수 있습니다.</li>
+                        <li data-i18n="sec5_li2"><strong class="text-slate-900">Google Drive 연동 해제 및 백업 삭제</strong>:
+                            <br>- 앱 내 [설정/대시보드] 메뉴에서 동기화 해제 및 백업 데이터 삭제를 실행할 수 있습니다.
+                            <br>- 또는 Google 계정 관리 페이지(<a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline">myaccount.google.com/permissions</a>)에서 '밑줄(Mitjul)'의 액세스 권한을 직접 해제하고 Google Drive 내 앱 데이터를 삭제할 수 있습니다.
+                        </li>
+                        <li data-i18n="sec5_li3"><strong class="text-slate-900">이메일을 통한 삭제 요청</strong>: 아래 개인정보 보호책임자 이메일(<a href="mailto:finalneodev@gmail.com" class="text-indigo-600 hover:underline">finalneodev@gmail.com</a>)로 데이터 삭제를 요청하시면 지체 없이 처리해 드립니다.</li>
+                    </ul>
+                </section>
+
+                <!-- Section 6 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3" data-i18n="sec6_title">제6조 (개인정보의 안전성 확보 조치)</h2>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-700">
+                        <li data-i18n="sec6_li1">모든 네트워크 통신(AI 번역 요청, Google Drive 동기화, 결제 검증)은 <strong class="text-slate-900">SSL/TLS(HTTPS) 암호화 채널</strong>을 통해 안전하게 전송됩니다.</li>
+                        <li data-i18n="sec6_li2">검색어 원문을 서버에 누적 저장하지 않고 사용량 확인을 위한 단순 카운트만 처리하여 <strong class="text-slate-900">프라이버시 침해 위험을 원천적으로 최소화</strong>합니다.</li>
+                        <li data-i18n="sec6_li3">구글 드라이브 동기화는 Google OAuth 2.0 표준 인가 프로토콜을 사용하므로, 이용자의 구글 계정 비밀번호는 앱이나 개발자 서버에 절대 노출되지 않습니다.</li>
+                    </ul>
+                </section>
+
+                <!-- Section 7 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3" data-i18n="sec7_title">제7조 (개인정보 보호책임자 및 문의처)</h2>
+                    <p data-i18n="sec7_desc">서비스 이용 중 개인정보 보호와 관련한 문의, 불만 처리, 데이터 삭제 요청은 아래 연락처로 문의해 주시기 바랍니다.</p>
+                    <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl space-y-1 text-xs sm:text-sm">
+                        <div><strong data-i18n="sec7_lbl_company">사업자 (Company):</strong> FinalNeo</div>
+                        <div><strong data-i18n="sec7_lbl_dev">개발자 / 개인정보 보호책임자:</strong> FinalNeoDev</div>
+                        <div><strong data-i18n="sec7_lbl_email">문의 이메일:</strong> <a href="mailto:finalneodev@gmail.com" class="text-indigo-600 font-mono hover:underline">finalneodev@gmail.com</a></div>
+                        <div><strong data-i18n="sec7_lbl_web">공식 웹사이트:</strong> <a href="https://0bit.kr/privacy-policy/Mitjul/" class="text-indigo-600 hover:underline font-mono">https://0bit.kr/privacy-policy/Mitjul/</a></div>
+                        <div><strong data-i18n="sec7_lbl_git">공식 GitHub:</strong> <a href="https://github.com/FinalNeoDev" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline font-mono">https://github.com/FinalNeoDev</a></div>
+                    </div>
+                </section>
+
+                <!-- Section 8 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 border-l-4 border-indigo-600 pl-3" data-i18n="sec8_title">제8조 (개인정보처리방침의 변경)</h2>
+                    <p data-i18n="sec8_desc">본 개인정보처리방침은 법령, 정책 또는 서비스 기능의 변경에 따라 수정될 수 있으며, 변경 시 앱 내 공지사항 또는 본 웹페이지를 통해 사전 안내합니다.</p>
+                    <ul class="list-disc pl-5 space-y-1 text-xs text-slate-500">
+                        <li data-i18n="sec8_notice">공고일자: 2026년 11월 11일</li>
+                        <li data-i18n="sec8_effective">시행일자: 2026년 11월 11일</li>
+                    </ul>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-10 mt-auto text-xs text-slate-500">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-4">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div class="space-y-1">
+                    <div class="font-bold text-slate-800 text-sm flex items-center gap-2">
+                        <img src="assets/icon-512.svg" alt="밑줄 아이콘" class="w-5 h-5 rounded-md">
+                        <span>밑줄 (Mitjul)</span>
+                        <span class="text-slate-400 font-normal">| 개인정보처리방침</span>
+                    </div>
+                    <div>
+                        <span data-i18n="footer_company">사업자 (Company)</span>: <strong class="text-slate-700">FinalNeo</strong> &nbsp;|&nbsp; 
+                        <span data-i18n="footer_dev">개발자 (Developer)</span>: <span class="text-slate-700">FinalNeoDev</span>
+                    </div>
+                    <div>
+                        패키지명: <code class="bg-slate-100 text-slate-700 px-1 py-0.5 rounded font-mono text-[11px]">com.finalneodev.mitjul</code> &nbsp;|&nbsp;
+                        문의: <a href="mailto:finalneodev@gmail.com" class="text-indigo-600 hover:underline">finalneodev@gmail.com</a>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <a href="index.html" class="hover:text-indigo-600 transition-colors" data-i18n="nav_home">소개</a>
+                    <a href="terms-of-service.html" class="hover:text-indigo-600 transition-colors" data-i18n="nav_terms">이용약관</a>
+                    <a href="https://github.com/FinalNeoDev" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition-colors">GitHub</a>
+                </div>
+            </div>
+            <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-2 text-slate-400 text-[11px]">
+                <p data-i18n="footer_rights">&copy; 2026 FinalNeo. All rights reserved.</p>
+                <p>Protected by Local-First Security &amp; Google API User Data Policies.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Multilingual Script -->
+    <script>
+        const translations = {
+            ko: {
+                nav_home: "소개",
+                nav_privacy: "개인정보처리방침",
+                nav_terms: "이용약관",
+                badge_policy: "Local-First Privacy Policy",
+                page_title: "밑줄 (Mitjul) 개인정보처리방침",
+                effective_date: "시행일자: 2026년 11월 11일",
+                intro_desc: "<strong>FinalNeo</strong>(개발자: <strong>FinalNeoDev</strong>, 이하 \"회사\" 또는 \"개발자\")는 「개인정보 보호법」 등 대한민국 법령과 Google Play 개발자 배포 정책 및 Google API 서비스 사용자 데이터 정책(Google API Services User Data Policy)을 엄격히 준수하며, 이용자의 개인정보와 권익을 보호하기 위해 다음과 같이 개인정보처리방침을 수립·공개합니다. 본 방침은 개발자가 제공하는 다국어 웹 리더 및 AI 단어 학습 애플리케이션 <strong>'밑줄'(영문명: Mitjul, 패키지명: com.finalneodev.mitjul, 이하 \"앱\" 또는 \"서비스\")</strong>에 적용됩니다.",
+                sec1_title: "제1조 (수집 및 처리하는 개인정보의 항목 및 처리 목적)",
+                sec1_lead: "앱은 원칙적으로 이용자의 학습 데이터를 이용자 기기 내부(Local DB)에 저장하는 <strong>'로컬 우선(Local-First)'</strong> 방식으로 구동되며, 서비스 제공에 필요한 최소한의 정보만을 처리합니다.",
+                th_category: "구분",
+                th_items: "처리 항목",
+                th_purpose: "처리 목적",
+                th_storage: "저장 및 보호 방식",
+                row1_cat: "1. AI 문맥 번역 및 사용량 관리",
+                row1_items: "이용자가 브라우저에서 드래그(선택)한 단어/문장 텍스트, 언어 설정 코드, 일일 번역 요청 횟수(카운트)",
+                row1_purpose: "AI 기반 문맥 맞춤형 번역 결과 생성, 품사/원형 분석 제공 및 요금제별 일일 쿼터 확인",
+                row1_storage: "<strong class=\"text-slate-900\">검색어 원문 서버 미저장 (Zero-Retention)</strong>: 번역 응답 생성 즉시 메모리 폐기. 서버에는 단순 요청 횟수(카운트)만 일일 기록.",
+                row2_cat: "2. Google Drive 백업 및 동기화 (선택)",
+                row2_items: "Google 계정 식별자(이메일 또는 고유 ID), Google Drive 내 앱 전용 백업 데이터 (단어장, SRS 복습 기록, 설정값)",
+                row2_purpose: "기기 변경·재설치 시 단어장 및 망각곡선 학습 데이터 복원 및 기기 간 동기화",
+                row2_storage: "<strong class=\"text-slate-900\">Google API Limited Use 엄격 준수</strong>: 이용자 본인의 Google Drive 내 앱 전용 폴더에만 백업되며 개발자 중앙 서버로 전송되지 않음.",
+                row3_cat: "3. Google Play 인앱 결제 및 정기 구독",
+                row3_items: "Google Play 결제 구매 토큰(Purchase Token), 주문 번호, 구독 상품 ID 및 만료 여부",
+                row3_purpose: "유료 정기 구독권(Mitjul Pro) 구매 확인, 프리미엄 혜택 활성화, 구독 갱신 및 환불 상태 검증",
+                row3_storage: "모든 결제는 Google Play 결제 시스템(Google Play Billing)을 통해 처리되며, 개발자는 <strong class=\"text-slate-900\">신용카드 번호나 금융 정보를 일절 수집하지 않습니다.</strong>",
+                row4_cat: "4. 기기 내 로컬 저장 데이터 (온디바이스)",
+                row4_items: "저장 단어장, 예문, 망각곡선(SRS) 복습 기록, 마지막 방문 웹페이지 주소(URL), 주 언어 설정값",
+                row4_purpose: "오프라인 단어 학습 제공, 일일 간격 복습 큐 계산, 독해 이어보기 기능 제공",
+                row4_storage: "스마트폰 단말기 내부 저장소(SQLite/SharedPreferences)에만 저장되며, 이용자가 직접 동기화를 수행하지 않는 한 <strong class=\"text-slate-900\">외부 서버로 절대 전송되지 않습니다.</strong>",
+                callout_drive_title: "Google API 제한적 사용(Limited Use) 요건 준수 공지",
+                callout_drive_desc: "앱이 Google API로부터 수신한 정보의 사용 및 타 앱으로의 전송은 '제한적 사용(Limited Use)' 요건을 포함한 <a href=\"https://developers.google.com/terms/api-services-user-data-policy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline font-semibold text-indigo-700 hover:text-indigo-900\">Google API 서비스 사용자 데이터 정책</a>을 엄격히 준수합니다. 앱은 이용자의 개인 Google Drive 내 앱 전용 공간(또는 백업 파일)에만 접근하며, 이용자의 다른 일반 문서나 파일에는 일절 접근하지 않습니다.",
+                sec2_title: "제2조 (필요한 앱 권한 안내)",
+                sec2_lead: "앱은 서비스 제공을 위해 다음의 최소 권한만을 요청합니다.",
+                sec2_li1: "<strong class=\"text-slate-900\">인터넷 접속 (<code class=\"bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono\">INTERNET</code> / <code class=\"bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono\">ACCESS_NETWORK_STATE</code>)</strong>: 인앱 웹 브라우저를 통한 웹페이지 열람, AI 번역 요청, Google Drive 동기화 및 결제 라이선스 상태 확인에 사용됩니다.",
+                sec2_li2: "<strong class=\"text-slate-900\">인앱 결제 (<code class=\"bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono\">com.android.vending.BILLING</code>)</strong>: Google Play 정기 구독 상품(Mitjul Pro) 결제 및 구독 유효성 확인에 사용됩니다.",
+                sec2_li3: "<strong class=\"text-slate-900\">음성 합성 서비스 (<code class=\"bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono\">TTS_SERVICE</code>)</strong>: 안드로이드 기본 TTS 엔진을 활용하여 외국어 단어 및 예문 발음을 재생하는 데 사용됩니다.",
+                sec3_title: "제3조 (개인정보의 보유 및 이용기간)",
+                sec3_li1: "<strong class=\"text-slate-900\">기기 내부 데이터</strong>: 이용자가 앱을 삭제하거나 앱 설정에서 데이터 초기화를 실행할 때까지 기기 내에 보관되며, 앱 삭제 시 즉시 파기됩니다.",
+                sec3_li2: "<strong class=\"text-slate-900\">Google Drive 동기화 데이터</strong>: 이용자가 본인의 Google Drive에 백업한 데이터는 이용자 본인의 구글 계정에 보관되며, 앱 내 백업 삭제 기능을 실행하거나 Google Drive 설정에서 앱 연결 및 백업 파일을 직접 삭제할 때까지 유지됩니다.",
+                sec3_li3: "<strong class=\"text-slate-900\">결제 및 사용량 카운트 정보</strong>: 유료 구독 유지 기간 및 관련 법령(「전자상거래 등에서의 소비자보호에 관한 법률」 등)에서 정한 보존 의무 기간 동안 보관 후 안전하게 파기합니다.",
+                sec4_title: "제4조 (개인정보의 제3자 제공 및 처리위탁)",
+                sec4_lead: "개발자는 이용자의 개인정보를 제3자에게 판매하거나 임의로 제공하지 않습니다. 다만, 핵심 기능 구동을 위해 아래와 같이 글로벌 플랫폼 및 AI API를 이용합니다.",
+                th_partner: "제공 및 수탁자",
+                th_partner_purpose: "위탁 목적",
+                th_partner_items: "위탁 항목",
+                partner1_name: "Google LLC",
+                partner1_purpose: "Google Play 인앱 정기 결제 처리 및 이용자 주도형 Google Drive 클라우드 백업·동기화",
+                partner1_items: "Google 계정 식별자, 결제 구매 토큰, 주문 번호, 앱 전용 백업 파일",
+                partner2_name: "AI 번역 API 제공사",
+                partner2_purpose: "이용자가 선택한 단어 및 문맥의 실시간 다국어 번역 결과 생성",
+                partner2_items: "선택한 문장 텍스트, 언어 코드 (개인 식별 정보 일체 미포함)",
+                sec5_title: "제5조 (이용자의 권리와 데이터 삭제 방법)",
+                sec5_lead: "이용자는 언제든지 자신의 데이터에 대해 열람, 수정, 삭제 및 처리 정지를 요청할 수 있습니다.",
+                sec5_li1: "<strong class=\"text-slate-900\">기기 내 데이터 삭제</strong>: 스마트폰 [설정 > 애플리케이션 > 밑줄 (Mitjul) > 저장공간 > 데이터 삭제] 또는 앱 삭제(언인스톨)를 통해 기기 내 모든 단어장과 기록을 즉시 완전 삭제할 수 있습니다.",
+                sec5_li2: "<strong class=\"text-slate-900\">Google Drive 연동 해제 및 백업 삭제</strong>:<br>- 앱 내 [설정/대시보드] 메뉴에서 동기화 해제 및 백업 데이터 삭제를 실행할 수 있습니다.<br>- 또는 Google 계정 관리 페이지(<a href=\"https://myaccount.google.com/permissions\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-indigo-600 hover:underline\">myaccount.google.com/permissions</a>)에서 '밑줄(Mitjul)'의 액세스 권한을 직접 해제하고 Google Drive 내 앱 데이터를 삭제할 수 있습니다.",
+                sec5_li3: "<strong class=\"text-slate-900\">이메일을 통한 삭제 요청</strong>: 아래 개인정보 보호책임자 이메일(<a href=\"mailto:finalneodev@gmail.com\" class=\"text-indigo-600 hover:underline\">finalneodev@gmail.com</a>)로 데이터 삭제를 요청하시면 지체 없이 처리해 드립니다.",
+                sec6_title: "제6조 (개인정보의 안전성 확보 조치)",
+                sec6_li1: "모든 네트워크 통신(AI 번역 요청, Google Drive 동기화, 결제 검증)은 <strong class=\"text-slate-900\">SSL/TLS(HTTPS) 암호화 채널</strong>을 통해 안전하게 전송됩니다.",
+                sec6_li2: "검색어 원문을 서버에 누적 저장하지 않고 사용량 확인을 위한 단순 카운트만 처리하여 <strong class=\"text-slate-900\">프라이버시 침해 위험을 원천적으로 최소화</strong>합니다.",
+                sec6_li3: "구글 드라이브 동기화는 Google OAuth 2.0 표준 인가 프로토콜을 사용하므로, 이용자의 구글 계정 비밀번호는 앱이나 개발자 서버에 절대 노출되지 않습니다.",
+                sec7_title: "제7조 (개인정보 보호책임자 및 문의처)",
+                sec7_desc: "서비스 이용 중 개인정보 보호와 관련한 문의, 불만 처리, 데이터 삭제 요청은 아래 연락처로 문의해 주시기 바랍니다.",
+                sec7_lbl_company: "사업자 (Company):",
+                sec7_lbl_dev: "개발자 / 개인정보 보호책임자:",
+                sec7_lbl_email: "문의 이메일:",
+                sec7_lbl_web: "공식 웹사이트:",
+                sec7_lbl_git: "공식 GitHub:",
+                sec8_title: "제8조 (개인정보처리방침의 변경)",
+                sec8_desc: "본 개인정보처리방침은 법령, 정책 또는 서비스 기능의 변경에 따라 수정될 수 있으며, 변경 시 앱 내 공지사항 또는 본 웹페이지를 통해 사전 안내합니다.",
+                sec8_notice: "공고일자: 2026년 11월 11일",
+                sec8_effective: "시행일자: 2026년 11월 11일",
+                footer_company: "사업자 (Company)",
+                footer_dev: "개발자 (Developer)",
+                footer_rights: "© 2026 FinalNeo. All rights reserved."
+            },
+            en: {
+                nav_home: "Home",
+                nav_privacy: "Privacy Policy",
+                nav_terms: "Terms of Service",
+                badge_policy: "Local-First Privacy Policy",
+                page_title: "Mitjul (밑줄) Privacy Policy",
+                effective_date: "Effective Date: November 11, 2026",
+                intro_desc: "<strong>FinalNeo</strong> (Developer: <strong>FinalNeoDev</strong>, hereinafter referred to as the \"Company\" or \"Developer\") strictly complies with applicable laws including the Personal Information Protection Act, the Google Play Developer Distribution Policy, and the Google API Services User Data Policy. We establish and disclose this Privacy Policy to protect the rights and privacy of users of our multilingual web reader and AI vocabulary learning application <strong>'Mitjul' (Korean: 밑줄, Package Name: com.finalneodev.mitjul, hereinafter \"App\" or \"Service\")</strong>.",
+                sec1_title: "Article 1 (Categories of Processed Data & Purpose)",
+                sec1_lead: "The App operates primarily on a <strong>'Local-First'</strong> architecture, storing user learning records inside the local device storage. We process only the minimum information necessary to deliver service features.",
+                th_category: "Category",
+                th_items: "Items Processed",
+                th_purpose: "Purpose of Processing",
+                th_storage: "Storage & Protection Method",
+                row1_cat: "1. AI Context Translation & Quota Management",
+                row1_items: "User selected/dragged text words & sentences, source language code, daily translation request count",
+                row1_purpose: "Generating real-time context-aware translations, POS/lemma analysis, and validating daily tier quotas",
+                row1_storage: "<strong class=\"text-slate-900\">Zero-Retention Policy</strong>: Query text is processed purely in memory and immediately discarded after response generation. Only daily count metrics are tracked.",
+                row2_cat: "2. Google Drive Backup & Sync (Optional)",
+                row2_items: "Google account identifier (email/unique ID), App-specific backup data (wordbooks, SRS progress, user preferences)",
+                row2_purpose: "Backing up and restoring vocabulary books & SRS curve records upon device replacement or reinstallation",
+                row2_storage: "<strong class=\"text-slate-900\">Google API Limited Use Compliance</strong>: Saved solely in the user's personal Google Drive application folder. Data is never routed to developer central servers.",
+                row3_cat: "3. Google Play In-App Subscriptions",
+                row3_items: "Google Play Purchase Token, order ID, subscription product ID, validity period",
+                row3_purpose: "Verifying Mitjul Pro paid subscriptions, activating premium quotas, handling automatic renewal and refund status",
+                row3_storage: "Processed entirely via Google Play Billing. FinalNeo <strong class=\"text-slate-900\">never accesses or stores credit card numbers or sensitive financial data.</strong>",
+                row4_cat: "4. On-Device Local Data (Never Transferred)",
+                row4_items: "Saved vocabulary lists, example sentences, SRS review records, last visited URLs, primary language preferences",
+                row4_purpose: "Offline vocabulary study, daily spaced repetition interval calculations, reading resume support",
+                row4_storage: "Stored strictly in smartphone internal sandbox storage (SQLite/SharedPreferences) and <strong class=\"text-slate-900\">never sent to external servers unless the user explicitly triggers cloud sync.</strong>",
+                callout_drive_title: "Notice of Google API Limited Use Requirements Compliance",
+                callout_drive_desc: "Mitjul's use and transfer to any other app of information received from Google APIs will adhere to the <a href=\"https://developers.google.com/terms/api-services-user-data-policy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline font-semibold text-indigo-700 hover:text-indigo-900\">Google API Services User Data Policy</a>, including the Limited Use requirements. Mitjul accesses only its own dedicated app data folder/backup files and never accesses your other Drive files.",
+                sec2_title: "Article 2 (Application Permissions)",
+                sec2_lead: "Mitjul requests only the essential Android operating system permissions:",
+                sec2_li1: "<strong class=\"text-slate-900\">Internet Access (<code class=\"bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono\">INTERNET</code> / <code class=\"bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono\">ACCESS_NETWORK_STATE</code>)</strong>: Used for browsing web pages in-app, sending AI translation queries, performing Google Drive sync, and checking billing status.",
+                sec2_li2: "<strong class=\"text-slate-900\">In-App Billing (<code class=\"bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono\">com.android.vending.BILLING</code>)</strong>: Used for managing Mitjul Pro monthly/annual subscriptions through Google Play.",
+                sec2_li3: "<strong class=\"text-slate-900\">Text-to-Speech Engine (<code class=\"bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono\">TTS_SERVICE</code>)</strong>: Used to call Android's built-in TTS engine to pronounce foreign words and example sentences accurately.",
+                sec3_title: "Article 3 (Retention and Deletion of Data)",
+                sec3_li1: "<strong class=\"text-slate-900\">Device Local Data</strong>: Stored locally until the user uninstalls the app or clears app storage; deleted immediately by Android OS upon uninstallation.",
+                sec3_li2: "<strong class=\"text-slate-900\">Google Drive Backup Data</strong>: Kept in the user's personal Google Drive account until explicitly deleted via the app's settings or through Google Account management.",
+                sec3_li3: "<strong class=\"text-slate-900\">Subscription & Quota Records</strong>: Retained during active subscriptions and for statutory periods prescribed by consumer protection laws, then destroyed securely.",
+                sec4_title: "Article 4 (Third-Party Disclosure and Consignment)",
+                sec4_lead: "FinalNeo does not sell or distribute personal information to third parties. For foundational features, the following global services are utilized:",
+                th_partner: "Service Partner",
+                th_partner_purpose: "Purpose",
+                th_partner_items: "Items Transferred",
+                partner1_name: "Google LLC",
+                partner1_purpose: "Google Play In-App Billing processing and user-initiated Google Drive cloud backup/sync",
+                partner1_items: "Google Account ID, Purchase Token, Order ID, App-specific backup package",
+                partner2_name: "AI Translation API Providers",
+                partner2_purpose: "Generating real-time context-based multilingual translations and POS tags",
+                partner2_items: "Selected text snippet, language pair codes (strictly excludes identifying data)",
+                sec5_title: "Article 5 (User Rights and Data Deletion Procedures)",
+                sec5_lead: "Users maintain the right to inspect, edit, revoke access, and delete their stored data at any time.",
+                sec5_li1: "<strong class=\"text-slate-900\">Device Data Deletion</strong>: Go to [Device Settings > Apps > Mitjul > Storage > Clear Data] or simply uninstall the application to immediately purge all local wordbooks and statistics.",
+                sec5_li2: "<strong class=\"text-slate-900\">Google Drive Revocation & Backup Deletion</strong>:<br>- Execute 'Disconnect Sync & Delete Backup' in the app's Settings/Dashboard.<br>- Or visit Google Account Security (<a href=\"https://myaccount.google.com/permissions\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-indigo-600 hover:underline\">myaccount.google.com/permissions</a>) to revoke Mitjul's access and delete Drive app data.",
+                sec5_li3: "<strong class=\"text-slate-900\">Direct Email Request</strong>: Email our privacy officer at <a href=\"mailto:finalneodev@gmail.com\" class=\"text-indigo-600 hover:underline\">finalneodev@gmail.com</a> for immediate assistance with data deletion.",
+                sec6_title: "Article 6 (Security Measures for Information Protection)",
+                sec6_li1: "All external communications (AI requests, Drive sync, billing verification) are encrypted with industry-standard <strong class=\"text-slate-900\">SSL/TLS (HTTPS)</strong> channels.",
+                sec6_li2: "Query text is never accumulated or archived on servers; only simple request counters are registered to minimize privacy risk.",
+                sec6_li3: "Cloud sync leverages official Google OAuth 2.0 authorization; user Google passwords are never exposed to the app or developer servers.",
+                sec7_title: "Article 7 (Privacy Officer and Contact Information)",
+                sec7_desc: "For inquiries, complaints, or data deletion requests regarding Mitjul's privacy practices, please contact:",
+                sec7_lbl_company: "Company:",
+                sec7_lbl_dev: "Developer / Privacy Officer:",
+                sec7_lbl_email: "Support Email:",
+                sec7_lbl_web: "Official Website:",
+                sec7_lbl_git: "Official GitHub:",
+                sec8_title: "Article 8 (Amendments to Privacy Policy)",
+                sec8_desc: "This policy may be updated in accordance with legislative changes or service enhancements. Amendments will be notified via in-app alerts or this webpage at least 7 days prior to taking effect.",
+                sec8_notice: "Announcement Date: November 11, 2026",
+                sec8_effective: "Effective Date: November 11, 2026",
+                footer_company: "Company",
+                footer_dev: "Developer",
+                footer_rights: "© 2026 FinalNeo. All rights reserved."
+            }
+        };
+
+        function detectInitialLanguage() {
+            const saved = localStorage.getItem('site_lang');
+            if (saved === 'ko' || saved === 'en') return saved;
+            const langs = navigator.languages || [navigator.language || 'en'];
+            const isKorean = langs.some(l => l && l.toLowerCase().startsWith('ko'));
+            return isKorean ? 'ko' : 'en';
+        }
+
+        function setLanguage(lang) {
+            localStorage.setItem('site_lang', lang);
+            document.documentElement.lang = lang;
+            document.title = lang === 'en' 
+                ? 'Mitjul Privacy Policy' 
+                : '밑줄 (Mitjul) 개인정보처리방침 (Privacy Policy)';
+            const dict = translations[lang] || translations.ko;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) el.innerHTML = dict[key];
+            });
+
+            const btnKo = document.getElementById('btn-lang-ko');
+            const btnEn = document.getElementById('btn-lang-en');
+            if (btnKo && btnEn) {
+                if (lang === 'ko') {
+                    btnKo.className = 'px-2 py-0.5 rounded-md transition-all text-white bg-indigo-600 shadow-sm';
+                    btnEn.className = 'px-2 py-0.5 rounded-md transition-all text-slate-500 hover:text-slate-900';
+                } else {
+                    btnEn.className = 'px-2 py-0.5 rounded-md transition-all text-white bg-indigo-600 shadow-sm';
+                    btnKo.className = 'px-2 py-0.5 rounded-md transition-all text-slate-500 hover:text-slate-900';
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialLang = detectInitialLanguage();
+            setLanguage(initialLang);
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ko" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>밑줄 (Mitjul) : Smart Multilingual Web Reader & AI Context Vocabulary</title>
+    <meta name="description" content="밑줄 긋듯 드래그하면 완성되는 스마트 다국어 웹 리더 & AI 문맥 단어장, 밑줄(Mitjul). Local-First, 에빙하우스 망각곡선(SRS), 네이티브 TTS, 안전한 Google Drive 동기화.">
+    <meta property="og:title" content="밑줄 (Mitjul) : Smart Multilingual Web Reader & AI Context Vocabulary">
+    <meta property="og:description" content="사전 앱을 오가는 번거로움 끝! 실시간 AI 문맥 번역, 형광펜 문맥 단어장, 간격 반복 복습(SRS), 프라이버시 중심 로컬 우선 설계.">
+    <meta property="og:image" content="https://0bit.kr/privacy-policy/Mitjul/assets/icon-512.svg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://0bit.kr/privacy-policy/Mitjul/assets/icon-512.svg">
+    
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/svg+xml" href="assets/icon-512.svg">
+    
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            highlight: '#facc15'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+        .marker-highlight {
+            background: linear-gradient(104deg, rgba(254, 240, 138, 0.8) 0.9%, rgba(250, 204, 21, 0.85) 2.4%, rgba(253, 224, 71, 0.6) 98%);
+            border-radius: 4px;
+            padding: 0 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 font-bold text-lg text-slate-900 group">
+                <img src="assets/icon-512.svg" alt="밑줄 로고" class="w-8 h-8 rounded-xl shadow-sm border border-slate-200 group-hover:scale-105 transition-transform">
+                <span class="tracking-tight">밑줄 <span class="text-indigo-600 font-extrabold">(Mitjul)</span></span>
+            </a>
+            <nav class="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm">
+                <a href="privacy-policy.html" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors" data-i18n="nav_privacy">개인정보처리방침</a>
+                <a href="terms-of-service.html" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors" data-i18n="nav_terms">이용약관</a>
+                <a href="https://buymeacoffee.com/finalneodef" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 border border-indigo-200 text-indigo-700 hover:text-indigo-800 hover:bg-indigo-100 text-xs font-semibold transition-all">
+                    <span>☕</span> Buy me a coffee
+                </a>
+                <!-- Language Toggle Pill -->
+                <div class="inline-flex items-center bg-slate-100 p-0.5 rounded-lg border border-slate-200 text-xs font-semibold ml-1">
+                    <button id="btn-lang-ko" onclick="setLanguage('ko')" class="px-2 py-0.5 rounded-md transition-all text-white bg-indigo-600 shadow-sm">KO</button>
+                    <button id="btn-lang-en" onclick="setLanguage('en')" class="px-2 py-0.5 rounded-md transition-all text-slate-500 hover:text-slate-900">EN</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="flex-grow max-w-4xl mx-auto w-full px-4 sm:px-6 py-12 sm:py-20">
+        <div class="text-center space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-semibold shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span data-i18n="release_badge">AI Smart Web Reader • Local-First Learning</span>
+            </div>
+            
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight" data-i18n="hero_title">
+                밑줄 긋듯 드래그하면 완성되는 독해와 단어장<br>
+                <span class="bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-600 bg-clip-text text-transparent">밑줄 (Mitjul)</span>
+            </h1>
+
+            <p class="text-slate-600 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed" data-i18n="hero_desc">
+                웹 브라우저와 AI 문맥 사전, 그리고 에빙하우스 망각곡선(SRS) 단어장을 하나로 결합한 차세대 다국어 웹 리더입니다. 사전을 오갈 필요 없이 읽던 흐름 그대로 단어를 체화하세요.
+            </p>
+
+            <div class="pt-4 flex flex-wrap justify-center gap-3">
+                <a href="privacy-policy.html" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm transition-all shadow-md shadow-indigo-600/20 inline-flex items-center gap-2" data-i18n="btn_privacy">
+                    <span>📜</span> 개인정보처리방침 (Privacy Policy)
+                </a>
+                <a href="terms-of-service.html" class="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 font-semibold text-sm border border-slate-300 shadow-sm transition-all inline-flex items-center gap-2" data-i18n="btn_terms">
+                    <span>📄</span> 서비스 이용약관 (Terms)
+                </a>
+                <a href="https://buymeacoffee.com/finalneodef" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 font-semibold text-sm transition-all inline-flex items-center gap-2">
+                    <span>☕</span> Support Developer
+                </a>
+            </div>
+        </div>
+
+        <!-- 6 Key Features Highlight Grid -->
+        <div class="mt-16 space-y-4">
+            <div class="text-center">
+                <h2 class="text-xl sm:text-2xl font-bold text-slate-900" data-i18n="features_heading">독보적인 핵심 기능</h2>
+                <p class="text-xs sm:text-sm text-slate-500 mt-1" data-i18n="features_subheading">외국어 독해의 불편함을 혁신하는 밑줄만의 6가지 스마트 기능</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+                <!-- Feature 1 -->
+                <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-2.5">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-xl">
+                        ✨
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900" data-i18n="feat1_title">1. AI 실시간 문맥 번역 &amp; 원형/예문 분석</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="feat1_desc">
+                        단어 하나에 뜻이 10개씩 나오는 일반 사전과 달리, 드래그한 순간 앞뒤 문맥 전체를 추출하여 '지금 읽고 있는 이 문장에서의 정확한 뜻'과 원형(Lemma), 품사, 실전 예문을 즉시 팝업으로 제공합니다.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-2.5">
+                    <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-xl">
+                        🌐
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900" data-i18n="feat2_title">2. 다국어 자동 감지 &rarr; 내 주 언어 맞춤 변환</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="feat2_desc">
+                        영어, 일본어, 중국어, 스페인어, 독일어, 프랑스어 등 어떤 언어의 웹사이트든 목표 언어를 수동으로 변경할 필요가 없습니다. 웹페이지와 글자를 자동 감지하여 설정한 모국어로 맞춤 번역합니다.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-2.5">
+                    <div class="w-10 h-10 rounded-xl bg-yellow-50 border border-yellow-100 flex items-center justify-center text-xl">
+                        🖍️
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900" data-i18n="feat3_title">3. 형광펜 문맥 단어장 &amp; 다의어 분리 저장</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="feat3_desc">
+                        단어만 저장된 단어장은 잊혀지기 쉽습니다. 내가 방금 읽던 해외 기사의 실제 문장과 번역문이 노란색 형광펜 하이라이트와 함께 통째로 보존되며, 다의어는 의미별로 분리 관리됩니다.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-2.5">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-xl">
+                        🧠
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900" data-i18n="feat4_title">4. 에빙하우스 망각곡선(SRS) 4단계 복습</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="feat4_desc">
+                        인지과학 기반의 간격 반복(SRS) 엔진이 작동합니다. 학습 후 [다시/어려움/보통/쉬움] 4단계를 선택하면 다음 최적 복습 주기를 자동 계산하여 '오늘 꼭 봐야 할 단어'만 큐에 스마트하게 올려줍니다.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-2.5">
+                    <div class="w-10 h-10 rounded-xl bg-sky-50 border border-sky-100 flex items-center justify-center text-xl">
+                        🔊
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900" data-i18n="feat5_title">5. 스마트 네이티브 다국어 음성(TTS)</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="feat5_desc">
+                        안드로이드 표준 다국어 음성 엔진(TTS)을 지원합니다. 한 단어장에 영어와 일본어가 섞여 있어도 단어별 고유 원본 언어 코드를 자동 식별하여 생생한 현지 원어민 발음으로 정확하게 들려줍니다.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow space-y-2.5">
+                    <div class="w-10 h-10 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center text-xl">
+                        📰
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900" data-i18n="feat6_title">6. 읽던 지점 이어보기 &amp; 글로벌 미디어 큐레이션</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="feat6_desc">
+                        BBC, CNN, The Guardian, Reuters, TechCrunch 등 글로벌 언론사를 원터치로 시작할 수 있으며, 마지막으로 읽던 페이지 주소를 기억해 언제든 한 번의 터치로 매끄럽게 독해를 이어갈 수 있습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Privacy & Local-First Trust Section -->
+        <div class="mt-16 bg-gradient-to-br from-white via-indigo-50/30 to-amber-50/30 border border-indigo-100 rounded-2xl p-6 sm:p-8 shadow-sm space-y-6">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-xl shadow-sm">
+                    🛡️
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900" data-i18n="trust_title">프라이버시 최우선 (Local-First Architecture)</h3>
+                    <p class="text-xs text-slate-500" data-i18n="trust_subtitle">안심하고 학습할 수 있는 투명한 데이터 원칙</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
+                <div class="bg-white/80 p-4 rounded-xl border border-slate-200/80 space-y-1">
+                    <div class="font-bold text-slate-900" data-i18n="trust_c1_title">🔒 검색 원문 중앙 서버 미저장</div>
+                    <div class="text-slate-600" data-i18n="trust_c1_desc">AI 번역에 전달되는 문장은 실시간 응답 생성 후 즉시 폐기되며 서버에 누적 저장되지 않습니다.</div>
+                </div>
+                <div class="bg-white/80 p-4 rounded-xl border border-slate-200/80 space-y-1">
+                    <div class="font-bold text-slate-900" data-i18n="trust_c2_title">☁️ 내 Google Drive 안전 백업</div>
+                    <div class="text-slate-600" data-i18n="trust_c2_desc">Google API Limited Use 정책을 엄격 준수하여 이용자 본인의 Google Drive 전용 앱 폴더에만 백업됩니다.</div>
+                </div>
+                <div class="bg-white/80 p-4 rounded-xl border border-slate-200/80 space-y-1">
+                    <div class="font-bold text-slate-900" data-i18n="trust_c3_title">💳 Google Play 공식 정기 결제</div>
+                    <div class="text-slate-600" data-i18n="trust_c3_desc">모든 유료 구독은 Google Play Billing을 통해 안전하게 처리되며 개발사는 금융 정보를 일절 보유하지 않습니다.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Policy Quick Access Cards -->
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Privacy Policy Card -->
+            <a href="privacy-policy.html" class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-indigo-400 hover:shadow-md transition-all group flex flex-col justify-between">
+                <div class="space-y-3">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold">
+                        <span>📜</span> <span data-i18n="card_privacy_badge">Data Transparency</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors" data-i18n="card_privacy_title">
+                        개인정보처리방침
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="card_privacy_desc">
+                        '로컬 우선(Local-First)' 원칙, AI 번역 시 최소 데이터 처리 규정, Google Drive 동기화 및 이용자의 데이터 삭제 권리를 상세히 안내합니다.
+                    </p>
+                </div>
+                <div class="pt-4 flex items-center text-xs font-bold text-indigo-600 gap-1">
+                    <span data-i18n="card_read_more">전문 확인하기</span> <span>&rarr;</span>
+                </div>
+            </a>
+
+            <!-- Terms of Service Card -->
+            <a href="terms-of-service.html" class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-indigo-400 hover:shadow-md transition-all group flex flex-col justify-between">
+                <div class="space-y-3">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold">
+                        <span>📄</span> <span data-i18n="card_terms_badge">User Agreement</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors" data-i18n="card_terms_title">
+                        서비스 이용약관
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="card_terms_desc">
+                        무료 사용량 쿼터, Google Play 정기 구독(Mitjul Pro) 결제 및 해지 규정, 데이터 백업 책임과 AI 번역 결과 면책사항을 규정합니다.
+                    </p>
+                </div>
+                <div class="pt-4 flex items-center text-xs font-bold text-amber-700 gap-1">
+                    <span data-i18n="card_read_more">전문 확인하기</span> <span>&rarr;</span>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-10 mt-auto text-xs text-slate-500">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-4">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div class="space-y-1">
+                    <div class="font-bold text-slate-800 text-sm flex items-center gap-2">
+                        <img src="assets/icon-512.svg" alt="밑줄 아이콘" class="w-5 h-5 rounded-md">
+                        <span>밑줄 (Mitjul)</span>
+                        <span class="text-slate-400 font-normal">| 다국어 AI 웹 리더</span>
+                    </div>
+                    <div>
+                        <span data-i18n="footer_company">사업자 (Company)</span>: <strong class="text-slate-700">FinalNeo</strong> &nbsp;|&nbsp; 
+                        <span data-i18n="footer_dev">개발자 (Developer)</span>: <span class="text-slate-700">FinalNeoDev</span>
+                    </div>
+                    <div>
+                        패키지명: <code class="bg-slate-100 text-slate-700 px-1 py-0.5 rounded font-mono text-[11px]">com.finalneodev.mitjul</code> &nbsp;|&nbsp;
+                        문의: <a href="mailto:finalneodev@gmail.com" class="text-indigo-600 hover:underline">finalneodev@gmail.com</a>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <a href="privacy-policy.html" class="hover:text-indigo-600 transition-colors" data-i18n="nav_privacy">개인정보처리방침</a>
+                    <a href="terms-of-service.html" class="hover:text-indigo-600 transition-colors" data-i18n="nav_terms">이용약관</a>
+                    <a href="https://github.com/FinalNeoDev" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition-colors">GitHub</a>
+                    <a href="https://0bit.kr/privacy-policy/" class="hover:text-slate-900 transition-colors">FinalNeo Policy Hub</a>
+                </div>
+            </div>
+            <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-2 text-slate-400 text-[11px]">
+                <p data-i18n="footer_rights">&copy; 2026 FinalNeo. All rights reserved.</p>
+                <p>Designed for fast, smart, privacy-first language acquisition.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Multilingual Script -->
+    <script>
+        const translations = {
+            ko: {
+                nav_privacy: "개인정보처리방침",
+                nav_terms: "이용약관",
+                release_badge: "AI Smart Web Reader • Local-First Learning",
+                hero_title: "밑줄 긋듯 드래그하면 완성되는 독해와 단어장<br><span class=\"bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-600 bg-clip-text text-transparent\">밑줄 (Mitjul)</span>",
+                hero_desc: "웹 브라우저와 AI 문맥 사전, 그리고 에빙하우스 망각곡선(SRS) 단어장을 하나로 결합한 차세대 다국어 웹 리더입니다. 사전을 오갈 필요 없이 읽던 흐름 그대로 단어를 체화하세요.",
+                btn_privacy: "<span>📜</span> 개인정보처리방침 (Privacy Policy)",
+                btn_terms: "<span>📄</span> 서비스 이용약관 (Terms)",
+                features_heading: "독보적인 핵심 기능",
+                features_subheading: "외국어 독해의 불편함을 혁신하는 밑줄만의 6가지 스마트 기능",
+                feat1_title: "1. AI 실시간 문맥 번역 & 원형/예문 분석",
+                feat1_desc: "단어 하나에 뜻이 10개씩 나오는 일반 사전과 달리, 드래그한 순간 앞뒤 문맥 전체를 추출하여 '지금 읽고 있는 이 문장에서의 정확한 뜻'과 원형(Lemma), 품사, 실전 예문을 즉시 팝업으로 제공합니다.",
+                feat2_title: "2. 다국어 자동 감지 → 내 주 언어 맞춤 변환",
+                feat2_desc: "영어, 일본어, 중국어, 스페인어, 독일어, 프랑스어 등 어떤 언어의 웹사이트든 목표 언어를 수동으로 변경할 필요가 없습니다. 웹페이지와 글자를 자동 감지하여 설정한 모국어로 맞춤 번역합니다.",
+                feat3_title: "3. 형광펜 문맥 단어장 & 다의어 분리 저장",
+                feat3_desc: "단어만 저장된 단어장은 잊혀지기 쉽습니다. 내가 방금 읽던 해외 기사의 실제 문장과 번역문이 노란색 형광펜 하이라이트와 함께 통째로 보존되며, 다의어는 의미별로 분리 관리됩니다.",
+                feat4_title: "4. 에빙하우스 망각곡선(SRS) 4단계 복습",
+                feat4_desc: "인지과학 기반의 간격 반복(SRS) 엔진이 작동합니다. 학습 후 [다시/어려움/보통/쉬움] 4단계를 선택하면 다음 최적 복습 주기를 자동 계산하여 '오늘 꼭 봐야 할 단어'만 큐에 스마트하게 올려줍니다.",
+                feat5_title: "5. 스마트 네이티브 다국어 음성(TTS)",
+                feat5_desc: "안드로이드 표준 다국어 음성 엔진(TTS)을 지원합니다. 한 단어장에 영어와 일본어가 섞여 있어도 단어별 고유 원본 언어 코드를 자동 식별하여 생생한 현지 원어민 발음으로 정확하게 들려줍니다.",
+                feat6_title: "6. 읽던 지점 이어보기 & 글로벌 미디어 큐레이션",
+                feat6_desc: "BBC, CNN, The Guardian, Reuters, TechCrunch 등 글로벌 언론사를 원터치로 시작할 수 있으며, 마지막으로 읽던 페이지 주소를 기억해 언제든 한 번의 터치로 매끄럽게 독해를 이어갈 수 있습니다.",
+                trust_title: "프라이버시 최우선 (Local-First Architecture)",
+                trust_subtitle: "안심하고 학습할 수 있는 투명한 데이터 원칙",
+                trust_c1_title: "🔒 검색 원문 중앙 서버 미저장",
+                trust_c1_desc: "AI 번역에 전달되는 문장은 실시간 응답 생성 후 즉시 폐기되며 서버에 누적 저장되지 않습니다.",
+                trust_c2_title: "☁️ 내 Google Drive 안전 백업",
+                trust_c2_desc: "Google API Limited Use 정책을 엄격 준수하여 이용자 본인의 Google Drive 전용 앱 폴더에만 백업됩니다.",
+                trust_c3_title: "💳 Google Play 공식 정기 결제",
+                trust_c3_desc: "모든 유료 구독은 Google Play Billing을 통해 안전하게 처리되며 개발사는 금융 정보를 일절 보유하지 않습니다.",
+                card_privacy_badge: "Data Transparency",
+                card_privacy_title: "개인정보처리방침",
+                card_privacy_desc: "'로컬 우선(Local-First)' 원칙, AI 번역 시 최소 데이터 처리 규정, Google Drive 동기화 및 이용자의 데이터 삭제 권리를 상세히 안내합니다.",
+                card_terms_badge: "User Agreement",
+                card_terms_title: "서비스 이용약관",
+                card_terms_desc: "무료 사용량 쿼터, Google Play 정기 구독(Mitjul Pro) 결제 및 해지 규정, 데이터 백업 책임과 AI 번역 결과 면책사항을 규정합니다.",
+                card_read_more: "전문 확인하기",
+                footer_company: "사업자 (Company)",
+                footer_dev: "개발자 (Developer)",
+                footer_rights: "© 2026 FinalNeo. All rights reserved."
+            },
+            en: {
+                nav_privacy: "Privacy Policy",
+                nav_terms: "Terms of Service",
+                release_badge: "AI Smart Web Reader • Local-First Learning",
+                hero_title: "Underline, Learn & Master Languages with AI<br><span class=\"bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-600 bg-clip-text text-transparent\">Mitjul (밑줄)</span>",
+                hero_desc: "The next-generation multilingual web reader combining an in-app browser, AI context-aware translation, and an Ebbinghaus Spaced Repetition (SRS) vocabulary book. Never switch back and forth to dictionary apps again.",
+                btn_privacy: "<span>📜</span> Privacy Policy",
+                btn_terms: "<span>📄</span> Terms of Service",
+                features_heading: "Signature Core Features",
+                features_subheading: "6 innovative smart features designed to transform foreign language web reading",
+                feat1_title: "1. Real-Time AI Context Translation & Lemma/POS Analysis",
+                feat1_desc: "Unlike standard dictionaries listing 10 disjointed definitions, Mitjul extracts surrounding sentences instantly to reveal the precise contextual meaning, root lemma, part of speech, and real-world usage examples.",
+                feat2_title: "2. Auto Language Detection & Target Language Matching",
+                feat2_desc: "Read articles in English, Japanese, Chinese, Spanish, German, French, and more. Mitjul automatically detects webpage and selection languages, instantly translating into your preferred primary language.",
+                feat3_title: "3. Highlighter Context Vocabulary & Polysemy Separation",
+                feat3_desc: "Words saved without context are quickly forgotten. Mitjul preserves original articles' actual sentences and translations highlighted with yellow marker. Multiple meanings of the same word are organized neatly.",
+                feat4_title: "4. Ebbinghaus Spaced Repetition (SRS) 4-Step Review",
+                feat4_desc: "Powered by cognitive spaced repetition. After reviewing, choose between [Again / Hard / Good / Easy], and the smart engine schedules the next optimal interval, queueing only what you need to review today.",
+                feat5_title: "5. Smart Native Multilingual TTS Audio",
+                feat5_desc: "Integrates Android's standard Text-to-Speech engine. Even if English and Japanese words coexist in one wordbook, Mitjul recognizes each word's language code for authentic native pronunciation.",
+                feat6_title: "6. Reading Resume & Curated Global Media",
+                feat6_desc: "Jump straight into top publications like BBC, CNN, The Guardian, Reuters, and TechCrunch with one touch. Mitjul remembers where you left off so you can resume seamlessly anytime.",
+                trust_title: "Privacy First (Local-First Architecture)",
+                trust_subtitle: "Transparent data principles you can trust",
+                trust_c1_title: "🔒 Zero Retention of Reading Sentences",
+                trust_c1_desc: "Sentences sent for AI translation are processed purely in memory and never logged or accumulated on remote servers.",
+                trust_c2_title: "☁️ Secure Personal Google Drive Sync",
+                trust_c2_desc: "Strictly compliant with Google API Limited Use requirements. Backups reside exclusively in your personal Drive app data folder.",
+                trust_c3_title: "💳 Verified Google Play Subscriptions",
+                trust_c3_desc: "All Mitjul Pro subscriptions are processed securely via Google Play Billing. FinalNeo never collects credit card or financial data.",
+                card_privacy_badge: "Data Transparency",
+                card_privacy_title: "Privacy Policy",
+                card_privacy_desc: "Detailed information on our Local-First architecture, AI quota management, Google Drive sync compliance, and user data deletion procedures.",
+                card_terms_badge: "User Agreement",
+                card_terms_title: "Terms of Service",
+                card_terms_desc: "Rules regarding free quota tiers, Mitjul Pro subscription renewal and cancellation, data backup responsibility, and AI disclaimer.",
+                card_read_more: "Read Full Document",
+                footer_company: "Company",
+                footer_dev: "Developer",
+                footer_rights: "© 2026 FinalNeo. All rights reserved."
+            }
+        };
+
+        function detectInitialLanguage() {
+            const saved = localStorage.getItem('site_lang');
+            if (saved === 'ko' || saved === 'en') return saved;
+            const langs = navigator.languages || [navigator.language || 'en'];
+            const isKorean = langs.some(l => l && l.toLowerCase().startsWith('ko'));
+            return isKorean ? 'ko' : 'en';
+        }
+
+        function setLanguage(lang) {
+            localStorage.setItem('site_lang', lang);
+            document.documentElement.lang = lang;
+            document.title = lang === 'en' 
+                ? 'Mitjul : Smart Multilingual Web Reader & AI Context Vocabulary' 
+                : '밑줄 (Mitjul) : Smart Multilingual Web Reader & AI Context Vocabulary';
+            const dict = translations[lang] || translations.ko;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) el.innerHTML = dict[key];
+            });
+
+            const btnKo = document.getElementById('btn-lang-ko');
+            const btnEn = document.getElementById('btn-lang-en');
+            if (btnKo && btnEn) {
+                if (lang === 'ko') {
+                    btnKo.className = 'px-2 py-0.5 rounded-md transition-all text-white bg-indigo-600 shadow-sm';
+                    btnEn.className = 'px-2 py-0.5 rounded-md transition-all text-slate-500 hover:text-slate-900';
+                } else {
+                    btnEn.className = 'px-2 py-0.5 rounded-md transition-all text-white bg-indigo-600 shadow-sm';
+                    btnKo.className = 'px-2 py-0.5 rounded-md transition-all text-slate-500 hover:text-slate-900';
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialLang = detectInitialLanguage();
+            setLanguage(initialLang);
+        });
+    </script>
+</body>
+</html>
+

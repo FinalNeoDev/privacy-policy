@@ -94,7 +94,7 @@
                             <tbody class="divide-y divide-slate-200">
                                 <tr class="hover:bg-slate-50 transition-colors">
                                     <td class="p-3 font-semibold text-slate-900" data-i18n="row1_cat">1. AI 문맥 번역 및 사용량 관리</td>
-                                    <td class="p-3" data-i18n="row1_items">이용자가 브라우저에서 드래그(선택)한 단어/문장 텍스트, 언어 설정 코드, 일일 번역 요청 횟수(카운트)</td>
+                                    <td class="p-3" data-i18n="row1_items">이용자가 브라우저에서 드래그(선택)한 단어/문장 텍스트, 언어 설정 코드, 월간 번역 사용량(글자 수 카운트)</td>
                                     <td class="p-3" data-i18n="row1_purpose">AI 기반 문맥 맞춤형 번역 결과 생성, 품사/원형 분석 제공 및 요금제별 일일 쿼터 확인</td>
                                     <td class="p-3 text-slate-600" data-i18n="row1_storage">
                                         <strong class="text-slate-900">검색어 원문 서버 미저장 (Zero-Retention)</strong>: 번역 응답 생성 즉시 메모리 폐기. 서버에는 단순 요청 횟수(카운트)만 일일 기록.
@@ -111,7 +111,7 @@
                                 <tr class="hover:bg-slate-50 transition-colors">
                                     <td class="p-3 font-semibold text-slate-900" data-i18n="row3_cat">3. Google Play 인앱 결제 및 정기 구독</td>
                                     <td class="p-3" data-i18n="row3_items">Google Play 결제 구매 토큰(Purchase Token), 주문 번호, 구독 상품 ID 및 만료 여부</td>
-                                    <td class="p-3" data-i18n="row3_purpose">유료 정기 구독권(Mitjul Pro) 구매 확인, 프리미엄 혜택 활성화, 구독 갱신 및 환불 상태 검증</td>
+                                    <td class="p-3" data-i18n="row3_purpose">유료 정기 구독권(밑줄 구독) 구매 확인, 프리미엄 혜택 활성화, 구독 갱신 및 환불 상태 검증</td>
                                     <td class="p-3 text-slate-600" data-i18n="row3_storage">
                                         모든 결제는 Google Play 결제 시스템(Google Play Billing)을 통해 처리되며, 개발자는 <strong class="text-slate-900">신용카드 번호나 금융 정보를 일절 수집하지 않습니다.</strong>
                                     </td>
@@ -145,7 +145,7 @@
                     <p data-i18n="sec2_lead">앱은 서비스 제공을 위해 다음의 최소 권한만을 요청합니다.</p>
                     <ul class="list-disc pl-5 space-y-2 text-slate-700">
                         <li data-i18n="sec2_li1"><strong class="text-slate-900">인터넷 접속 (<code class="bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono">INTERNET</code> / <code class="bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono">ACCESS_NETWORK_STATE</code>)</strong>: 인앱 웹 브라우저를 통한 웹페이지 열람, AI 번역 요청, Google Drive 동기화 및 결제 라이선스 상태 확인에 사용됩니다.</li>
-                        <li data-i18n="sec2_li2"><strong class="text-slate-900">인앱 결제 (<code class="bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono">com.android.vending.BILLING</code>)</strong>: Google Play 정기 구독 상품(Mitjul Pro) 결제 및 구독 유효성 확인에 사용됩니다.</li>
+                        <li data-i18n="sec2_li2"><strong class="text-slate-900">인앱 결제 (<code class="bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono">com.android.vending.BILLING</code>)</strong>: Google Play 정기 구독 상품(밑줄 구독) 결제 및 구독 유효성 확인에 사용됩니다.</li>
                         <li data-i18n="sec2_li3"><strong class="text-slate-900">음성 합성 서비스 (<code class="bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono">TTS_SERVICE</code>)</strong>: 안드로이드 기본 TTS 엔진을 활용하여 외국어 단어 및 예문 발음을 재생하는 데 사용됩니다.</li>
                     </ul>
                 </section>
@@ -290,7 +290,7 @@
                 th_purpose: "처리 목적",
                 th_storage: "저장 및 보호 방식",
                 row1_cat: "1. AI 문맥 번역 및 사용량 관리",
-                row1_items: "이용자가 브라우저에서 드래그(선택)한 단어/문장 텍스트, 언어 설정 코드, 일일 번역 요청 횟수(카운트)",
+                row1_items: "이용자가 브라우저에서 드래그(선택)한 단어/문장 텍스트, 언어 설정 코드, 월간 번역 사용량(글자 수 카운트)",
                 row1_purpose: "AI 기반 문맥 맞춤형 번역 결과 생성, 품사/원형 분석 제공 및 요금제별 일일 쿼터 확인",
                 row1_storage: "<strong class=\"text-slate-900\">검색어 원문 서버 미저장 (Zero-Retention)</strong>: 번역 응답 생성 즉시 메모리 폐기. 서버에는 단순 요청 횟수(카운트)만 일일 기록.",
                 row2_cat: "2. Google Drive 백업 및 동기화 (선택)",
@@ -299,7 +299,7 @@
                 row2_storage: "<strong class=\"text-slate-900\">Google API Limited Use 엄격 준수</strong>: 이용자 본인의 Google Drive 내 앱 전용 폴더에만 백업되며 개발자 중앙 서버로 전송되지 않음.",
                 row3_cat: "3. Google Play 인앱 결제 및 정기 구독",
                 row3_items: "Google Play 결제 구매 토큰(Purchase Token), 주문 번호, 구독 상품 ID 및 만료 여부",
-                row3_purpose: "유료 정기 구독권(Mitjul Pro) 구매 확인, 프리미엄 혜택 활성화, 구독 갱신 및 환불 상태 검증",
+                row3_purpose: "유료 정기 구독권(밑줄 구독) 구매 확인, 프리미엄 혜택 활성화, 구독 갱신 및 환불 상태 검증",
                 row3_storage: "모든 결제는 Google Play 결제 시스템(Google Play Billing)을 통해 처리되며, 개발자는 <strong class=\"text-slate-900\">신용카드 번호나 금융 정보를 일절 수집하지 않습니다.</strong>",
                 row4_cat: "4. 기기 내 로컬 저장 데이터 (온디바이스)",
                 row4_items: "저장 단어장, 예문, 망각곡선(SRS) 복습 기록, 마지막 방문 웹페이지 주소(URL), 주 언어 설정값",
@@ -310,7 +310,7 @@
                 sec2_title: "제2조 (필요한 앱 권한 안내)",
                 sec2_lead: "앱은 서비스 제공을 위해 다음의 최소 권한만을 요청합니다.",
                 sec2_li1: "<strong class=\"text-slate-900\">인터넷 접속 (<code class=\"bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono\">INTERNET</code> / <code class=\"bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono\">ACCESS_NETWORK_STATE</code>)</strong>: 인앱 웹 브라우저를 통한 웹페이지 열람, AI 번역 요청, Google Drive 동기화 및 결제 라이선스 상태 확인에 사용됩니다.",
-                sec2_li2: "<strong class=\"text-slate-900\">인앱 결제 (<code class=\"bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono\">com.android.vending.BILLING</code>)</strong>: Google Play 정기 구독 상품(Mitjul Pro) 결제 및 구독 유효성 확인에 사용됩니다.",
+                sec2_li2: "<strong class=\"text-slate-900\">인앱 결제 (<code class=\"bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono\">com.android.vending.BILLING</code>)</strong>: Google Play 정기 구독 상품(밑줄 구독) 결제 및 구독 유효성 확인에 사용됩니다.",
                 sec2_li3: "<strong class=\"text-slate-900\">음성 합성 서비스 (<code class=\"bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono\">TTS_SERVICE</code>)</strong>: 안드로이드 기본 TTS 엔진을 활용하여 외국어 단어 및 예문 발음을 재생하는 데 사용됩니다.",
                 sec3_title: "제3조 (개인정보의 보유 및 이용기간)",
                 sec3_li1: "<strong class=\"text-slate-900\">기기 내부 데이터</strong>: 이용자가 앱을 삭제하거나 앱 설정에서 데이터 초기화를 실행할 때까지 기기 내에 보관되며, 앱 삭제 시 즉시 파기됩니다.",
@@ -375,7 +375,7 @@
                 row2_storage: "<strong class=\"text-slate-900\">Google API Limited Use Compliance</strong>: Saved solely in the user's personal Google Drive application folder. Data is never routed to developer central servers.",
                 row3_cat: "3. Google Play In-App Subscriptions",
                 row3_items: "Google Play Purchase Token, order ID, subscription product ID, validity period",
-                row3_purpose: "Verifying Mitjul Pro paid subscriptions, activating premium quotas, handling automatic renewal and refund status",
+                row3_purpose: "Verifying Mitjul paid subscriptions, activating premium quotas, handling automatic renewal and refund status",
                 row3_storage: "Processed entirely via Google Play Billing. FinalNeo <strong class=\"text-slate-900\">never accesses or stores credit card numbers or sensitive financial data.</strong>",
                 row4_cat: "4. On-Device Local Data (Never Transferred)",
                 row4_items: "Saved vocabulary lists, example sentences, SRS review records, last visited URLs, primary language preferences",
@@ -386,7 +386,7 @@
                 sec2_title: "Article 2 (Application Permissions)",
                 sec2_lead: "Mitjul requests only the essential Android operating system permissions:",
                 sec2_li1: "<strong class=\"text-slate-900\">Internet Access (<code class=\"bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono\">INTERNET</code> / <code class=\"bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono\">ACCESS_NETWORK_STATE</code>)</strong>: Used for browsing web pages in-app, sending AI translation queries, performing Google Drive sync, and checking billing status.",
-                sec2_li2: "<strong class=\"text-slate-900\">In-App Billing (<code class=\"bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono\">com.android.vending.BILLING</code>)</strong>: Used for managing Mitjul Pro monthly/annual subscriptions through Google Play.",
+                sec2_li2: "<strong class=\"text-slate-900\">In-App Billing (<code class=\"bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono\">com.android.vending.BILLING</code>)</strong>: Used for managing Mitjul monthly/annual subscriptions through Google Play.",
                 sec2_li3: "<strong class=\"text-slate-900\">Text-to-Speech Engine (<code class=\"bg-slate-100 text-indigo-700 px-1 py-0.5 rounded text-xs font-mono\">TTS_SERVICE</code>)</strong>: Used to call Android's built-in TTS engine to pronounce foreign words and example sentences accurately.",
                 sec3_title: "Article 3 (Retention and Deletion of Data)",
                 sec3_li1: "<strong class=\"text-slate-900\">Device Local Data</strong>: Stored locally until the user uninstalls the app or clears app storage; deleted immediately by Android OS upon uninstallation.",

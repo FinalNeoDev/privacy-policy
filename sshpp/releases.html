@@ -6,7 +6,7 @@
     <title>SSH++ : 릴리스 노트 & 업데이트 이력 (Changelog)</title>
     <meta name="description" content="SSH++의 버전별 새로운 기능, 보안 강화, 플랫폼 최적화 및 릴리스 변경 이력 (Release Notes & Changelog)">
     <meta property="og:title" content="SSH++ : 릴리스 노트 & 업데이트 이력">
-    <meta property="og:description" content="v1.0.5 Jump Host·SFTP부터 하드웨어 암호화 및 AI 가드레일까지, SSH++의 공식 업데이트 이력을 확인하세요.">
+    <meta property="og:description" content="v1.0.6 터미널 안정성·화면 켜짐 유지부터 Jump Host·SFTP·AI 가드레일까지, SSH++의 공식 업데이트 이력을 확인하세요.">
     <meta property="og:image" content="https://0bit.kr/privacy-policy/sshpp/assets/icon-512.png">
     
     <!-- Favicon & App Icons -->
@@ -79,7 +79,7 @@
         <!-- Release Timeline -->
         <div class="space-y-8 sm:space-y-10 relative before:absolute before:inset-0 before:left-3.5 sm:before:left-5 before:w-0.5 before:bg-slate-200">
             
-            <!-- v1.0.5 [Latest] -->
+            <!-- v1.0.6 [Latest] -->
             <div class="relative pl-9 sm:pl-12 group">
                 <!-- Timeline Dot -->
                 <div class="absolute left-1.5 sm:left-3 top-1.5 -translate-x-1/2 w-5 h-5 rounded-full bg-sky-600 ring-4 ring-slate-50 flex items-center justify-center shadow-sm">
@@ -89,8 +89,56 @@
                 <div class="bg-white border border-sky-200 rounded-2xl p-6 sm:p-8 shadow-md shadow-sky-500/5 transition-all hover:border-sky-400">
                     <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4 mb-5">
                         <div class="flex flex-wrap items-center gap-2.5">
-                            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 font-mono">v1.0.5</h2>
-                            <span class="px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200 text-xs font-bold" data-i18n="v105_badge">최신 릴리스</span>
+                            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 font-mono">v1.0.6</h2>
+                            <span class="px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-700 border border-sky-200 text-xs font-bold" data-i18n="v106_badge">최신 릴리스</span>
+                        </div>
+                        <div class="text-xs text-slate-500 font-mono" data-i18n="v106_date">2026.11.22 • Android 16 (API 36)</div>
+                    </div>
+
+                    <div class="space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-amber-50 border border-amber-200 text-amber-700 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_stability">안정성 & UX</span>
+                            <div data-i18n="v106_item1">
+                                <strong class="text-slate-900">고속 TUI & 대량 AI 스트리밍 렌더링 최적화:</strong> SSH 출력을 25ms 프레임 단위로 배칭 처리하고 스크롤백 메모리를 튜닝하여, CLI 에이전트 등 초고속 출력 환경에서의 UI 지연 및 메모리 부족(OOM) 크래시를 원천 방지했습니다.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_feature">신규 기능</span>
+                            <div data-i18n="v106_item2">
+                                <strong class="text-slate-900">터미널 화면 켜짐 유지 (Keep Screen On):</strong> 장시간 원격 작업 중 화면이 자동으로 꺼지지 않도록 <code class="bg-slate-100 text-sky-700 px-1 rounded">FLAG_KEEP_SCREEN_ON</code>을 기본 적용하고, 터미널 상단 더보기(<code class="bg-slate-100 text-sky-700 px-1 rounded">⋮</code>) 메뉴에서 원터치 토글을 지원합니다.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-sky-50 border border-sky-200 text-sky-700 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_terminal">터미널</span>
+                            <div data-i18n="v106_item3">
+                                <strong class="text-slate-900">백그라운드 복귀 시 즉시 자동 재연결 & 배터리 설정 안내:</strong> 앱 복귀 시 끊긴 세션을 대기 없이 즉시 재연결(<code class="bg-slate-100 text-sky-700 px-1 rounded">tmux</code> 자동 복구 연동)하며, 설정 화면에 안드로이드 배터리 제한 해제 바로가기를 추가했습니다.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_security">보안</span>
+                            <div data-i18n="v106_item4">
+                                <strong class="text-slate-900">전역 예외 방어 및 스트림 안정화:</strong> SSH stdout/stderr 에러 핸들러, 터미널 쓰기·리사이즈 예외 가드, UTF-16 이모지 서로게이트 절단 방지 및 전역 비동기 크래시 가드를 보강했습니다.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- v1.0.5 -->
+            <div class="relative pl-9 sm:pl-12 group">
+                <!-- Timeline Dot -->
+                <div class="absolute left-1.5 sm:left-3 top-1.5 -translate-x-1/2 w-4 h-4 rounded-full bg-slate-300 ring-4 ring-slate-50 flex items-center justify-center">
+                    <span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+                </div>
+
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm hover:border-slate-300 transition-all">
+                    <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4 mb-5">
+                        <div class="flex flex-wrap items-center gap-2.5">
+                            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 font-mono">v1.0.5</h2>
+                            <span class="px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 border border-slate-200 text-xs font-semibold" data-i18n="v105_badge">정식 릴리스</span>
                         </div>
                         <div class="text-xs text-slate-500 font-mono" data-i18n="v105_date">2026.11.10 • Android 16 (API 36)</div>
                     </div>
@@ -331,7 +379,13 @@
                 tag_security: "보안",
                 tag_ai: "AI 코파일럿",
                 tag_terminal: "터미널",
-                v105_badge: "최신 릴리스",
+                v106_badge: "최신 릴리스",
+                v106_date: "2026.11.22 • Android 16 (API 36)",
+                v106_item1: '<strong class="text-slate-900">고속 TUI & 대량 AI 스트리밍 렌더링 최적화:</strong> SSH 출력을 25ms 프레임 단위로 배칭 처리하고 스크롤백 메모리를 튜닝하여, CLI 에이전트 등 초고속 출력 환경에서의 UI 지연 및 메모리 부족(OOM) 크래시를 원천 방지했습니다.',
+                v106_item2: '<strong class="text-slate-900">터미널 화면 켜짐 유지 (Keep Screen On):</strong> 장시간 원격 작업 중 화면이 자동으로 꺼지지 않도록 <code class="bg-slate-100 text-sky-700 px-1 rounded">FLAG_KEEP_SCREEN_ON</code>을 기본 적용하고, 터미널 상단 더보기(<code class="bg-slate-100 text-sky-700 px-1 rounded">⋮</code>) 메뉴에서 원터치 토글을 지원합니다.',
+                v106_item3: '<strong class="text-slate-900">백그라운드 복귀 시 즉시 자동 재연결 & 배터리 설정 안내:</strong> 앱 복귀 시 끊긴 세션을 대기 없이 즉시 재연결(<code class="bg-slate-100 text-sky-700 px-1 rounded">tmux</code> 자동 복구 연동)하며, 설정 화면에 안드로이드 배터리 제한 해제 바로가기를 추가했습니다.',
+                v106_item4: '<strong class="text-slate-900">전역 예외 방어 및 스트림 안정화:</strong> SSH stdout/stderr 에러 핸들러, 터미널 쓰기·리사이즈 예외 가드, UTF-16 이모지 서로게이트 절단 방지 및 전역 비동기 크래시 가드를 보강했습니다.',
+                v105_badge: "정식 릴리스",
                 v105_date: "2026.11.10 • Android 16 (API 36)",
                 v105_item1: '<strong class="text-slate-900">다단계 Jump Host (Bastion) 터널링 & 연결 테스트:</strong> 베스천 서버를 경유하는 다중 홉 SSH 프록시 포워딩(순환 참조 방지 포함)과 호스트 저장 전 실시간 SSH 연결·인증 테스트 기능을 추가했습니다.',
                 v105_item2: '<strong class="text-slate-900">풀 SFTP 파일 브라우저:</strong> 원격 디렉터리 탐색, 파일 업로드·다운로드, 이름 변경, 삭제, 새 폴더 생성, 폴더 내 실시간 검색·정렬(이름/크기/수정일) 및 숨김 파일(<code class="bg-slate-100 text-sky-700 px-1 rounded">.</code>) 토글을 지원합니다.',
@@ -380,7 +434,13 @@
                 tag_security: "Security",
                 tag_ai: "AI Copilot",
                 tag_terminal: "Terminal",
-                v105_badge: "Latest Release",
+                v106_badge: "Latest Release",
+                v106_date: "2026.11.22 • Android 16 (API 36)",
+                v106_item1: '<strong class="text-slate-900">High-Throughput TUI & AI Streaming Optimization:</strong> Added 25ms frame-batched terminal output flushing and scrollback memory tuning to eliminate UI lag and OOM crashes during intensive CLI agent streaming.',
+                v106_item2: '<strong class="text-slate-900">Keep Screen On (FLAG_KEEP_SCREEN_ON):</strong> Prevents the display from sleeping during long-running terminal tasks by default, with a quick one-tap toggle in the terminal More (<code class="bg-slate-100 text-sky-700 px-1 rounded">⋮</code>) menu.',
+                v106_item3: '<strong class="text-slate-900">Instant Auto-Reconnect on Resume & Battery Shortcut:</strong> Immediately reconnects dropped sessions upon returning from background (paired with <code class="bg-slate-100 text-sky-700 px-1 rounded">tmux</code> auto-attach) and adds a direct Android battery settings shortcut in Settings.',
+                v106_item4: '<strong class="text-slate-900">Global Crash Guards & Stream Hardening:</strong> Added SSH stdout/stderr error handlers, safe terminal write/resize guards, UTF-16 emoji surrogate-safe buffer trimming, and global async error protection.',
+                v105_badge: "Official Release",
                 v105_date: "2026.11.10 • Android 16 (API 36)",
                 v105_item1: '<strong class="text-slate-900">Multi-Hop Jump Host (Bastion) & Connection Test:</strong> Added multi-hop SSH proxy forwarding through Bastion servers with cycle detection, plus a pre-save real-time SSH connection & authentication test button.',
                 v105_item2: '<strong class="text-slate-900">Full SFTP File Browser:</strong> Supports remote directory navigation, file upload/download, rename, delete, mkdir, real-time in-folder search, sorting (name/size/date), and hidden files (<code class="bg-slate-100 text-sky-700 px-1 rounded">.</code>) toggle.',

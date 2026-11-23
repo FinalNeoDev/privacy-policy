@@ -17,7 +17,7 @@
 | **SSH++** | 서비스 이용약관 | [SSH++ 서비스 이용약관](./sshpp/terms-of-service.md) | 2026-10-27 | 모바일 온디바이스 SSH 클라이언트 라이선스 및 면책 |
 | **밑줄 (Mitjul)** | 개인정보처리방침 | [밑줄 개인정보처리방침](./Mitjul/privacy-policy.md) | 2026-11-23 | [🌐 밑줄(Mitjul) 정책 허브](https://0bit.kr/privacy-policy/Mitjul/) |
 | **밑줄 (Mitjul)** | 서비스 이용약관 | [밑줄 서비스 이용약관](./Mitjul/terms-of-service.md) | 2026-11-23 | 다국어 웹 리더 & AI 단어장 구독 및 이용조건 |
-| **밑줄 (Mitjul)** | 릴리스 노트 | [밑줄 릴리스 노트 (MJ 0.1.5)](./Mitjul/releases.html) | 2026-11-23 | [🚀 밑줄 업데이트 이력](https://0bit.kr/privacy-policy/Mitjul/releases.html) |
+| **밑줄 (Mitjul)** | 릴리스 노트 | [밑줄 릴리스 노트](./Mitjul/releases.html) | 2026-11-23 | [🚀 밑줄 업데이트 이력](https://0bit.kr/privacy-policy/Mitjul/releases.html) |
 
 ---
 

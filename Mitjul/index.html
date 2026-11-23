@@ -59,6 +59,7 @@
                 <span class="tracking-tight">밑줄 <span class="text-indigo-600 font-extrabold">(Mitjul)</span></span>
             </a>
             <nav class="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm">
+                <a href="releases.html" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors" data-i18n="nav_releases">업데이트 이력</a>
                 <a href="privacy-policy.html" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors" data-i18n="nav_privacy">개인정보처리방침</a>
                 <a href="terms-of-service.html" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors" data-i18n="nav_terms">이용약관</a>
                 <a href="https://buymeacoffee.com/finalneodef" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 border border-indigo-200 text-indigo-700 hover:text-indigo-800 hover:bg-indigo-100 text-xs font-semibold transition-all">
@@ -96,6 +97,9 @@
                 </a>
                 <a href="terms-of-service.html" class="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 font-semibold text-sm border border-slate-300 shadow-sm transition-all inline-flex items-center gap-2" data-i18n="btn_terms">
                     <span>📄</span> 서비스 이용약관 (Terms)
+                </a>
+                <a href="releases.html" class="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-indigo-700 font-semibold text-sm border border-indigo-200 shadow-sm transition-all inline-flex items-center gap-2" data-i18n="btn_releases">
+                    <span>🚀</span> 릴리스 노트 (MJ 0.1.5)
                 </a>
                 <a href="https://buymeacoffee.com/finalneodef" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 font-semibold text-sm transition-all inline-flex items-center gap-2">
                     <span>☕</span> Support Developer
@@ -171,9 +175,9 @@
                     <div class="w-10 h-10 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center text-xl">
                         📰
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900" data-i18n="feat6_title">6. 읽던 지점 이어보기 &amp; 글로벌 미디어 큐레이션</h3>
+                    <h3 class="text-lg font-bold text-slate-900" data-i18n="feat6_title">6. 읽던 지점 이어보기 · 내 즐겨찾기 &amp; 다국어 무료 미디어</h3>
                     <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="feat6_desc">
-                        BBC, CNN, The Guardian, Reuters, TechCrunch 등 글로벌 언론사를 원터치로 시작할 수 있으며, 마지막으로 읽던 페이지 주소를 기억해 언제든 한 번의 터치로 매끄럽게 독해를 이어갈 수 있습니다.
+                        유료 구독 팝업 없이 바로 읽는 영어·일본어·중국어·한국어 글로벌 매체 추천(주 언어 맞춤형 우선 정렬 및 접기/펼치기 지원)과 나만의 즐겨찾기 사이트 추가, 마지막 읽던 페이지 이어보기를 제공합니다.
                     </p>
                 </div>
             </div>
@@ -284,6 +288,7 @@
     <script>
         const translations = {
             ko: {
+                nav_releases: "업데이트 이력",
                 nav_privacy: "개인정보처리방침",
                 nav_terms: "이용약관",
                 release_badge: "AI Smart Web Reader • Local-First Learning",
@@ -291,6 +296,7 @@
                 hero_desc: "웹 브라우저와 AI 문맥 사전, 그리고 에빙하우스 망각곡선(SRS) 단어장을 하나로 결합한 차세대 다국어 웹 리더입니다. 사전을 오갈 필요 없이 읽던 흐름 그대로 단어를 체화하세요.",
                 btn_privacy: "<span>📜</span> 개인정보처리방침 (Privacy Policy)",
                 btn_terms: "<span>📄</span> 서비스 이용약관 (Terms)",
+                btn_releases: "<span>🚀</span> 릴리스 노트 (MJ 0.1.5)",
                 features_heading: "독보적인 핵심 기능",
                 features_subheading: "외국어 독해의 불편함을 혁신하는 밑줄만의 6가지 스마트 기능",
                 feat1_title: "1. AI 실시간 문맥 번역 & 원형/예문 분석",
@@ -325,6 +331,7 @@
                 footer_rights: "© 2026 FinalNeo. All rights reserved."
             },
             en: {
+                nav_releases: "Changelog",
                 nav_privacy: "Privacy Policy",
                 nav_terms: "Terms of Service",
                 release_badge: "AI Smart Web Reader • Local-First Learning",
@@ -332,6 +339,7 @@
                 hero_desc: "The next-generation multilingual web reader combining an in-app browser, AI context-aware translation, and an Ebbinghaus Spaced Repetition (SRS) vocabulary book. Never switch back and forth to dictionary apps again.",
                 btn_privacy: "<span>📜</span> Privacy Policy",
                 btn_terms: "<span>📄</span> Terms of Service",
+                btn_releases: "<span>🚀</span> Release Notes (MJ 0.1.5)",
                 features_heading: "Signature Core Features",
                 features_subheading: "6 innovative smart features designed to transform foreign language web reading",
                 feat1_title: "1. Real-Time AI Context Translation & Lemma/POS Analysis",

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>밑줄 (Mitjul) : 릴리스 노트 & 업데이트 이력 (Changelog)</title>
+    <meta name="description" content="밑줄(Mitjul)의 버전별 새로운 기능, 다국어 UI, AI 문맥 번역, 정기 결제 약관 고지 및 릴리스 변경 이력 (Release Notes & Changelog)">
+    <meta property="og:title" content="밑줄 (Mitjul) : 릴리스 노트 & 업데이트 이력">
+    <meta property="og:description" content="MJ 0.1.5 다국어 실시간 UI, 내장 브라우저 선택 확인 바, 즐겨찾기 관리, 5단계 망각곡선(SRS) 및 Google 클라우드 백업까지 공식 업데이트 이력을 확인하세요.">
+    <meta property="og:image" content="https://0bit.kr/privacy-policy/Mitjul/assets/icon-512.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/icon-512.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 font-bold text-lg text-slate-900 group">
+                <img src="assets/icon-512.svg" alt="밑줄 로고" class="w-8 h-8 rounded-xl shadow-sm border border-slate-200 group-hover:scale-105 transition-transform">
+                <span class="tracking-tight">밑줄 <span class="text-indigo-600 font-extrabold">(Mitjul)</span></span>
+            </a>
+            <nav class="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm">
+                <a href="index.html" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors" data-i18n="nav_home">소개</a>
+                <a href="releases.html" class="text-indigo-600 font-bold border-b-2 border-indigo-600 pb-0.5" data-i18n="nav_releases">업데이트 이력</a>
+                <a href="privacy-policy.html" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors" data-i18n="nav_privacy">개인정보처리방침</a>
+                <a href="terms-of-service.html" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors" data-i18n="nav_terms">이용약관</a>
+                <div class="inline-flex items-center bg-slate-100 p-0.5 rounded-lg border border-slate-200 text-xs font-semibold ml-1">
+                    <button id="btn-lang-ko" onclick="setLanguage('ko')" class="px-2 py-0.5 rounded-md transition-all text-white bg-indigo-600 shadow-sm">KO</button>
+                    <button id="btn-lang-en" onclick="setLanguage('en')" class="px-2 py-0.5 rounded-md transition-all text-slate-500 hover:text-slate-900">EN</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl mx-auto w-full px-4 sm:px-6 py-10 sm:py-16">
+        <!-- Hero Title -->
+        <div class="text-center space-y-4 mb-12 sm:mb-16">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-semibold shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span data-i18n="page_badge">Changelog & Version History</span>
+            </div>
+            
+            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight" data-i18n="page_title">
+                밑줄 (Mitjul) 릴리스 노트 & 업데이트 이력
+            </h1>
+
+            <p class="text-slate-600 text-xs sm:text-base max-w-2xl mx-auto leading-relaxed" data-i18n="page_desc">
+                밑줄(Mitjul)의 버전별 새로운 기능, 다국어 인터페이스, 스마트 웹 브라우저 UX 및 Google Play 정책 준수 내역을 투명하게 안내합니다.
+            </p>
+        </div>
+
+        <!-- Release Timeline -->
+        <div class="space-y-8 sm:space-y-10 relative before:absolute before:inset-0 before:left-3.5 sm:before:left-5 before:w-0.5 before:bg-slate-200">
+            
+            <!-- MJ_0.1.5 (Build 18) [Latest] -->
+            <div class="relative pl-9 sm:pl-12 group">
+                <div class="absolute left-1.5 sm:left-3 top-1.5 -translate-x-1/2 w-5 h-5 rounded-full bg-indigo-600 ring-4 ring-slate-50 flex items-center justify-center shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-white"></span>
+                </div>
+
+                <div class="bg-white border border-indigo-200 rounded-2xl p-6 sm:p-8 shadow-md shadow-indigo-500/5 transition-all hover:border-indigo-400">
+                    <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4 mb-5">
+                        <div class="flex flex-wrap items-center gap-2.5">
+                            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 font-mono">MJ_0.1.5 <span class="text-sm font-semibold text-indigo-600">(Build 18)</span></h2>
+                            <span class="px-2.5 py-0.5 rounded-md bg-indigo-50 text-indigo-700 border border-indigo-200 text-xs font-bold" data-i18n="v015_badge">최신 릴리스</span>
+                        </div>
+                        <div class="text-xs text-slate-500 font-mono" data-i18n="v015_date">2026.11.23 • Android 16 (API 36)</div>
+                    </div>
+
+                    <div class="space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_i18n">다국어 UI</span>
+                            <div data-i18n="v015_item1">
+                                <strong class="text-slate-900">주 언어(모국어) 맞춤형 실시간 전체 화면 언어 전환:</strong> 주 언어를 한국어(KO), 영어(EN), 일본어(JA), 중국어(ZH) 등으로 선택하는 즉시 앱 재시작 없이 하단 네비게이션 탭, 브라우저, 스마트 단어장, 복습 퀴즈, 대시보드, 설정 및 결제 안내 문구가 선택한 언어로 자동 전환됩니다.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-indigo-50 border border-indigo-200 text-indigo-700 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_browser">브라우저</span>
+                            <div data-i18n="v015_item2">
+                                <strong class="text-slate-900">자주 가는 사이트 즐겨찾기 &amp; 주 언어별 무구독 무료 뉴스 큐레이션:</strong> 추천 뉴스 &amp; 아티클 접기/펼치기 토글과 나만의 즐겨찾기 사이트 추가·삭제 기능을 도입했습니다. 유료 구독 팝업이 없는 100% 무료 글로벌 매체(영어·일본어·중국어·한국어)로 전면 개편되었으며, 주 언어로 영어(EN) 선택 시 한국·일본 사이트를 최우선 추천합니다.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-sky-50 border border-sky-200 text-sky-700 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_ux">드래그 UX</span>
+                            <div data-i18n="v015_item3">
+                                <strong class="text-slate-900">선택 영역 확인 후 번역 바 &amp; 시스템 플로팅 팝업 차단:</strong> 웹페이지 드래그 중 실수로 번역이 전송되거나 기본 복사/공유 팝업이 화면을 가리는 현상을 해결했습니다. 드래그한 텍스트를 하단 확인 바에서 미리 확인하고 [복사 / 취소 / 번역]을 직접 선택할 수 있습니다.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-amber-50 border border-amber-200 text-amber-700 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_billing">정기 결제</span>
+                            <div data-i18n="v015_item4">
+                                <strong class="text-slate-900">Google Play 정기 결제 정책 완벽 준수 &amp; 이중 결제 방지:</strong> 월간(₩5,900/월, 첫 1개월 ₩4,900)·연간(₩59,000/년, 첫 1년 ₩53,000) 신규 할인 혜택 종료 시점과 이후 정상 요금, Google Play 스토어를 통한 해지 경로를 명확히 고지했습니다. 또한 플랜 변경 시 <code class="bg-slate-100 text-indigo-700 px-1 rounded">SubscriptionUpdateParams</code>를 적용해 기존 플랜이 자동 교체되도록 구현했습니다.
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-purple-50 border border-purple-200 text-purple-700 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_account">계정 &amp; 백업</span>
+                            <div data-i18n="v015_item5">
+                                <strong class="text-slate-900">대시보드 빠른 Google 계정 전환·로그아웃 및 클라우드 자동 백업:</strong> 대시보드 메인 화면과 설정에서 딜레이 없이 즉시 Google 계정을 전환하거나 로그아웃할 수 있으며, 단어장 SQLite DB가 이용자 개인 Google 클라우드 백업 대상에 포함되었습니다.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MJ_0.1.1 (Build 14~15) -->
+            <div class="relative pl-9 sm:pl-12 group">
+                <div class="absolute left-1.5 sm:left-3 top-1.5 -translate-x-1/2 w-4 h-4 rounded-full bg-slate-300 ring-4 ring-slate-50 flex items-center justify-center">
+                    <span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+                </div>
+
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm hover:border-slate-300 transition-all">
+                    <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4 mb-5">
+                        <div class="flex flex-wrap items-center gap-2.5">
+                            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 font-mono">MJ_0.1.1 <span class="text-sm font-normal text-slate-500">(Build 14–15)</span></h2>
+                        </div>
+                        <div class="text-xs text-slate-500 font-mono" data-i18n="v011_date">2026.11.17 • OAuth &amp; UI Hardening</div>
+                    </div>
+
+                    <div class="space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_account">인증</span>
+                            <div data-i18n="v011_item1">
+                                <strong class="text-slate-900">무지연 Google 계정 선택기(Account Picker) 적용:</strong> 로그인 및 계정 전환 시 대기 시간 없이 즉시 계정 선택 창이 표시되도록 개선했습니다.
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-indigo-50 border border-indigo-200 text-indigo-700 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_ux">단어장 UI</span>
+                            <div data-i18n="v011_item2">
+                                <strong class="text-slate-900">스마트 단어장 긴 문장 레이아웃 보강:</strong> 긴 구문이나 문장을 저장할 때도 언어 쌍 배지(<code class="bg-slate-100 text-indigo-700 px-1 rounded">EN → KO</code>, <code class="bg-slate-100 text-indigo-700 px-1 rounded">JA → KO</code>)와 SRS 레벨 배지(<code class="bg-slate-100 text-indigo-700 px-1 rounded">Lv.1~5</code>)가 깨지지 않도록 고정했습니다.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MJ_0.1.0 (Build 9~13) [Open Testing Launch] -->
+            <div class="relative pl-9 sm:pl-12 group">
+                <div class="absolute left-1.5 sm:left-3 top-1.5 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-600 ring-4 ring-slate-50 flex items-center justify-center">
+                    <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                </div>
+
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm hover:border-slate-300 transition-all">
+                    <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4 mb-5">
+                        <div class="flex flex-wrap items-center gap-2.5">
+                            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 font-mono">MJ_0.1.0 <span class="text-sm font-normal text-slate-500">(Build 9–13)</span></h2>
+                            <span class="px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold" data-i18n="v010_badge">오픈 테스트 론칭</span>
+                        </div>
+                        <div class="text-xs text-slate-500 font-mono" data-i18n="v010_date">2026.11.15 • Initial Release</div>
+                    </div>
+
+                    <div class="space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-indigo-50 border border-indigo-200 text-indigo-700 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_feature">핵심 기능</span>
+                            <div data-i18n="v010_item1">
+                                <strong class="text-slate-900">인앱 웹 브라우저 &amp; AI 실시간 문맥 번역:</strong> 외국어 웹페이지를 읽으며 단어나 문장을 드래그해 문맥에 맞는 뜻, 원형(Lemma), 품사, 예문 및 네이티브 TTS 발음을 즉시 확인합니다.
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-amber-50 border border-amber-200 text-amber-700 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_srs">5단계 SRS</span>
+                            <div data-i18n="v010_item2">
+                                <strong class="text-slate-900">에빙하우스 망각곡선 5단계(1/3/7/14/30일) 복습 시스템:</strong> 플래시카드(Lv.1), 4지선다 뜻 퀴즈(Lv.2), AI 예문 빈칸(Lv.3), 문맥 타이핑(Lv.4), 최종 스펠링 졸업 테스트(Lv.5, 1글자 오타 관용 지원)를 제공합니다.
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <span class="px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold mt-0.5 shrink-0" data-i18n="tag_security">최적화</span>
+                            <div data-i18n="v010_item3">
+                                <strong class="text-slate-900">R8 코드 난독화·리소스 최적화 및 Google Play Integrity 연동:</strong> 앱 용량 최적화, 크래시 디버깅용 매핑 제공 및 공식 Play 스토어 무결성 검증을 적용했습니다.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Back to Main Overview -->
+        <div class="mt-14 sm:mt-20 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-white to-indigo-50/70 border border-slate-200 shadow-sm text-center space-y-4">
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900" data-i18n="cta_title">밑줄(Mitjul)의 상세 기능과 데이터 보호 정책을 확인하세요</h3>
+            <div class="pt-2 flex flex-wrap justify-center gap-3">
+                <a href="index.html" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm transition-all shadow-sm" data-i18n="cta_btn_home">
+                    ← 밑줄 (Mitjul) 소개 메인으로
+                </a>
+                <a href="privacy-policy.html" class="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 font-semibold text-xs sm:text-sm transition-all border border-slate-300 shadow-sm" data-i18n="nav_privacy">
+                    개인정보처리방침
+                </a>
+                <a href="terms-of-service.html" class="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 font-semibold text-xs sm:text-sm transition-all border border-slate-300 shadow-sm" data-i18n="nav_terms">
+                    서비스 이용약관
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white py-8 text-center text-xs text-slate-500">
+        <div class="max-w-4xl mx-auto px-4 space-y-2">
+            <p data-i18n="footer_rights">© 2026 FinalNeo. All rights reserved.</p>
+            <p>Developed with passion by <span class="text-indigo-600 font-semibold">FinalNeoDev</span> • <a href="mailto:finalneodev@gmail.com" class="hover:underline text-slate-600">finalneodev@gmail.com</a></p>
+        </div>
+    </footer>
+
+    <!-- Multilingual Script -->
+    <script>
+        const translations = {
+            ko: {
+                nav_home: "소개",
+                nav_releases: "업데이트 이력",
+                nav_privacy: "개인정보처리방침",
+                nav_terms: "이용약관",
+                page_badge: "Changelog & Version History",
+                page_title: "밑줄 (Mitjul) 릴리스 노트 & 업데이트 이력",
+                page_desc: "밑줄(Mitjul)의 버전별 새로운 기능, 다국어 인터페이스, 스마트 웹 브라우저 UX 및 Google Play 정책 준수 내역을 투명하게 안내합니다.",
+                tag_i18n: "다국어 UI",
+                tag_browser: "브라우저",
+                tag_ux: "드래그 UX",
+                tag_billing: "정기 결제",
+                tag_account: "계정 & 백업",
+                tag_feature: "핵심 기능",
+                tag_srs: "5단계 SRS",
+                tag_security: "최적화",
+                v015_badge: "최신 릴리스",
+                v015_date: "2026.11.23 • Android 16 (API 36)",
+                v015_item1: '<strong class="text-slate-900">주 언어(모국어) 맞춤형 실시간 전체 화면 언어 전환:</strong> 주 언어를 한국어(KO), 영어(EN), 일본어(JA), 중국어(ZH) 등으로 선택하는 즉시 앱 재시작 없이 하단 네비게이션 탭, 브라우저, 스마트 단어장, 복습 퀴즈, 대시보드, 설정 및 결제 안내 문구가 선택한 언어로 자동 전환됩니다.',
+                v015_item2: '<strong class="text-slate-900">자주 가는 사이트 즐겨찾기 &amp; 주 언어별 무구독 무료 뉴스 큐레이션:</strong> 추천 뉴스 &amp; 아티클 접기/펼치기 토글과 나만의 즐겨찾기 사이트 추가·삭제 기능을 도입했습니다. 유료 구독 팝업이 없는 100% 무료 글로벌 매체(영어·일본어·중국어·한국어)로 전면 개편되었으며, 주 언어로 영어(EN) 선택 시 한국·일본 사이트를 최우선 추천합니다.',
+                v015_item3: '<strong class="text-slate-900">선택 영역 확인 후 번역 바 &amp; 시스템 플로팅 팝업 차단:</strong> 웹페이지 드래그 중 실수로 번역이 전송되거나 기본 복사/공유 팝업이 화면을 가리는 현상을 해결했습니다. 드래그한 텍스트를 하단 확인 바에서 미리 확인하고 [복사 / 취소 / 번역]을 직접 선택할 수 있습니다.',
+                v015_item4: '<strong class="text-slate-900">Google Play 정기 결제 정책 완벽 준수 &amp; 이중 결제 방지:</strong> 월간(₩5,900/월, 첫 1개월 ₩4,900)·연간(₩59,000/년, 첫 1년 ₩53,000) 신규 할인 혜택 종료 시점과 이후 정상 요금, Google Play 스토어를 통한 해지 경로를 명확히 고지했습니다. 또한 플랜 변경 시 <code class="bg-slate-100 text-indigo-700 px-1 rounded">SubscriptionUpdateParams</code>를 적용해 기존 플랜이 자동 교체되도록 구현했습니다.',
+                v015_item5: '<strong class="text-slate-900">대시보드 빠른 Google 계정 전환·로그아웃 및 클라우드 자동 백업:</strong> 대시보드 메인 화면과 설정에서 딜레이 없이 즉시 Google 계정을 전환하거나 로그아웃할 수 있으며, 단어장 SQLite DB가 이용자 개인 Google 클라우드 백업 대상에 포함되었습니다.',
+                v011_date: "2026.11.17 • OAuth & UI Hardening",
+                v011_item1: '<strong class="text-slate-900">무지연 Google 계정 선택기(Account Picker) 적용:</strong> 로그인 및 계정 전환 시 대기 시간 없이 즉시 계정 선택 창이 표시되도록 개선했습니다.',
+                v011_item2: '<strong class="text-slate-900">스마트 단어장 긴 문장 레이아웃 보강:</strong> 긴 구문이나 문장을 저장할 때도 언어 쌍 배지(<code class="bg-slate-100 text-indigo-700 px-1 rounded">EN → KO</code>, <code class="bg-slate-100 text-indigo-700 px-1 rounded">JA → KO</code>)와 SRS 레벨 배지(<code class="bg-slate-100 text-indigo-700 px-1 rounded">Lv.1~5</code>)가 깨지지 않도록 고정했습니다.',
+                v010_badge: "오픈 테스트 론칭",
+                v010_date: "2026.11.15 • Initial Release",
+                v010_item1: '<strong class="text-slate-900">인앱 웹 브라우저 &amp; AI 실시간 문맥 번역:</strong> 외국어 웹페이지를 읽으며 단어나 문장을 드래그해 문맥에 맞는 뜻, 원형(Lemma), 품사, 예문 및 네이티브 TTS 발음을 즉시 확인합니다.',
+                v010_item2: '<strong class="text-slate-900">에빙하우스 망각곡선 5단계(1/3/7/14/30일) 복습 시스템:</strong> 플래시카드(Lv.1), 4지선다 뜻 퀴즈(Lv.2), AI 예문 빈칸(Lv.3), 문맥 타이핑(Lv.4), 최종 스펠링 졸업 테스트(Lv.5, 1글자 오타 관용 지원)를 제공합니다.',
+                v010_item3: '<strong class="text-slate-900">R8 코드 난독화·리소스 최적화 및 Google Play Integrity 연동:</strong> 앱 용량 최적화, 크래시 디버깅용 매핑 제공 및 공식 Play 스토어 무결성 검증을 적용했습니다.',
+                cta_title: "밑줄(Mitjul)의 상세 기능과 데이터 보호 정책을 확인하세요",
+                cta_btn_home: "← 밑줄 (Mitjul) 소개 메인으로",
+                footer_rights: "© 2026 FinalNeo. All rights reserved."
+            },
+            en: {
+                nav_home: "Home",
+                nav_releases: "Changelog",
+                nav_privacy: "Privacy Policy",
+                nav_terms: "Terms of Service",
+                page_badge: "Changelog & Version History",
+                page_title: "Mitjul (밑줄) Release Notes & Changelog",
+                page_desc: "A transparent log of new features, real-time multilingual UI localization, smart browser UX enhancements, and Google Play policy compliances across every Mitjul release.",
+                tag_i18n: "Multilingual UI",
+                tag_browser: "Browser",
+                tag_ux: "Selection UX",
+                tag_billing: "Subscriptions",
+                tag_account: "Account & Backup",
+                tag_feature: "Core Feature",
+                tag_srs: "5-Step SRS",
+                tag_security: "Optimization",
+                v015_badge: "Latest Release",
+                v015_date: "2026.11.23 • Android 16 (API 36)",
+                v015_item1: '<strong class="text-slate-900">Real-Time Full-App UI Localization by Native Language:</strong> Selecting your native language (KO, EN, JA, ZH, etc.) immediately switches all bottom navigation tabs, browser labels, Smart Notes, SRS review quizzes, dashboard metrics, settings, and paywall dialogs without restarting the app.',
+                v015_item2: '<strong class="text-slate-900">Custom Site Bookmarks &amp; Paywall-Free Multilingual News Curation:</strong> Added collapsible Recommended News &amp; Articles and personal website bookmarks. Replaced paywalled sites with 100% free global outlets (English, Japanese, Chinese, Korean), prioritizing Korean and Japanese sites when English (EN) is chosen as the native language.',
+                v015_item3: '<strong class="text-slate-900">Selection Confirmation Bar &amp; System ActionMode Suppression:</strong> Prevented accidental translations while dragging and suppressed intrusive default Android Copy/Share floating menus. Review your selected text in the bottom bar with [Copy / Cancel / Translate] actions.',
+                v015_item4: '<strong class="text-slate-900">Full Google Play Subscription Policy Compliance &amp; Safe Plan Switching:</strong> Clearly disclosed introductory offer durations (first 1 month ₩4,900 / first 1 year ₩53,000), post-offer regular prices (₩5,900/mo, ₩59,000/yr), and cancellation steps via Google Play Store. Integrated <code class="bg-slate-100 text-indigo-700 px-1 rounded">SubscriptionUpdateParams</code> to prevent duplicate active subscriptions when switching plans.',
+                v015_item5: '<strong class="text-slate-900">Instant Google Account Switch/Sign-Out &amp; Automatic Cloud Backup:</strong> Added a quick Google account management card directly on the Dashboard and included the local Smart Notes SQLite database in Android Google Cloud auto-backup.',
+                v011_date: "2026.11.17 • OAuth & UI Hardening",
+                v011_item1: '<strong class="text-slate-900">Zero-Delay Google Account Picker:</strong> Eliminated CredentialManager timeout delays so the account selection prompt opens immediately upon tapping Sign In or Switch Account.',
+                v011_item2: '<strong class="text-slate-900">Smart Notes Long-Sentence Layout Fix:</strong> Fixed badge wrapping so language pair badges (<code class="bg-slate-100 text-indigo-700 px-1 rounded">EN → KO</code>, <code class="bg-slate-100 text-indigo-700 px-1 rounded">JA → KO</code>) and SRS level badges (<code class="bg-slate-100 text-indigo-700 px-1 rounded">Lv.1~5</code>) remain intact regardless of word or sentence length.',
+                v010_badge: "Open Testing Launch",
+                v010_date: "2026.11.15 • Initial Release",
+                v010_item1: '<strong class="text-slate-900">In-App Web Browser &amp; Real-Time AI Context Translation:</strong> Select words or sentences on any foreign webpage for context-aware definitions, root lemmas, POS tags, examples, and native TTS pronunciation.',
+                v010_item2: '<strong class="text-slate-900">5-Step Ebbinghaus Spaced Repetition (1/3/7/14/30d):</strong> Includes Flashcard Check (Lv.1), 4-Choice Meaning Quiz (Lv.2), AI Sentence Fill-in (Lv.3), Context Typing (Lv.4), and Final Spelling Mastery (Lv.5 with 1-letter typo tolerance).',
+                v010_item3: '<strong class="text-slate-900">R8 Minification &amp; Google Play Integrity Integration:</strong> Enabled R8 code shrinking, deobfuscation mapping, and official Play Store integrity verification.',
+                cta_title: "Explore Mitjul's core features and transparent data policies",
+                cta_btn_home: "← Back to Mitjul Overview",
+                footer_rights: "© 2026 FinalNeo. All rights reserved."
+            }
+        };
+
+        function detectInitialLanguage() {
+            const saved = localStorage.getItem('site_lang');
+            if (saved === 'ko' || saved === 'en') return saved;
+            const langs = navigator.languages || [navigator.language || 'en'];
+            const isKorean = langs.some(l => l && l.toLowerCase().startsWith('ko'));
+            return isKorean ? 'ko' : 'en';
+        }
+
+        function setLanguage(lang) {
+            localStorage.setItem('site_lang', lang);
+            document.documentElement.lang = lang;
+            const dict = translations[lang] || translations.ko;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) el.innerHTML = dict[key];
+            });
+
+            const btnKo = document.getElementById('btn-lang-ko');
+            const btnEn = document.getElementById('btn-lang-en');
+            if (btnKo && btnEn) {
+                if (lang === 'ko') {
+                    btnKo.className = 'px-2 py-0.5 rounded-md transition-all text-white bg-indigo-600 shadow-sm';
+                    btnEn.className = 'px-2 py-0.5 rounded-md transition-all text-slate-500 hover:text-slate-900';
+                } else {
+                    btnEn.className = 'px-2 py-0.5 rounded-md transition-all text-white bg-indigo-600 shadow-sm';
+                    btnKo.className = 'px-2 py-0.5 rounded-md transition-all text-slate-500 hover:text-slate-900';
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialLang = detectInitialLanguage();
+            setLanguage(initialLang);
+        });
+    </script>
+</body>
+</html>

@@ -67,7 +67,9 @@ FinalNeo(개발자: FinalNeoDev, 이하 "회사" 또는 "개발자")는 「개�
 2. **Google Drive 백업 삭제 및 연동 해제**:
    - 앱 내 **[설정 / 대시보드]**에서 Google Drive 동기화 해제 및 백업 데이터 삭제를 실행할 수 있습니다.
    - 또는 Google 계정 보안 페이지([myaccount.google.com/permissions](https://myaccount.google.com/permissions))에서 '밑줄(Mitjul)'의 액세스 권한을 직접 철회할 수 있습니다.
-3. **이메일 접수를 통한 삭제 요청**:
+3. **온라인 계정 및 데이터 삭제 요청 접수 (Google 설문지)**:
+   - 다음 링크를 통해 언제든지 구글 계정 연동 해제 및 저장 데이터 일괄 삭제를 요청하실 수 있습니다: [계정 및 데이터 삭제 요청 양식](https://docs.google.com/forms/d/1G13U2vRbAp2cAAe_LAzJFiGxdris-ytgduGmFeB1P2E/viewform)
+4. **이메일 접수를 통한 삭제 요청**:
    - 아래 개인정보 보호책임자 이메일([finalneodev@gmail.com](mailto:finalneodev@gmail.com))로 데이터 삭제를 요청하시면 지체 없이 지원해 드립니다.
 
 ---
